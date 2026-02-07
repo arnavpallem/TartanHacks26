@@ -51,7 +51,17 @@ class GoogleConfig:
 class GeminiConfig:
     """Google Gemini VLM configuration for receipt processing."""
     API_KEY = os.getenv("GEMINI_API_KEY", "")
-    MODEL = os.getenv("GEMINI_MODEL", "gemini-1.5-flash")
+    MODEL = os.getenv("GEMINI_MODEL", "gemini-2.0-flash")
+
+
+class MailgunConfig:
+    """Mailgun inbound email configuration."""
+    API_KEY = os.getenv("MAILGUN_API_KEY", "")
+    WEBHOOK_SECRET = os.getenv("MAILGUN_WEBHOOK_SECRET", "")
+    # Slack channel to post email receipts to
+    NOTIFY_CHANNEL = os.getenv("MAILGUN_NOTIFY_CHANNEL", "")
+    # Webhook port for FastAPI server
+    WEBHOOK_PORT = int(os.getenv("MAILGUN_WEBHOOK_PORT", "8000"))
 
 
 class FilePathConfig:

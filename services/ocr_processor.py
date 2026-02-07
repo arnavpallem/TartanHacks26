@@ -25,7 +25,6 @@ genai.configure(api_key=GeminiConfig.API_KEY)
 # Valid budget categories
 VALID_CATEGORIES = ["Misc", "Operations", "Electrical", "Booth", "Entertainment"]
 
-# VLM extraction prompt
 EXTRACTION_PROMPT = """You are a receipt data extractor. Analyze this receipt image and extract the following information.
 
 Return ONLY valid JSON in this exact format, no other text:
@@ -36,21 +35,25 @@ Return ONLY valid JSON in this exact format, no other text:
   "category": "One of: Misc, Operations, Electrical, Booth, Entertainment",
   "short_description": "2-4 word description of main items purchased",
   "is_food": true or false,
-  "is_travel": true or false
+  "confidence": 0-100
 }
 
 Category guidelines:
-- Misc: Office supplies, meeting expenses, GBM food (donuts, pizza, snacks), admin items, stoles, general purchases
+- Misc: Office supplies, meeting expenses, GBM food (donuts, pizza, snacks), admin items, stoles, general purchases, online subscriptions (Slack, Google Workspace, etc.)
 - Operations: Logistics, equipment, tools, general supplies, safety equipment
 - Electrical: Power, lights, wiring, cables, electrical equipment, generators
 - Booth: Construction materials, paint, lumber, hardware, decorations, building supplies
 - Entertainment: Music, audio, video, performance equipment, speakers, microphones
 
+Confidence scoring (0-100):
+- 90-100: All fields clearly visible and unambiguous
+- 70-89: Most fields visible, some inference needed
+- Below 70: Significant guessing required
+
 Important:
 - For "vendor", use the store/company name, not email subject lines or "your order from" text
 - For "amount", use the total/grand total, not subtotals
 - Set is_food=true for any food purchases (donuts, pizza, catering, etc.)
-- Set is_travel=true for transportation, hotels, gas, parking
 
 Return ONLY the JSON object, nothing else."""
 
@@ -193,10 +196,11 @@ def extract_receipt_data(pdf_path: Path) -> ReceiptData:
     short_description = extracted.get("short_description", "")
     is_food = bool(extracted.get("is_food", False))
     is_travel = bool(extracted.get("is_travel", False))
+    confidence = int(extracted.get("confidence", 0))
     
     logger.info(
         f"Extracted: vendor={vendor}, date={date}, amount={amount}, "
-        f"category={category}, description={short_description}"
+        f"category={category}, confidence={confidence}%"
     )
     
     return ReceiptData(
@@ -209,6 +213,7 @@ def extract_receipt_data(pdf_path: Path) -> ReceiptData:
         short_description=short_description,
         is_food=is_food,
         is_travel=is_travel,
+        confidence=confidence,
     )
 
 

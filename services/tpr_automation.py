@@ -18,7 +18,7 @@ from config.constants import (
     PREPARER_FIRST_NAME, PREPARER_WHO_FORMAT
 )
 from models.receipt import ReceiptData, TPRRequest
-from utils.helpers import extract_one_word_descriptor
+from utils.helpers import extract_one_word_descriptor, sanitize_for_tpr
 
 logger = logging.getLogger(__name__)
 
@@ -49,7 +49,10 @@ FIELD_IDS = {
     "where_field": "q7cf7174a424f3065554164aad1abaf5b24554877",
     "why_field": "q400872c66f4e818772a925e16a974b93ac0f4f53",
     "printing_services": "q8ebb6bca519bb54e1c45d50673a5f1a1e5752bde",
-    "num_attendees": "q3a4d41749358f266ed855aeb3d29ac79afd2e6ad",
+    # Food purchase fields
+    "food_attendee_count": "q3a4d41749358f266ed855aeb3d29ac79afd2e6ad",  # Dropdown: Less than or equal to 5 / More than 5
+    "food_attendee_names": "q43868a4c9a5da5fa93e4ea60bae23046f3b88e68",  # Text field for names (<=5)
+    "food_attendee_number": "q68057f6d44c693f717a1d92b7d559aa4b6447eae",  # Number field for count (>5)
     
     # Page 3: PCard Receipt Details
     "vendor_name": "qf0143afcebb86ad38a15fcca1a60043d52bcb94e",
@@ -108,15 +111,22 @@ class TPRFormAutomation:
             await self._notify_callback(message)
     
     async def start(self):
-        """Start the browser and create a new page."""
+        """Start the browser using persistent Chrome profile for saved sessions."""
         playwright = await async_playwright().start()
-        self.browser = await playwright.chromium.launch(
+        
+        # Use persistent context with Chrome profile for automatic login
+        # This preserves cookies and session data between runs
+        chrome_profile_path = Path.home() / "Library" / "Application Support" / "Google" / "Chrome"
+        user_data_dir = Path.home() / ".playwright_chrome_profile"  # Separate profile to avoid conflicts
+        
+        self.context = await playwright.chromium.launch_persistent_context(
+            user_data_dir=str(user_data_dir),
             headless=self.headless,
-            slow_mo=100  # Slow down for visibility
+            slow_mo=100,  # Slow down for visibility
+            channel="chrome",  # Use installed Chrome instead of Chromium
         )
-        self.context = await self.browser.new_context()
-        self.page = await self.context.new_page()
-        logger.info("Browser started")
+        self.page = self.context.pages[0] if self.context.pages else await self.context.new_page()
+        logger.info("Browser started with persistent profile")
     
     async def stop(self):
         """Close the browser."""
@@ -147,14 +157,35 @@ class TPRFormAutomation:
         
         try:
             # Look for Sign In button on xForms page
-            sign_in = await self.page.query_selector('text=Sign in, text=SIGN IN')
-            if sign_in:
-                await sign_in.click()
-                await self.page.wait_for_load_state("networkidle")
+            # Try multiple selectors for the sign in button
+            await self.page.wait_for_timeout(1000)  # Wait for page to settle
             
-            # Check for CMU Shibboleth login page
+            sign_in_selectors = [
+                'button:has-text("Sign in")',
+                'a:has-text("Sign in")',
+                'text=Sign in',
+                'text=SIGN IN',
+                '.sign-in-button',
+                '[data-action="sign-in"]',
+            ]
+            
+            for selector in sign_in_selectors:
+                try:
+                    sign_in = await self.page.query_selector(selector)
+                    if sign_in and await sign_in.is_visible():
+                        await self._notify("🔑 Clicking Sign In...")
+                        await sign_in.click()
+                        await self.page.wait_for_load_state("networkidle")
+                        break
+                except Exception:
+                    continue
+            
+            # Wait a moment for Shibboleth login page to load
+            await self.page.wait_for_timeout(1000)
+            
+            # Check for CMU Shibboleth login page (username field)
             username_field = await self.page.query_selector(LOGIN_USERNAME)
-            if username_field:
+            if username_field and await username_field.is_visible():
                 await self._notify("🔑 Entering credentials...")
                 await username_field.fill(andrew_id)
                 
@@ -162,11 +193,13 @@ class TPRFormAutomation:
                 if password_field:
                     await password_field.fill(password)
                 
-                # Submit login
+                # Click the login button
                 submit_btn = await self.page.query_selector(LOGIN_BUTTON)
                 if submit_btn:
+                    await self._notify("🔐 Submitting login...")
                     await submit_btn.click()
-                    await self.page.wait_for_load_state("networkidle")
+                    # Don't wait for networkidle here as Duo may redirect
+                    await self.page.wait_for_timeout(2000)
             
             # ALWAYS wait for the form to be ready (handles both 2FA and cached sessions)
             await self._notify("⏳ Waiting for TPR form to load (complete 2FA if prompted)...")
@@ -295,12 +328,12 @@ class TPRFormAutomation:
         # Who (First initial + Last name)
         who_field = await page.query_selector(f'#{FIELD_IDS["who_field"]}')
         if who_field:
-            await who_field.fill(tpr_request.who_field)
+            await who_field.fill(sanitize_for_tpr(tpr_request.who_field))
         
         # What (Item description)
         what_field = await page.query_selector(f'#{FIELD_IDS["what_purchased"]}')
         if what_field:
-            await what_field.fill(tpr_request.what_purchased)
+            await what_field.fill(sanitize_for_tpr(tpr_request.what_purchased))
         
         # When (date - use receipt date)
         when_field = await page.query_selector(f'#{FIELD_IDS["when_field"]}')
@@ -310,21 +343,51 @@ class TPRFormAutomation:
         # Where (vendor name)
         where_field = await page.query_selector(f'#{FIELD_IDS["where_field"]}')
         if where_field:
-            await where_field.fill(tpr_request.receipt.vendor)
+            await where_field.fill(sanitize_for_tpr(tpr_request.receipt.vendor))
         
         # Why (justification)
         why_field = await page.query_selector(f'#{FIELD_IDS["why_field"]}')
         if why_field:
-            await why_field.fill(tpr_request.justification)
+            await why_field.fill(sanitize_for_tpr(tpr_request.justification))
         
         # Printing services with CMU logo? -> No
         await self._select_dropdown(FIELD_IDS["printing_services"], "No")
         
-        # Number of attendees (only for food, skip if not applicable)
+        # Food purchase handling - attendee count question at bottom of page 2
         if tpr_request.is_food and tpr_request.attendee_count:
-            attendees_field = await page.query_selector(f'#{FIELD_IDS["num_attendees"]}')
-            if attendees_field:
-                await attendees_field.fill(str(tpr_request.attendee_count))
+            await page.wait_for_timeout(500)  # Wait for form to update
+            
+            if tpr_request.attendee_count <= 5:
+                # Select "Less than or equal to 5"
+                await self._select_dropdown(
+                    FIELD_IDS["food_attendee_count"], 
+                    "Less than or equal to 5"
+                )
+                await page.wait_for_timeout(500)  # Wait for name field to appear
+                
+                # Fill in the names
+                if tpr_request.attendee_names:
+                    names_field = await page.query_selector(
+                        f'#{FIELD_IDS["food_attendee_names"]}'
+                    )
+                    if names_field:
+                        await names_field.fill(sanitize_for_tpr(tpr_request.attendee_names))
+                        logger.info(f"Entered attendee names: {tpr_request.attendee_names}")
+            else:
+                # Select "More than 5"
+                await self._select_dropdown(
+                    FIELD_IDS["food_attendee_count"], 
+                    "More than 5"
+                )
+                await page.wait_for_timeout(500)  # Wait for number field to appear
+                
+                # Fill in the number
+                number_field = await page.query_selector(
+                    f'#{FIELD_IDS["food_attendee_number"]}'
+                )
+                if number_field:
+                    await number_field.fill(str(tpr_request.attendee_count))
+                    logger.info(f"Entered attendee count: {tpr_request.attendee_count}")
         
         await self._notify("✅ Page 2 complete")
     
@@ -339,12 +402,12 @@ class TPRFormAutomation:
         # Vendor Name
         vendor_field = await page.query_selector(f'#{FIELD_IDS["vendor_name"]}')
         if vendor_field:
-            await vendor_field.fill(receipt.vendor)
+            await vendor_field.fill(sanitize_for_tpr(receipt.vendor))
         
         # What (Business Purpose / Item Description)
         desc_field = await page.query_selector(f'#{FIELD_IDS["receipt_description"]}')
         if desc_field:
-            await desc_field.fill(tpr_request.what_purchased)
+            await desc_field.fill(sanitize_for_tpr(tpr_request.what_purchased))
         
         # Receipt Date - special date picker that needs keyboard navigation
         date_field = await page.query_selector(f'#{FIELD_IDS["receipt_date"]}')
@@ -502,15 +565,16 @@ class TPRFormAutomation:
             except Exception as e:
                 logger.warning(f"Fallback click selection failed for {field_id}: {e}")
     
-    async def process_tpr(self, tpr_request: TPRRequest) -> str:
+    async def process_tpr(self, tpr_request: TPRRequest, demo_mode: bool = False) -> str:
         """
         Complete the full TPR form automation workflow.
         
         Args:
             tpr_request: The TPR request data
+            demo_mode: If True, skip waiting for submission and return mock TPR number
             
         Returns:
-            The TPR number from the confirmation
+            The TPR number from the confirmation (or mock number in demo mode)
         """
         try:
             await self.start()
@@ -530,10 +594,18 @@ class TPRFormAutomation:
             await self.fill_page_3(tpr_request)
             await self.go_next_page()
             
-            # Wait for user to review and submit
-            tpr_number = await self.wait_for_review()
-            
-            return tpr_number
+            if demo_mode:
+                # Demo mode: return mock TPR number without waiting for submission
+                await self._notify("🎬 **DEMO MODE** - Skipping actual submission")
+                await self._notify("📋 Form is filled and ready for review!")
+                await self.page.wait_for_timeout(3000)  # Let user see the form
+                mock_tpr = "DEMO-123456"
+                logger.info(f"Demo mode: returning mock TPR number {mock_tpr}")
+                return mock_tpr
+            else:
+                # Wait for user to review and submit
+                tpr_number = await self.wait_for_review()
+                return tpr_number
             
         finally:
             # Keep browser open for review
@@ -543,18 +615,26 @@ class TPRFormAutomation:
 async def create_tpr_request(
     receipt: ReceiptData,
     justification: str,
-    department: str = None
+    department: str = None,
+    attendee_count: int = None,
+    attendee_names: str = None
 ) -> TPRRequest:
     """
     Create a TPRRequest from receipt data and user input.
     """
     what_purchased = extract_one_word_descriptor(justification)
     
+    # Use short_description from VLM if available
+    if receipt.short_description:
+        what_purchased = receipt.short_description
+    
     return TPRRequest(
         receipt=receipt,
         justification=justification,
         what_purchased=what_purchased,
-        department=department,
-        is_travel=False,
-        is_food=False,
+        department=department or receipt.category,
+        is_travel=receipt.is_travel,
+        is_food=receipt.is_food,
+        attendee_count=attendee_count,
+        attendee_names=attendee_names,
     )

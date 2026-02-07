@@ -412,3 +412,1160 @@ client_session: <aiohttp.client.ClientSession object at 0x1122cfc10>
 2026-02-06 22:43:51,437 - services.tpr_automation - INFO - ⏳ Waiting for your submission...
 2026-02-06 22:45:07,962 - asyncio - ERROR - Unclosed client session
 client_session: <aiohttp.client.ClientSession object at 0x112297b90>
+2026-02-07 00:58:02,308 - __main__ - INFO - Validating configuration...
+2026-02-07 00:58:02,308 - __main__ - INFO - Configuration validated ✓
+2026-02-07 00:58:02,309 - __main__ - INFO - Starting Slack bot...
+2026-02-07 00:58:02,309 - services.slack_bot - INFO - Starting Slack bot...
+2026-02-07 00:58:39,351 - services.slack_bot - INFO - Downloaded file to: /Users/arnavpallem/Desktop/TartanHacks26/temp/Misc_Dunkin_87.18_1-29-26.pdf
+2026-02-07 00:58:39,352 - services.ocr_processor - INFO - Processing receipt: /Users/arnavpallem/Desktop/TartanHacks26/temp/Misc_Dunkin_87.18_1-29-26.pdf
+2026-02-07 00:58:41,854 - services.ocr_processor - INFO - Gemini extracted: {'vendor': "Dunkin'", 'date': '01/29/2026', 'amount': 87.18, 'category': 'Misc', 'short_description': 'Hot Chocolate', 'is_food': True, 'is_travel': False}
+2026-02-07 00:58:41,860 - services.ocr_processor - INFO - Extracted: vendor=Dunkin', date=2026-01-29 00:00:00, amount=87.18, category=Misc, description=Hot Chocolate
+2026-02-07 00:58:44,545 - services.slack_bot - WARNING - Error polling for reply: The request to the Slack API failed. (url: https://slack.com/api/conversations.replies, status: 200)
+The server responded with: {'ok': False, 'error': 'missing_scope', 'needed': 'groups:history', 'provided': 'app_mentions:read,chat:write,files:read,im:write,im:history'}
+2026-02-07 00:58:46,718 - services.slack_bot - WARNING - Error polling for reply: The request to the Slack API failed. (url: https://slack.com/api/conversations.replies, status: 200)
+The server responded with: {'ok': False, 'error': 'missing_scope', 'needed': 'groups:history', 'provided': 'app_mentions:read,chat:write,files:read,im:write,im:history'}
+2026-02-07 00:58:48,879 - services.slack_bot - WARNING - Error polling for reply: The request to the Slack API failed. (url: https://slack.com/api/conversations.replies, status: 200)
+The server responded with: {'ok': False, 'error': 'missing_scope', 'needed': 'groups:history', 'provided': 'app_mentions:read,chat:write,files:read,im:write,im:history'}
+2026-02-07 00:58:50,997 - services.slack_bot - WARNING - Error polling for reply: The request to the Slack API failed. (url: https://slack.com/api/conversations.replies, status: 200)
+The server responded with: {'ok': False, 'error': 'missing_scope', 'needed': 'groups:history', 'provided': 'app_mentions:read,chat:write,files:read,im:write,im:history'}
+2026-02-07 00:58:53,352 - services.slack_bot - WARNING - Error polling for reply: The request to the Slack API failed. (url: https://slack.com/api/conversations.replies, status: 200)
+The server responded with: {'ok': False, 'error': 'missing_scope', 'needed': 'groups:history', 'provided': 'app_mentions:read,chat:write,files:read,im:write,im:history'}
+2026-02-07 00:58:55,485 - services.slack_bot - WARNING - Error polling for reply: The request to the Slack API failed. (url: https://slack.com/api/conversations.replies, status: 200)
+The server responded with: {'ok': False, 'error': 'missing_scope', 'needed': 'groups:history', 'provided': 'app_mentions:read,chat:write,files:read,im:write,im:history'}
+2026-02-07 00:58:57,594 - services.slack_bot - WARNING - Error polling for reply: The request to the Slack API failed. (url: https://slack.com/api/conversations.replies, status: 200)
+The server responded with: {'ok': False, 'error': 'missing_scope', 'needed': 'groups:history', 'provided': 'app_mentions:read,chat:write,files:read,im:write,im:history'}
+2026-02-07 00:58:59,706 - services.slack_bot - WARNING - Error polling for reply: The request to the Slack API failed. (url: https://slack.com/api/conversations.replies, status: 200)
+The server responded with: {'ok': False, 'error': 'missing_scope', 'needed': 'groups:history', 'provided': 'app_mentions:read,chat:write,files:read,im:write,im:history'}
+2026-02-07 00:59:01,854 - services.slack_bot - WARNING - Error polling for reply: The request to the Slack API failed. (url: https://slack.com/api/conversations.replies, status: 200)
+The server responded with: {'ok': False, 'error': 'missing_scope', 'needed': 'groups:history', 'provided': 'app_mentions:read,chat:write,files:read,im:write,im:history'}
+2026-02-07 00:59:03,981 - services.slack_bot - WARNING - Error polling for reply: The request to the Slack API failed. (url: https://slack.com/api/conversations.replies, status: 200)
+The server responded with: {'ok': False, 'error': 'missing_scope', 'needed': 'groups:history', 'provided': 'app_mentions:read,chat:write,files:read,im:write,im:history'}
+2026-02-07 00:59:06,106 - services.slack_bot - WARNING - Error polling for reply: The request to the Slack API failed. (url: https://slack.com/api/conversations.replies, status: 200)
+The server responded with: {'ok': False, 'error': 'missing_scope', 'needed': 'groups:history', 'provided': 'app_mentions:read,chat:write,files:read,im:write,im:history'}
+2026-02-07 00:59:08,254 - services.slack_bot - WARNING - Error polling for reply: The request to the Slack API failed. (url: https://slack.com/api/conversations.replies, status: 200)
+The server responded with: {'ok': False, 'error': 'missing_scope', 'needed': 'groups:history', 'provided': 'app_mentions:read,chat:write,files:read,im:write,im:history'}
+2026-02-07 00:59:10,398 - services.slack_bot - WARNING - Error polling for reply: The request to the Slack API failed. (url: https://slack.com/api/conversations.replies, status: 200)
+The server responded with: {'ok': False, 'error': 'missing_scope', 'needed': 'groups:history', 'provided': 'app_mentions:read,chat:write,files:read,im:write,im:history'}
+2026-02-07 00:59:12,890 - services.slack_bot - WARNING - Error polling for reply: The request to the Slack API failed. (url: https://slack.com/api/conversations.replies, status: 200)
+The server responded with: {'ok': False, 'error': 'missing_scope', 'needed': 'groups:history', 'provided': 'app_mentions:read,chat:write,files:read,im:write,im:history'}
+2026-02-07 00:59:15,030 - services.slack_bot - WARNING - Error polling for reply: The request to the Slack API failed. (url: https://slack.com/api/conversations.replies, status: 200)
+The server responded with: {'ok': False, 'error': 'missing_scope', 'needed': 'groups:history', 'provided': 'app_mentions:read,chat:write,files:read,im:write,im:history'}
+2026-02-07 00:59:17,177 - services.slack_bot - WARNING - Error polling for reply: The request to the Slack API failed. (url: https://slack.com/api/conversations.replies, status: 200)
+The server responded with: {'ok': False, 'error': 'missing_scope', 'needed': 'groups:history', 'provided': 'app_mentions:read,chat:write,files:read,im:write,im:history'}
+2026-02-07 00:59:19,283 - services.slack_bot - WARNING - Error polling for reply: The request to the Slack API failed. (url: https://slack.com/api/conversations.replies, status: 200)
+The server responded with: {'ok': False, 'error': 'missing_scope', 'needed': 'groups:history', 'provided': 'app_mentions:read,chat:write,files:read,im:write,im:history'}
+2026-02-07 00:59:21,397 - services.slack_bot - WARNING - Error polling for reply: The request to the Slack API failed. (url: https://slack.com/api/conversations.replies, status: 200)
+The server responded with: {'ok': False, 'error': 'missing_scope', 'needed': 'groups:history', 'provided': 'app_mentions:read,chat:write,files:read,im:write,im:history'}
+2026-02-07 00:59:23,501 - services.slack_bot - WARNING - Error polling for reply: The request to the Slack API failed. (url: https://slack.com/api/conversations.replies, status: 200)
+The server responded with: {'ok': False, 'error': 'missing_scope', 'needed': 'groups:history', 'provided': 'app_mentions:read,chat:write,files:read,im:write,im:history'}
+2026-02-07 00:59:25,613 - services.slack_bot - WARNING - Error polling for reply: The request to the Slack API failed. (url: https://slack.com/api/conversations.replies, status: 200)
+The server responded with: {'ok': False, 'error': 'missing_scope', 'needed': 'groups:history', 'provided': 'app_mentions:read,chat:write,files:read,im:write,im:history'}
+2026-02-07 00:59:27,733 - services.slack_bot - WARNING - Error polling for reply: The request to the Slack API failed. (url: https://slack.com/api/conversations.replies, status: 200)
+The server responded with: {'ok': False, 'error': 'missing_scope', 'needed': 'groups:history', 'provided': 'app_mentions:read,chat:write,files:read,im:write,im:history'}
+2026-02-07 00:59:29,854 - services.slack_bot - WARNING - Error polling for reply: The request to the Slack API failed. (url: https://slack.com/api/conversations.replies, status: 200)
+The server responded with: {'ok': False, 'error': 'missing_scope', 'needed': 'groups:history', 'provided': 'app_mentions:read,chat:write,files:read,im:write,im:history'}
+2026-02-07 00:59:32,052 - services.slack_bot - WARNING - Error polling for reply: The request to the Slack API failed. (url: https://slack.com/api/conversations.replies, status: 200)
+The server responded with: {'ok': False, 'error': 'missing_scope', 'needed': 'groups:history', 'provided': 'app_mentions:read,chat:write,files:read,im:write,im:history'}
+2026-02-07 00:59:34,255 - services.slack_bot - WARNING - Error polling for reply: The request to the Slack API failed. (url: https://slack.com/api/conversations.replies, status: 200)
+The server responded with: {'ok': False, 'error': 'missing_scope', 'needed': 'groups:history', 'provided': 'app_mentions:read,chat:write,files:read,im:write,im:history'}
+2026-02-07 00:59:36,389 - services.slack_bot - WARNING - Error polling for reply: The request to the Slack API failed. (url: https://slack.com/api/conversations.replies, status: 200)
+The server responded with: {'ok': False, 'error': 'missing_scope', 'needed': 'groups:history', 'provided': 'app_mentions:read,chat:write,files:read,im:write,im:history'}
+2026-02-07 00:59:38,541 - services.slack_bot - WARNING - Error polling for reply: The request to the Slack API failed. (url: https://slack.com/api/conversations.replies, status: 200)
+The server responded with: {'ok': False, 'error': 'missing_scope', 'needed': 'groups:history', 'provided': 'app_mentions:read,chat:write,files:read,im:write,im:history'}
+2026-02-07 00:59:40,688 - services.slack_bot - WARNING - Error polling for reply: The request to the Slack API failed. (url: https://slack.com/api/conversations.replies, status: 200)
+The server responded with: {'ok': False, 'error': 'missing_scope', 'needed': 'groups:history', 'provided': 'app_mentions:read,chat:write,files:read,im:write,im:history'}
+2026-02-07 00:59:43,061 - services.slack_bot - WARNING - Error polling for reply: The request to the Slack API failed. (url: https://slack.com/api/conversations.replies, status: 200)
+The server responded with: {'ok': False, 'error': 'missing_scope', 'needed': 'groups:history', 'provided': 'app_mentions:read,chat:write,files:read,im:write,im:history'}
+2026-02-07 00:59:45,271 - services.slack_bot - WARNING - Error polling for reply: The request to the Slack API failed. (url: https://slack.com/api/conversations.replies, status: 200)
+The server responded with: {'ok': False, 'error': 'missing_scope', 'needed': 'groups:history', 'provided': 'app_mentions:read,chat:write,files:read,im:write,im:history'}
+2026-02-07 00:59:47,404 - services.slack_bot - WARNING - Error polling for reply: The request to the Slack API failed. (url: https://slack.com/api/conversations.replies, status: 200)
+The server responded with: {'ok': False, 'error': 'missing_scope', 'needed': 'groups:history', 'provided': 'app_mentions:read,chat:write,files:read,im:write,im:history'}
+2026-02-07 00:59:49,535 - services.slack_bot - WARNING - Error polling for reply: The request to the Slack API failed. (url: https://slack.com/api/conversations.replies, status: 200)
+The server responded with: {'ok': False, 'error': 'missing_scope', 'needed': 'groups:history', 'provided': 'app_mentions:read,chat:write,files:read,im:write,im:history'}
+2026-02-07 00:59:51,660 - services.slack_bot - WARNING - Error polling for reply: The request to the Slack API failed. (url: https://slack.com/api/conversations.replies, status: 200)
+The server responded with: {'ok': False, 'error': 'missing_scope', 'needed': 'groups:history', 'provided': 'app_mentions:read,chat:write,files:read,im:write,im:history'}
+2026-02-07 00:59:54,300 - services.slack_bot - WARNING - Error polling for reply: The request to the Slack API failed. (url: https://slack.com/api/conversations.replies, status: 200)
+The server responded with: {'ok': False, 'error': 'missing_scope', 'needed': 'groups:history', 'provided': 'app_mentions:read,chat:write,files:read,im:write,im:history'}
+2026-02-07 00:59:56,446 - services.slack_bot - WARNING - Error polling for reply: The request to the Slack API failed. (url: https://slack.com/api/conversations.replies, status: 200)
+The server responded with: {'ok': False, 'error': 'missing_scope', 'needed': 'groups:history', 'provided': 'app_mentions:read,chat:write,files:read,im:write,im:history'}
+2026-02-07 00:59:58,598 - services.slack_bot - WARNING - Error polling for reply: The request to the Slack API failed. (url: https://slack.com/api/conversations.replies, status: 200)
+The server responded with: {'ok': False, 'error': 'missing_scope', 'needed': 'groups:history', 'provided': 'app_mentions:read,chat:write,files:read,im:write,im:history'}
+2026-02-07 01:00:00,752 - services.slack_bot - WARNING - Error polling for reply: The request to the Slack API failed. (url: https://slack.com/api/conversations.replies, status: 200)
+The server responded with: {'ok': False, 'error': 'missing_scope', 'needed': 'groups:history', 'provided': 'app_mentions:read,chat:write,files:read,im:write,im:history'}
+2026-02-07 01:00:03,067 - services.slack_bot - WARNING - Error polling for reply: The request to the Slack API failed. (url: https://slack.com/api/conversations.replies, status: 200)
+The server responded with: {'ok': False, 'error': 'missing_scope', 'needed': 'groups:history', 'provided': 'app_mentions:read,chat:write,files:read,im:write,im:history'}
+2026-02-07 01:00:05,288 - services.slack_bot - WARNING - Error polling for reply: The request to the Slack API failed. (url: https://slack.com/api/conversations.replies, status: 200)
+The server responded with: {'ok': False, 'error': 'missing_scope', 'needed': 'groups:history', 'provided': 'app_mentions:read,chat:write,files:read,im:write,im:history'}
+2026-02-07 01:00:07,438 - services.slack_bot - WARNING - Error polling for reply: The request to the Slack API failed. (url: https://slack.com/api/conversations.replies, status: 200)
+The server responded with: {'ok': False, 'error': 'missing_scope', 'needed': 'groups:history', 'provided': 'app_mentions:read,chat:write,files:read,im:write,im:history'}
+2026-02-07 01:00:13,875 - services.tpr_automation - INFO - Browser started
+2026-02-07 01:00:13,876 - services.tpr_automation - INFO - 🔐 Navigating to TPR form...
+2026-02-07 01:00:18,537 - services.tpr_automation - INFO - ⏳ Waiting for TPR form to load (complete 2FA if prompted)...
+2026-02-07 01:00:49,082 - services.tpr_automation - INFO - ⏳ Still waiting... (30s elapsed). Complete 2FA if prompted.
+2026-02-07 01:00:54,635 - services.tpr_automation - INFO - ✅ Login successful! Form is ready.
+2026-02-07 01:00:54,896 - services.tpr_automation - INFO - 📝 Filling Page 1 - Preparer Details...
+2026-02-07 01:00:58,782 - services.tpr_automation - INFO - Selected 'No' from dropdown qff044216c0c0371873df8535121951a2e30b5ae6
+2026-02-07 01:00:59,203 - services.tpr_automation - INFO - Selected 'PCard/Travel Card/HazMat Card' from dropdown qf79cf22d534268b1bf2b1f6f0fc3f109d6221475
+2026-02-07 01:00:59,624 - services.tpr_automation - INFO - Selected 'Yes' from dropdown q6dcbaa2e5c4c019f0ed81c6e3ab0a069b2d7186a
+2026-02-07 01:01:00,248 - services.tpr_automation - INFO - Selected 'Other' from dropdown q19da8dcd4690bc026113caa40404b16790f15cf3
+2026-02-07 01:01:06,085 - services.tpr_automation - INFO - Selected 'Agency' by value from dropdown qdefce2003f32081f8a2a64148773a5a1ba9b41b3
+2026-02-07 01:01:06,616 - services.tpr_automation - INFO - Selected 'No' from dropdown qaece189b0a164fc94f7b00751eac4baa171bf8eb
+2026-02-07 01:01:06,621 - services.tpr_automation - INFO - ✅ Page 1 complete
+2026-02-07 01:01:10,409 - services.tpr_automation - INFO - 📝 Filling Page 2 - Purchasing Information...
+2026-02-07 01:01:11,310 - services.tpr_automation - INFO - Selected 'No' from dropdown q8ebb6bca519bb54e1c45d50673a5f1a1e5752bde
+2026-02-07 01:01:11,930 - services.tpr_automation - INFO - Selected 'More than 5' from dropdown q3a4d41749358f266ed855aeb3d29ac79afd2e6ad
+2026-02-07 01:01:12,551 - services.tpr_automation - INFO - Entered attendee count: 42
+2026-02-07 01:01:12,551 - services.tpr_automation - INFO - ✅ Page 2 complete
+2026-02-07 01:01:15,404 - services.tpr_automation - INFO - 📝 Filling Page 3 - Receipt Details...
+2026-02-07 01:01:17,172 - services.tpr_automation - INFO - ✅ Page 3 complete
+2026-02-07 01:01:21,104 - services.tpr_automation - INFO - 🔍 TPR form is ready for review!
+2026-02-07 01:01:21,346 - services.tpr_automation - INFO - 👆 Please review the form in the browser and click 'Submit Form' when ready.
+2026-02-07 01:01:21,527 - services.tpr_automation - INFO - ⏳ Waiting for your submission...
+2026-02-07 01:01:38,535 - asyncio - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x10a856d10>
+2026-02-07 01:08:39,789 - __main__ - INFO - Validating configuration...
+2026-02-07 01:08:39,789 - __main__ - INFO - Configuration validated ✓
+2026-02-07 01:08:39,789 - __main__ - INFO - Starting Slack bot...
+2026-02-07 01:08:39,790 - services.slack_bot - INFO - Starting Slack bot...
+2026-02-07 01:09:12,094 - services.slack_bot - INFO - Downloaded file to: /Users/arnavpallem/Desktop/TartanHacks26/temp/Misc_Dunkin_87.18_1-29-26.pdf
+2026-02-07 01:09:12,094 - services.ocr_processor - INFO - Processing receipt: /Users/arnavpallem/Desktop/TartanHacks26/temp/Misc_Dunkin_87.18_1-29-26.pdf
+2026-02-07 01:09:14,267 - services.ocr_processor - INFO - Gemini extracted: {'vendor': "Dunkin'", 'date': '01/29/2026', 'amount': 87.18, 'category': 'Misc', 'short_description': "Box O' Joe", 'is_food': True, 'is_travel': False}
+2026-02-07 01:09:14,271 - services.ocr_processor - INFO - Extracted: vendor=Dunkin', date=2026-01-29 00:00:00, amount=87.18, category=Misc, description=Box O' Joe
+2026-02-07 01:09:25,077 - services.tpr_automation - INFO - Browser started
+2026-02-07 01:09:25,078 - services.tpr_automation - INFO - 🔐 Navigating to TPR form...
+2026-02-07 01:09:26,947 - services.tpr_automation - INFO - ⏳ Waiting for TPR form to load (complete 2FA if prompted)...
+2026-02-07 01:09:59,616 - services.tpr_automation - INFO - ✅ Login successful! Form is ready.
+2026-02-07 01:09:59,873 - services.tpr_automation - INFO - 📝 Filling Page 1 - Preparer Details...
+2026-02-07 01:10:04,500 - services.tpr_automation - INFO - Selected 'No' from dropdown qff044216c0c0371873df8535121951a2e30b5ae6
+2026-02-07 01:10:04,921 - services.tpr_automation - INFO - Selected 'PCard/Travel Card/HazMat Card' from dropdown qf79cf22d534268b1bf2b1f6f0fc3f109d6221475
+2026-02-07 01:10:05,344 - services.tpr_automation - INFO - Selected 'Yes' from dropdown q6dcbaa2e5c4c019f0ed81c6e3ab0a069b2d7186a
+2026-02-07 01:10:05,966 - services.tpr_automation - INFO - Selected 'Other' from dropdown q19da8dcd4690bc026113caa40404b16790f15cf3
+2026-02-07 01:10:11,813 - services.tpr_automation - INFO - Selected 'Agency' by value from dropdown qdefce2003f32081f8a2a64148773a5a1ba9b41b3
+2026-02-07 01:10:12,343 - services.tpr_automation - INFO - Selected 'No' from dropdown qaece189b0a164fc94f7b00751eac4baa171bf8eb
+2026-02-07 01:10:12,366 - services.tpr_automation - INFO - ✅ Page 1 complete
+2026-02-07 01:10:16,021 - services.tpr_automation - INFO - 📝 Filling Page 2 - Purchasing Information...
+2026-02-07 01:10:16,925 - services.tpr_automation - INFO - Selected 'No' from dropdown q8ebb6bca519bb54e1c45d50673a5f1a1e5752bde
+2026-02-07 01:10:17,546 - services.tpr_automation - INFO - Selected 'More than 5' from dropdown q3a4d41749358f266ed855aeb3d29ac79afd2e6ad
+2026-02-07 01:10:18,164 - services.tpr_automation - INFO - Entered attendee count: 42
+2026-02-07 01:10:18,164 - services.tpr_automation - INFO - ✅ Page 2 complete
+2026-02-07 01:10:20,474 - services.tpr_automation - INFO - 📝 Filling Page 3 - Receipt Details...
+2026-02-07 01:10:22,212 - services.tpr_automation - INFO - ✅ Page 3 complete
+2026-02-07 01:10:24,420 - services.tpr_automation - INFO - 🔍 TPR form is ready for review!
+2026-02-07 01:10:24,609 - services.tpr_automation - INFO - 👆 Please review the form in the browser and click 'Submit Form' when ready.
+2026-02-07 01:10:24,847 - services.tpr_automation - INFO - ⏳ Waiting for your submission...
+2026-02-07 01:14:36,627 - slack_bolt.AsyncApp - ERROR - Failed to receive or enqueue a message: ClientConnectionResetError, Cannot write to closing transport (s_281528813)
+2026-02-07 01:14:41,261 - slack_bolt.AsyncApp - WARNING - Failed to send a ping message (s_281528813): Cannot write to closing transport
+2026-02-07 01:20:25,062 - services.tpr_automation - ERROR - Error waiting for submission: Page.wait_for_selector: Timeout 600000ms exceeded.
+Call log:
+  - waiting for locator("text=has been submitted, text=confirmation, text=successfully submitted") to be visible
+
+2026-02-07 01:20:34,504 - asyncio - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x10c63a450>
+2026-02-07 01:31:29,436 - __main__ - INFO - Validating configuration...
+2026-02-07 01:31:29,437 - __main__ - INFO - Configuration validated ✓
+2026-02-07 01:31:29,437 - __main__ - INFO - Starting Slack bot...
+2026-02-07 01:31:29,437 - services.slack_bot - INFO - Starting Slack bot...
+2026-02-07 01:32:11,078 - services.slack_bot - INFO - Downloaded file to: /Users/arnavpallem/Desktop/TartanHacks26/temp/Misc_Dunkin_87.18_1-29-26.pdf
+2026-02-07 01:32:11,079 - services.ocr_processor - INFO - Processing receipt: /Users/arnavpallem/Desktop/TartanHacks26/temp/Misc_Dunkin_87.18_1-29-26.pdf
+2026-02-07 01:32:13,347 - services.ocr_processor - INFO - Gemini extracted: {'vendor': "Dunkin'", 'date': '01/29/2026', 'amount': 87.18, 'category': 'Misc', 'short_description': 'Hot Chocolate', 'is_food': True, 'is_travel': False}
+2026-02-07 01:32:13,350 - services.ocr_processor - INFO - Extracted: vendor=Dunkin', date=2026-01-29 00:00:00, amount=87.18, category=Misc, description=Hot Chocolate
+2026-02-07 01:32:45,851 - services.tpr_automation - INFO - Browser started
+2026-02-07 01:32:45,852 - services.tpr_automation - INFO - 🔐 Navigating to TPR form...
+2026-02-07 01:32:48,214 - services.tpr_automation - INFO - ⏳ Waiting for TPR form to load (complete 2FA if prompted)...
+2026-02-07 01:33:15,256 - services.tpr_automation - INFO - ✅ Login successful! Form is ready.
+2026-02-07 01:33:15,479 - services.tpr_automation - INFO - 📝 Filling Page 1 - Preparer Details...
+2026-02-07 01:33:19,375 - services.tpr_automation - INFO - Selected 'No' from dropdown qff044216c0c0371873df8535121951a2e30b5ae6
+2026-02-07 01:33:19,793 - services.tpr_automation - INFO - Selected 'PCard/Travel Card/HazMat Card' from dropdown qf79cf22d534268b1bf2b1f6f0fc3f109d6221475
+2026-02-07 01:33:20,213 - services.tpr_automation - INFO - Selected 'Yes' from dropdown q6dcbaa2e5c4c019f0ed81c6e3ab0a069b2d7186a
+2026-02-07 01:33:20,830 - services.tpr_automation - INFO - Selected 'Other' from dropdown q19da8dcd4690bc026113caa40404b16790f15cf3
+2026-02-07 01:33:26,673 - services.tpr_automation - INFO - Selected 'Agency' by value from dropdown qdefce2003f32081f8a2a64148773a5a1ba9b41b3
+2026-02-07 01:33:27,204 - services.tpr_automation - INFO - Selected 'No' from dropdown qaece189b0a164fc94f7b00751eac4baa171bf8eb
+2026-02-07 01:33:27,208 - services.tpr_automation - INFO - ✅ Page 1 complete
+2026-02-07 01:33:32,715 - services.tpr_automation - INFO - 📝 Filling Page 2 - Purchasing Information...
+2026-02-07 01:33:33,589 - services.tpr_automation - INFO - Selected 'No' from dropdown q8ebb6bca519bb54e1c45d50673a5f1a1e5752bde
+2026-02-07 01:33:34,209 - services.tpr_automation - INFO - Selected 'More than 5' from dropdown q3a4d41749358f266ed855aeb3d29ac79afd2e6ad
+2026-02-07 01:33:34,830 - services.tpr_automation - INFO - Entered attendee count: 42
+2026-02-07 01:33:34,830 - services.tpr_automation - INFO - ✅ Page 2 complete
+2026-02-07 01:33:38,626 - services.tpr_automation - INFO - 📝 Filling Page 3 - Receipt Details...
+2026-02-07 01:33:39,933 - services.tpr_automation - INFO - Entered date: 01292026
+2026-02-07 01:33:40,163 - services.tpr_automation - INFO - 📎 Receipt uploaded
+2026-02-07 01:33:43,514 - services.tpr_automation - INFO - Selected 'Yes' from dropdown q858fbb6a128a9eb779b71c2a37677dc11dbf3317
+2026-02-07 01:33:44,135 - services.tpr_automation - INFO - Selected 'No' from dropdown q038d1874a2b91c02a871d70276ab568526f79553
+2026-02-07 01:33:44,758 - services.tpr_automation - INFO - Selected 'No' from dropdown qbdedddc80be3684bb95f4cc1b3705c5af1d73d84
+2026-02-07 01:33:45,261 - services.tpr_automation - INFO - ✅ Page 3 complete
+2026-02-07 01:33:49,268 - services.tpr_automation - INFO - 🔍 TPR form is ready for review!
+2026-02-07 01:33:49,573 - services.tpr_automation - INFO - 👆 Please review the form in the browser and click 'Submit Form' when ready.
+2026-02-07 01:33:49,779 - services.tpr_automation - INFO - ⏳ Waiting for your submission...
+2026-02-07 01:35:36,967 - asyncio - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x10d816f50>
+2026-02-07 01:35:39,255 - __main__ - INFO - Validating configuration...
+2026-02-07 01:35:39,255 - __main__ - INFO - Configuration validated ✓
+2026-02-07 01:35:39,255 - __main__ - INFO - Starting Slack bot...
+2026-02-07 01:35:39,256 - services.slack_bot - INFO - Starting Slack bot...
+2026-02-07 01:36:02,488 - services.slack_bot - INFO - Downloaded file to: /Users/arnavpallem/Desktop/TartanHacks26/temp/Misc_Dunkin_87.18_1-29-26.pdf
+2026-02-07 01:36:02,489 - services.ocr_processor - INFO - Processing receipt: /Users/arnavpallem/Desktop/TartanHacks26/temp/Misc_Dunkin_87.18_1-29-26.pdf
+2026-02-07 01:36:04,553 - services.ocr_processor - INFO - Gemini extracted: {'vendor': "Dunkin'", 'date': '01/29/2026', 'amount': 87.18, 'category': 'Misc', 'short_description': 'Hot chocolate', 'is_food': True, 'is_travel': False}
+2026-02-07 01:36:04,558 - services.ocr_processor - INFO - Extracted: vendor=Dunkin', date=2026-01-29 00:00:00, amount=87.18, category=Misc, description=Hot chocolate
+2026-02-07 01:36:17,337 - services.tpr_automation - INFO - Browser started with persistent profile
+2026-02-07 01:36:17,338 - services.tpr_automation - INFO - 🔐 Navigating to TPR form...
+2026-02-07 01:36:19,307 - services.tpr_automation - INFO - ⏳ Waiting for TPR form to load (complete 2FA if prompted)...
+2026-02-07 01:36:50,560 - services.tpr_automation - INFO - ✅ Login successful! Form is ready.
+2026-02-07 01:36:50,805 - services.tpr_automation - INFO - 📝 Filling Page 1 - Preparer Details...
+2026-02-07 01:36:54,609 - services.tpr_automation - INFO - Selected 'No' from dropdown qff044216c0c0371873df8535121951a2e30b5ae6
+2026-02-07 01:36:55,031 - services.tpr_automation - INFO - Selected 'PCard/Travel Card/HazMat Card' from dropdown qf79cf22d534268b1bf2b1f6f0fc3f109d6221475
+2026-02-07 01:36:55,456 - services.tpr_automation - INFO - Selected 'Yes' from dropdown q6dcbaa2e5c4c019f0ed81c6e3ab0a069b2d7186a
+2026-02-07 01:36:56,076 - services.tpr_automation - INFO - Selected 'Other' from dropdown q19da8dcd4690bc026113caa40404b16790f15cf3
+2026-02-07 01:37:01,905 - services.tpr_automation - INFO - Selected 'Agency' by value from dropdown qdefce2003f32081f8a2a64148773a5a1ba9b41b3
+2026-02-07 01:37:02,434 - services.tpr_automation - INFO - Selected 'No' from dropdown qaece189b0a164fc94f7b00751eac4baa171bf8eb
+2026-02-07 01:37:02,438 - services.tpr_automation - INFO - ✅ Page 1 complete
+2026-02-07 01:37:05,983 - services.tpr_automation - INFO - 📝 Filling Page 2 - Purchasing Information...
+2026-02-07 01:37:06,938 - services.tpr_automation - INFO - Selected 'No' from dropdown q8ebb6bca519bb54e1c45d50673a5f1a1e5752bde
+2026-02-07 01:37:07,556 - services.tpr_automation - INFO - Selected 'More than 5' from dropdown q3a4d41749358f266ed855aeb3d29ac79afd2e6ad
+2026-02-07 01:37:08,177 - services.tpr_automation - INFO - Entered attendee count: 40
+2026-02-07 01:37:08,177 - services.tpr_automation - INFO - ✅ Page 2 complete
+2026-02-07 01:37:11,012 - services.tpr_automation - INFO - 📝 Filling Page 3 - Receipt Details...
+2026-02-07 01:37:12,262 - services.tpr_automation - INFO - Entered date: 01292026
+2026-02-07 01:37:12,492 - services.tpr_automation - INFO - 📎 Receipt uploaded
+2026-02-07 01:37:15,861 - services.tpr_automation - INFO - Selected 'Yes' from dropdown q858fbb6a128a9eb779b71c2a37677dc11dbf3317
+2026-02-07 01:37:16,482 - services.tpr_automation - INFO - Selected 'No' from dropdown q038d1874a2b91c02a871d70276ab568526f79553
+2026-02-07 01:37:17,099 - services.tpr_automation - INFO - Selected 'No' from dropdown qbdedddc80be3684bb95f4cc1b3705c5af1d73d84
+2026-02-07 01:37:17,603 - services.tpr_automation - INFO - ✅ Page 3 complete
+2026-02-07 01:37:20,207 - services.tpr_automation - INFO - 🔍 TPR form is ready for review!
+2026-02-07 01:37:20,449 - services.tpr_automation - INFO - 👆 Please review the form in the browser and click 'Submit Form' when ready.
+2026-02-07 01:37:20,632 - services.tpr_automation - INFO - ⏳ Waiting for your submission...
+2026-02-07 01:37:56,926 - services.slack_bot - INFO - Downloaded file to: /Users/arnavpallem/Desktop/TartanHacks26/temp/Misc_Dunkin_87.18_1-29-26.pdf
+2026-02-07 01:37:56,927 - services.ocr_processor - INFO - Processing receipt: /Users/arnavpallem/Desktop/TartanHacks26/temp/Misc_Dunkin_87.18_1-29-26.pdf
+2026-02-07 01:37:58,785 - services.ocr_processor - INFO - Gemini extracted: {'vendor': "Dunkin'", 'date': '01/29/2026', 'amount': 87.18, 'category': 'Misc', 'short_description': 'Hot chocolate order', 'is_food': True, 'is_travel': False}
+2026-02-07 01:37:58,786 - services.ocr_processor - INFO - Extracted: vendor=Dunkin', date=2026-01-29 00:00:00, amount=87.18, category=Misc, description=Hot chocolate order
+2026-02-07 01:38:01,638 - services.tpr_automation - ERROR - Error waiting for submission: Page.wait_for_selector: Target page, context or browser has been closed
+Call log:
+  - waiting for locator("text=has been submitted, text=confirmation, text=successfully submitted") to be visible
+
+2026-02-07 01:38:20,668 - services.slack_bot - ERROR - Error processing receipt
+Traceback (most recent call last):
+  File "/Users/arnavpallem/Desktop/TartanHacks26/services/slack_bot.py", line 218, in _process_mention
+    tpr_number = await tpr_automation.process_tpr(tpr_request)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/arnavpallem/Desktop/TartanHacks26/services/tpr_automation.py", line 556, in process_tpr
+    await self.start()
+  File "/Users/arnavpallem/Desktop/TartanHacks26/services/tpr_automation.py", line 122, in start
+    self.context = await playwright.chromium.launch_persistent_context(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/arnavpallem/Desktop/TartanHacks26/venv/lib/python3.11/site-packages/playwright/async_api/_generated.py", line 14840, in launch_persistent_context
+    await self._impl_obj.launch_persistent_context(
+  File "/Users/arnavpallem/Desktop/TartanHacks26/venv/lib/python3.11/site-packages/playwright/_impl/_browser_type.py", line 164, in launch_persistent_context
+    result = await self._channel.send_return_as_dict(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/arnavpallem/Desktop/TartanHacks26/venv/lib/python3.11/site-packages/playwright/_impl/_connection.py", line 83, in send_return_as_dict
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/arnavpallem/Desktop/TartanHacks26/venv/lib/python3.11/site-packages/playwright/_impl/_connection.py", line 559, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.Error: BrowserType.launch_persistent_context: Failed to create a ProcessSingleton for your profile directory. This usually means that the profile is already in use by another instance of Chromium.
+Call log:
+  - <launching> /Applications/Google Chrome.app/Contents/MacOS/Google Chrome --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument,OptimizationHints --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --enable-automation --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --no-sandbox --user-data-dir=/Users/arnavpallem/.playwright_chrome_profile --remote-debugging-pipe about:blank
+  - <launched> pid=25020
+  - [pid=25020][err] [25020:20858435:0207/013820.661187:ERROR:chrome/browser/process_singleton_posix.cc:345] Failed to create /Users/arnavpallem/.playwright_chrome_profile/SingletonLock: File exists (17)
+  - [pid=25020][err] [25020:20858435:0207/013820.661400:ERROR:chrome/app/chrome_main_delegate.cc:510] Failed to create a ProcessSingleton for your profile directory. This means that running multiple instances would start multiple browser processes rather than opening a new window in the existing process. Aborting now to avoid profile corruption.
+  - [pid=25020] <gracefully close start>
+  - [pid=25020] <kill>
+  - [pid=25020] <will force kill>
+  - [pid=25020] exception while trying to kill process: Error: kill EPERM
+  - [pid=25020] <process did exit: exitCode=21, signal=null>
+  - [pid=25020] starting temporary directories cleanup
+  - [pid=25020] finished temporary directories cleanup
+  - [pid=25020] <gracefully close end>
+
+2026-02-07 01:38:44,191 - asyncio - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x10f31c450>
+2026-02-07 01:38:45,952 - __main__ - INFO - Validating configuration...
+2026-02-07 01:38:45,952 - __main__ - INFO - Configuration validated ✓
+2026-02-07 01:38:45,952 - __main__ - INFO - Starting Slack bot...
+2026-02-07 01:38:45,953 - services.slack_bot - INFO - Starting Slack bot...
+2026-02-07 01:39:01,842 - services.slack_bot - INFO - Downloaded file to: /Users/arnavpallem/Desktop/TartanHacks26/temp/Misc_Dunkin_87.18_1-29-26.pdf
+2026-02-07 01:39:01,842 - services.ocr_processor - INFO - Processing receipt: /Users/arnavpallem/Desktop/TartanHacks26/temp/Misc_Dunkin_87.18_1-29-26.pdf
+2026-02-07 01:39:03,816 - services.ocr_processor - INFO - Gemini extracted: {'vendor': "Dunkin'", 'date': '01/29/2026', 'amount': 87.18, 'category': 'Misc', 'short_description': 'Hot chocolate', 'is_food': True, 'is_travel': False}
+2026-02-07 01:39:03,822 - services.ocr_processor - INFO - Extracted: vendor=Dunkin', date=2026-01-29 00:00:00, amount=87.18, category=Misc, description=Hot chocolate
+2026-02-07 01:39:11,480 - services.tpr_automation - INFO - Browser started with persistent profile
+2026-02-07 01:39:11,481 - services.tpr_automation - INFO - 🔐 Navigating to TPR form...
+2026-02-07 01:39:12,983 - services.tpr_automation - INFO - ⏳ Waiting for TPR form to load (complete 2FA if prompted)...
+2026-02-07 01:39:34,103 - services.tpr_automation - INFO - ✅ Login successful! Form is ready.
+2026-02-07 01:39:34,350 - services.tpr_automation - INFO - 📝 Filling Page 1 - Preparer Details...
+2026-02-07 01:39:38,162 - services.tpr_automation - INFO - Selected 'No' from dropdown qff044216c0c0371873df8535121951a2e30b5ae6
+2026-02-07 01:39:38,581 - services.tpr_automation - INFO - Selected 'PCard/Travel Card/HazMat Card' from dropdown qf79cf22d534268b1bf2b1f6f0fc3f109d6221475
+2026-02-07 01:39:39,001 - services.tpr_automation - INFO - Selected 'Yes' from dropdown q6dcbaa2e5c4c019f0ed81c6e3ab0a069b2d7186a
+2026-02-07 01:39:39,613 - services.tpr_automation - INFO - Selected 'Other' from dropdown q19da8dcd4690bc026113caa40404b16790f15cf3
+2026-02-07 01:39:45,452 - services.tpr_automation - INFO - Selected 'Agency' by value from dropdown qdefce2003f32081f8a2a64148773a5a1ba9b41b3
+2026-02-07 01:39:45,978 - services.tpr_automation - INFO - Selected 'No' from dropdown qaece189b0a164fc94f7b00751eac4baa171bf8eb
+2026-02-07 01:39:45,982 - services.tpr_automation - INFO - ✅ Page 1 complete
+2026-02-07 01:39:49,611 - services.tpr_automation - INFO - 📝 Filling Page 2 - Purchasing Information...
+2026-02-07 01:39:50,558 - services.tpr_automation - INFO - Selected 'No' from dropdown q8ebb6bca519bb54e1c45d50673a5f1a1e5752bde
+2026-02-07 01:39:51,178 - services.tpr_automation - INFO - Selected 'More than 5' from dropdown q3a4d41749358f266ed855aeb3d29ac79afd2e6ad
+2026-02-07 01:39:51,803 - services.tpr_automation - INFO - Entered attendee count: 40
+2026-02-07 01:39:51,803 - services.tpr_automation - INFO - ✅ Page 2 complete
+2026-02-07 01:39:54,612 - services.tpr_automation - INFO - 📝 Filling Page 3 - Receipt Details...
+2026-02-07 01:39:55,867 - services.tpr_automation - INFO - Entered date: 01292026
+2026-02-07 01:39:56,093 - services.tpr_automation - INFO - 📎 Receipt uploaded
+2026-02-07 01:39:59,484 - services.tpr_automation - INFO - Selected 'Yes' from dropdown q858fbb6a128a9eb779b71c2a37677dc11dbf3317
+2026-02-07 01:40:00,106 - services.tpr_automation - INFO - Selected 'No' from dropdown q038d1874a2b91c02a871d70276ab568526f79553
+2026-02-07 01:40:00,728 - services.tpr_automation - INFO - Selected 'No' from dropdown qbdedddc80be3684bb95f4cc1b3705c5af1d73d84
+2026-02-07 01:40:01,232 - services.tpr_automation - INFO - ✅ Page 3 complete
+2026-02-07 01:40:04,032 - services.tpr_automation - INFO - 🔍 TPR form is ready for review!
+2026-02-07 01:40:04,227 - services.tpr_automation - INFO - 👆 Please review the form in the browser and click 'Submit Form' when ready.
+2026-02-07 01:40:04,421 - services.tpr_automation - INFO - ⏳ Waiting for your submission...
+2026-02-07 01:40:28,620 - services.tpr_automation - ERROR - Error waiting for submission: Page.wait_for_selector: Target page, context or browser has been closed
+Call log:
+  - waiting for locator("text=has been submitted, text=confirmation, text=successfully submitted") to be visible
+
+2026-02-07 01:40:34,865 - asyncio - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x10af373d0>
+2026-02-07 01:43:08,165 - __main__ - INFO - Validating configuration...
+2026-02-07 01:43:08,165 - __main__ - INFO - Configuration validated ✓
+2026-02-07 01:43:08,165 - __main__ - INFO - Starting Slack bot...
+2026-02-07 01:43:08,165 - services.slack_bot - INFO - Starting Slack bot...
+2026-02-07 01:43:24,975 - services.slack_bot - INFO - Downloaded file to: /Users/arnavpallem/Desktop/TartanHacks26/temp/Misc_Dunkin_87.18_1-29-26.pdf
+2026-02-07 01:43:24,977 - services.ocr_processor - INFO - Processing receipt: /Users/arnavpallem/Desktop/TartanHacks26/temp/Misc_Dunkin_87.18_1-29-26.pdf
+2026-02-07 01:43:27,044 - services.ocr_processor - INFO - Gemini extracted: {'vendor': "Dunkin'", 'date': '01/29/2026', 'amount': 87.18, 'category': 'Misc', 'short_description': 'Hot Chocolate', 'is_food': True, 'is_travel': False}
+2026-02-07 01:43:27,049 - services.ocr_processor - INFO - Extracted: vendor=Dunkin', date=2026-01-29 00:00:00, amount=87.18, category=Misc, description=Hot Chocolate
+2026-02-07 01:43:37,302 - services.tpr_automation - INFO - Browser started with persistent profile
+2026-02-07 01:43:37,305 - services.tpr_automation - INFO - 🔐 Navigating to TPR form...
+2026-02-07 01:43:39,845 - services.tpr_automation - INFO - 🔑 Clicking Sign In...
+2026-02-07 01:43:41,951 - services.tpr_automation - INFO - 🔑 Entering credentials...
+2026-02-07 01:43:42,379 - services.tpr_automation - INFO - 🔐 Submitting login...
+2026-02-07 01:43:45,646 - services.tpr_automation - INFO - ⏳ Waiting for TPR form to load (complete 2FA if prompted)...
+2026-02-07 01:43:52,015 - services.tpr_automation - INFO - ✅ Login successful! Form is ready.
+2026-02-07 01:43:52,275 - services.tpr_automation - INFO - 📝 Filling Page 1 - Preparer Details...
+2026-02-07 01:43:56,145 - services.tpr_automation - INFO - Selected 'No' from dropdown qff044216c0c0371873df8535121951a2e30b5ae6
+2026-02-07 01:43:56,567 - services.tpr_automation - INFO - Selected 'PCard/Travel Card/HazMat Card' from dropdown qf79cf22d534268b1bf2b1f6f0fc3f109d6221475
+2026-02-07 01:43:56,989 - services.tpr_automation - INFO - Selected 'Yes' from dropdown q6dcbaa2e5c4c019f0ed81c6e3ab0a069b2d7186a
+2026-02-07 01:43:57,613 - services.tpr_automation - INFO - Selected 'Other' from dropdown q19da8dcd4690bc026113caa40404b16790f15cf3
+2026-02-07 01:44:03,451 - services.tpr_automation - INFO - Selected 'Agency' by value from dropdown qdefce2003f32081f8a2a64148773a5a1ba9b41b3
+2026-02-07 01:44:03,969 - services.tpr_automation - INFO - Selected 'No' from dropdown qaece189b0a164fc94f7b00751eac4baa171bf8eb
+2026-02-07 01:44:03,972 - services.tpr_automation - INFO - ✅ Page 1 complete
+2026-02-07 01:44:07,412 - services.tpr_automation - INFO - 📝 Filling Page 2 - Purchasing Information...
+2026-02-07 01:44:08,310 - services.tpr_automation - INFO - Selected 'No' from dropdown q8ebb6bca519bb54e1c45d50673a5f1a1e5752bde
+2026-02-07 01:44:08,935 - services.tpr_automation - INFO - Selected 'Less than or equal to 5' from dropdown q3a4d41749358f266ed855aeb3d29ac79afd2e6ad
+2026-02-07 01:44:09,555 - services.tpr_automation - INFO - Entered attendee names: 3
+2026-02-07 01:44:09,556 - services.tpr_automation - INFO - ✅ Page 2 complete
+2026-02-07 01:44:12,326 - services.tpr_automation - INFO - 📝 Filling Page 3 - Receipt Details...
+2026-02-07 01:44:14,182 - services.tpr_automation - INFO - Entered date: 01292026
+2026-02-07 01:44:14,410 - services.tpr_automation - INFO - 📎 Receipt uploaded
+2026-02-07 01:44:17,791 - services.tpr_automation - INFO - Selected 'Yes' from dropdown q858fbb6a128a9eb779b71c2a37677dc11dbf3317
+2026-02-07 01:44:18,404 - services.tpr_automation - INFO - Selected 'No' from dropdown q038d1874a2b91c02a871d70276ab568526f79553
+2026-02-07 01:44:19,028 - services.tpr_automation - INFO - Selected 'No' from dropdown qbdedddc80be3684bb95f4cc1b3705c5af1d73d84
+2026-02-07 01:44:19,530 - services.tpr_automation - INFO - ✅ Page 3 complete
+2026-02-07 01:44:22,182 - services.tpr_automation - INFO - 🔍 TPR form is ready for review!
+2026-02-07 01:44:22,373 - services.tpr_automation - INFO - 👆 Please review the form in the browser and click 'Submit Form' when ready.
+2026-02-07 01:44:22,715 - services.tpr_automation - INFO - ⏳ Waiting for your submission...
+2026-02-07 01:44:47,977 - asyncio - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x10c66f490>
+2026-02-07 01:48:25,772 - __main__ - INFO - Validating configuration...
+2026-02-07 01:48:25,772 - __main__ - INFO - Configuration validated ✓
+2026-02-07 01:48:25,772 - __main__ - INFO - Starting Slack bot...
+2026-02-07 01:48:25,772 - services.slack_bot - INFO - Starting Slack bot...
+2026-02-07 01:48:58,287 - services.slack_bot - INFO - Downloaded file to: /Users/arnavpallem/Desktop/TartanHacks26/temp/Misc_Dunkin_87.18_1-29-26.pdf
+2026-02-07 01:48:58,288 - services.ocr_processor - INFO - Processing receipt: /Users/arnavpallem/Desktop/TartanHacks26/temp/Misc_Dunkin_87.18_1-29-26.pdf
+2026-02-07 01:49:00,429 - services.ocr_processor - INFO - Gemini extracted: {'vendor': "Dunkin'", 'date': '01/29/2026', 'amount': 87.18, 'category': 'Misc', 'short_description': 'Hot Chocolate', 'is_food': True, 'is_travel': False}
+2026-02-07 01:49:00,445 - services.ocr_processor - INFO - Extracted: vendor=Dunkin', date=2026-01-29 00:00:00, amount=87.18, category=Misc, description=Hot Chocolate
+2026-02-07 01:49:25,081 - services.tpr_automation - INFO - Browser started with persistent profile
+2026-02-07 01:49:25,081 - services.tpr_automation - INFO - 🔐 Navigating to TPR form...
+2026-02-07 01:49:27,687 - services.tpr_automation - INFO - 🔑 Clicking Sign In...
+2026-02-07 01:49:29,906 - services.tpr_automation - INFO - 🔑 Entering credentials...
+2026-02-07 01:49:30,408 - services.tpr_automation - INFO - 🔐 Submitting login...
+2026-02-07 01:49:33,722 - services.tpr_automation - INFO - ⏳ Waiting for TPR form to load (complete 2FA if prompted)...
+2026-02-07 01:49:40,193 - services.tpr_automation - INFO - ✅ Login successful! Form is ready.
+2026-02-07 01:49:40,384 - services.tpr_automation - INFO - 📝 Filling Page 1 - Preparer Details...
+2026-02-07 01:49:44,131 - services.tpr_automation - INFO - Selected 'No' from dropdown qff044216c0c0371873df8535121951a2e30b5ae6
+2026-02-07 01:49:44,550 - services.tpr_automation - INFO - Selected 'PCard/Travel Card/HazMat Card' from dropdown qf79cf22d534268b1bf2b1f6f0fc3f109d6221475
+2026-02-07 01:49:44,973 - services.tpr_automation - INFO - Selected 'Yes' from dropdown q6dcbaa2e5c4c019f0ed81c6e3ab0a069b2d7186a
+2026-02-07 01:49:45,592 - services.tpr_automation - INFO - Selected 'Other' from dropdown q19da8dcd4690bc026113caa40404b16790f15cf3
+2026-02-07 01:49:51,423 - services.tpr_automation - INFO - Selected 'Agency' by value from dropdown qdefce2003f32081f8a2a64148773a5a1ba9b41b3
+2026-02-07 01:49:51,947 - services.tpr_automation - INFO - Selected 'No' from dropdown qaece189b0a164fc94f7b00751eac4baa171bf8eb
+2026-02-07 01:49:51,950 - services.tpr_automation - INFO - ✅ Page 1 complete
+2026-02-07 01:49:55,460 - services.tpr_automation - INFO - 📝 Filling Page 2 - Purchasing Information...
+2026-02-07 01:49:56,328 - services.tpr_automation - INFO - Selected 'No' from dropdown q8ebb6bca519bb54e1c45d50673a5f1a1e5752bde
+2026-02-07 01:49:56,949 - services.tpr_automation - INFO - Selected 'Less than or equal to 5' from dropdown q3a4d41749358f266ed855aeb3d29ac79afd2e6ad
+2026-02-07 01:49:57,571 - services.tpr_automation - INFO - Entered attendee names: Arnav P, Jon Dylan, bob smith
+2026-02-07 01:49:57,571 - services.tpr_automation - INFO - ✅ Page 2 complete
+2026-02-07 01:50:00,312 - services.tpr_automation - INFO - 📝 Filling Page 3 - Receipt Details...
+2026-02-07 01:50:01,683 - services.tpr_automation - INFO - Entered date: 01292026
+2026-02-07 01:50:01,913 - services.tpr_automation - INFO - 📎 Receipt uploaded
+2026-02-07 01:50:05,283 - services.tpr_automation - INFO - Selected 'Yes' from dropdown q858fbb6a128a9eb779b71c2a37677dc11dbf3317
+2026-02-07 01:50:05,905 - services.tpr_automation - INFO - Selected 'No' from dropdown q038d1874a2b91c02a871d70276ab568526f79553
+2026-02-07 01:50:06,520 - services.tpr_automation - INFO - Selected 'No' from dropdown qbdedddc80be3684bb95f4cc1b3705c5af1d73d84
+2026-02-07 01:50:07,023 - services.tpr_automation - INFO - ✅ Page 3 complete
+2026-02-07 01:50:09,699 - services.tpr_automation - INFO - 🔍 TPR form is ready for review!
+2026-02-07 01:50:10,034 - services.tpr_automation - INFO - 👆 Please review the form in the browser and click 'Submit Form' when ready.
+2026-02-07 01:50:10,601 - services.tpr_automation - INFO - ⏳ Waiting for your submission...
+2026-02-07 01:53:21,843 - services.tpr_automation - ERROR - Error waiting for submission: Page.wait_for_selector: Target page, context or browser has been closed
+Call log:
+  - waiting for locator("text=has been submitted, text=confirmation, text=successfully submitted") to be visible
+
+2026-02-07 02:18:37,906 - asyncio - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x10a7f1f90>
+2026-02-07 02:37:03,105 - __main__ - INFO - Validating configuration...
+2026-02-07 02:37:03,105 - __main__ - INFO - Configuration validated ✓
+2026-02-07 02:37:03,105 - __main__ - INFO - Starting Slack bot...
+2026-02-07 02:37:03,106 - services.slack_bot - INFO - Starting Slack bot...
+2026-02-07 02:37:05,131 - asyncio - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x10cd5d010>
+2026-02-07 02:37:09,160 - __main__ - INFO - Validating configuration...
+2026-02-07 02:37:09,160 - __main__ - INFO - Configuration validated ✓
+2026-02-07 02:37:09,160 - __main__ - INFO - Starting Slack bot...
+2026-02-07 02:37:09,160 - services.slack_bot - INFO - Starting Slack bot...
+2026-02-07 02:37:39,655 - services.slack_bot - INFO - Downloaded file to: /Users/arnavpallem/Desktop/TartanHacks26/temp/Misc_Dunkin_87.18_1-29-26.pdf
+2026-02-07 02:37:39,657 - services.ocr_processor - INFO - Processing receipt: /Users/arnavpallem/Desktop/TartanHacks26/temp/Misc_Dunkin_87.18_1-29-26.pdf
+2026-02-07 02:37:42,012 - services.ocr_processor - INFO - Gemini extracted: {'vendor': "Dunkin'", 'date': '01/29/2026', 'amount': 87.18, 'category': 'Misc', 'short_description': 'Hot chocolate order', 'is_food': True, 'is_travel': False}
+2026-02-07 02:37:42,016 - services.ocr_processor - INFO - Extracted: vendor=Dunkin', date=2026-01-29 00:00:00, amount=87.18, category=Misc, description=Hot chocolate order
+2026-02-07 02:37:58,540 - services.tpr_automation - INFO - Browser started with persistent profile
+2026-02-07 02:37:58,541 - services.tpr_automation - INFO - 🔐 Navigating to TPR form...
+2026-02-07 02:38:01,162 - services.tpr_automation - INFO - 🔑 Clicking Sign In...
+2026-02-07 02:38:03,383 - services.tpr_automation - INFO - 🔑 Entering credentials...
+2026-02-07 02:38:03,849 - services.tpr_automation - INFO - 🔐 Submitting login...
+2026-02-07 02:38:07,172 - services.tpr_automation - INFO - ⏳ Waiting for TPR form to load (complete 2FA if prompted)...
+2026-02-07 02:38:13,963 - services.tpr_automation - INFO - ✅ Login successful! Form is ready.
+2026-02-07 02:38:14,231 - services.tpr_automation - INFO - 📝 Filling Page 1 - Preparer Details...
+2026-02-07 02:38:18,102 - services.tpr_automation - INFO - Selected 'No' from dropdown qff044216c0c0371873df8535121951a2e30b5ae6
+2026-02-07 02:38:18,524 - services.tpr_automation - INFO - Selected 'PCard/Travel Card/HazMat Card' from dropdown qf79cf22d534268b1bf2b1f6f0fc3f109d6221475
+2026-02-07 02:38:18,948 - services.tpr_automation - INFO - Selected 'Yes' from dropdown q6dcbaa2e5c4c019f0ed81c6e3ab0a069b2d7186a
+2026-02-07 02:38:19,572 - services.tpr_automation - INFO - Selected 'Other' from dropdown q19da8dcd4690bc026113caa40404b16790f15cf3
+2026-02-07 02:38:25,410 - services.tpr_automation - INFO - Selected 'Agency' by value from dropdown qdefce2003f32081f8a2a64148773a5a1ba9b41b3
+2026-02-07 02:38:25,946 - services.tpr_automation - INFO - Selected 'No' from dropdown qaece189b0a164fc94f7b00751eac4baa171bf8eb
+2026-02-07 02:38:25,950 - services.tpr_automation - INFO - ✅ Page 1 complete
+2026-02-07 02:38:29,573 - services.tpr_automation - INFO - 📝 Filling Page 2 - Purchasing Information...
+2026-02-07 02:38:30,548 - services.tpr_automation - INFO - Selected 'No' from dropdown q8ebb6bca519bb54e1c45d50673a5f1a1e5752bde
+2026-02-07 02:38:31,173 - services.tpr_automation - INFO - Selected 'More than 5' from dropdown q3a4d41749358f266ed855aeb3d29ac79afd2e6ad
+2026-02-07 02:38:31,795 - services.tpr_automation - INFO - Entered attendee count: 6
+2026-02-07 02:38:31,795 - services.tpr_automation - INFO - ✅ Page 2 complete
+2026-02-07 02:38:34,708 - services.tpr_automation - INFO - 📝 Filling Page 3 - Receipt Details...
+2026-02-07 02:38:35,967 - services.tpr_automation - INFO - Entered date: 01292026
+2026-02-07 02:38:36,193 - services.tpr_automation - INFO - 📎 Receipt uploaded
+2026-02-07 02:38:39,506 - services.tpr_automation - INFO - Selected 'Yes' from dropdown q858fbb6a128a9eb779b71c2a37677dc11dbf3317
+2026-02-07 02:38:40,123 - services.tpr_automation - INFO - Selected 'No' from dropdown q038d1874a2b91c02a871d70276ab568526f79553
+2026-02-07 02:38:40,745 - services.tpr_automation - INFO - Selected 'No' from dropdown qbdedddc80be3684bb95f4cc1b3705c5af1d73d84
+2026-02-07 02:38:41,250 - services.tpr_automation - INFO - ✅ Page 3 complete
+2026-02-07 02:38:43,997 - services.tpr_automation - INFO - 🎬 **DEMO MODE** - Skipping actual submission
+2026-02-07 02:38:44,176 - services.tpr_automation - INFO - 📋 Form is filled and ready for review!
+2026-02-07 02:38:47,366 - services.tpr_automation - INFO - Demo mode: returning mock TPR number DEMO-123456
+2026-02-07 02:38:47,816 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-07 02:38:47,824 - services.google_drive - INFO - Google Drive authenticated successfully
+2026-02-07 02:38:48,304 - services.google_drive - INFO - Resolved shortcut 'Spring Carnival 2026' to folder ID: 1X3udtQgIRcN6rG...
+2026-02-07 02:38:51,446 - services.google_drive - INFO - Uploaded file: Misc_Dunkin'_87_18.pdf (ID: 1OBLPOeQ_U-OSCEfa6ejlXjP12pZbV2TD)
+2026-02-07 02:38:54,162 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-07 02:38:54,167 - services.google_sheets - INFO - Google Sheets authenticated successfully
+2026-02-07 02:38:54,169 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-07 02:38:54,588 - services.google_sheets - INFO - Matched to sheet: Misc Line Items
+2026-02-07 02:38:56,645 - services.google_sheets - INFO - Matched to line item: General Body Meeting (row 14)
+2026-02-07 02:38:57,520 - services.google_sheets - INFO - Updated budget sheet: Dunkin' - Dunkin Donuts for general body meeting to improve 
+2026-02-07 02:38:57,521 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-07 02:38:59,092 - services.google_sheets - INFO - Using sheet name: Sheet1
+2026-02-07 02:38:59,393 - services.google_sheets - INFO - Updated TPR tracking: Dunkin' - Dunkin Donuts for general body meeting to improve  - DEMO-123456
+2026-02-07 03:09:17,585 - asyncio - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x10a0d5f50>
+2026-02-07 03:12:13,306 - __main__ - INFO - Validating configuration...
+2026-02-07 03:12:13,306 - __main__ - INFO - Configuration validated ✓
+2026-02-07 03:12:13,306 - __main__ - INFO - Starting Slack bot...
+2026-02-07 03:12:13,308 - services.slack_bot - INFO - Starting Slack bot...
+2026-02-07 03:12:52,034 - services.slack_bot - INFO - Downloaded file to: /Users/arnavpallem/Desktop/TartanHacks26/temp/Misc_Dunkin_87.18_1-29-26.pdf
+2026-02-07 03:12:52,035 - services.ocr_processor - INFO - Processing receipt: /Users/arnavpallem/Desktop/TartanHacks26/temp/Misc_Dunkin_87.18_1-29-26.pdf
+2026-02-07 03:12:54,489 - services.ocr_processor - INFO - Gemini extracted: {'vendor': "Dunkin'", 'date': '01/29/2026', 'amount': 87.18, 'category': 'Misc', 'short_description': "Box O' Joe", 'is_food': True, 'is_travel': False}
+2026-02-07 03:12:54,493 - services.ocr_processor - INFO - Extracted: vendor=Dunkin', date=2026-01-29 00:00:00, amount=87.18, category=Misc, description=Box O' Joe
+2026-02-07 03:13:33,328 - services.tpr_automation - INFO - Browser started with persistent profile
+2026-02-07 03:13:33,332 - services.tpr_automation - INFO - 🔐 Navigating to TPR form...
+2026-02-07 03:13:35,961 - services.tpr_automation - INFO - 🔑 Clicking Sign In...
+2026-02-07 03:13:38,181 - services.tpr_automation - INFO - 🔑 Entering credentials...
+2026-02-07 03:13:38,580 - services.tpr_automation - INFO - 🔐 Submitting login...
+2026-02-07 03:13:41,824 - services.tpr_automation - INFO - ⏳ Waiting for TPR form to load (complete 2FA if prompted)...
+2026-02-07 03:13:48,341 - services.tpr_automation - INFO - ✅ Login successful! Form is ready.
+2026-02-07 03:13:48,518 - services.tpr_automation - INFO - 📝 Filling Page 1 - Preparer Details...
+2026-02-07 03:13:52,205 - services.tpr_automation - INFO - Selected 'No' from dropdown qff044216c0c0371873df8535121951a2e30b5ae6
+2026-02-07 03:13:52,620 - services.tpr_automation - INFO - Selected 'PCard/Travel Card/HazMat Card' from dropdown qf79cf22d534268b1bf2b1f6f0fc3f109d6221475
+2026-02-07 03:13:53,036 - services.tpr_automation - INFO - Selected 'Yes' from dropdown q6dcbaa2e5c4c019f0ed81c6e3ab0a069b2d7186a
+2026-02-07 03:13:53,661 - services.tpr_automation - INFO - Selected 'Other' from dropdown q19da8dcd4690bc026113caa40404b16790f15cf3
+2026-02-07 03:13:59,501 - services.tpr_automation - INFO - Selected 'Agency' by value from dropdown qdefce2003f32081f8a2a64148773a5a1ba9b41b3
+2026-02-07 03:14:00,023 - services.tpr_automation - INFO - Selected 'No' from dropdown qaece189b0a164fc94f7b00751eac4baa171bf8eb
+2026-02-07 03:14:00,026 - services.tpr_automation - INFO - ✅ Page 1 complete
+2026-02-07 03:14:03,698 - services.tpr_automation - INFO - 📝 Filling Page 2 - Purchasing Information...
+2026-02-07 03:14:04,544 - services.tpr_automation - INFO - Selected 'No' from dropdown q8ebb6bca519bb54e1c45d50673a5f1a1e5752bde
+2026-02-07 03:14:05,163 - services.tpr_automation - INFO - Selected 'More than 5' from dropdown q3a4d41749358f266ed855aeb3d29ac79afd2e6ad
+2026-02-07 03:14:05,777 - services.tpr_automation - INFO - Entered attendee count: 6
+2026-02-07 03:14:05,777 - services.tpr_automation - INFO - ✅ Page 2 complete
+2026-02-07 03:14:08,457 - services.tpr_automation - INFO - 📝 Filling Page 3 - Receipt Details...
+2026-02-07 03:14:09,706 - services.tpr_automation - INFO - Entered date: 01292026
+2026-02-07 03:14:09,933 - services.tpr_automation - INFO - 📎 Receipt uploaded
+2026-02-07 03:14:13,275 - services.tpr_automation - INFO - Selected 'Yes' from dropdown q858fbb6a128a9eb779b71c2a37677dc11dbf3317
+2026-02-07 03:14:13,891 - services.tpr_automation - INFO - Selected 'No' from dropdown q038d1874a2b91c02a871d70276ab568526f79553
+2026-02-07 03:14:14,501 - services.tpr_automation - INFO - Selected 'No' from dropdown qbdedddc80be3684bb95f4cc1b3705c5af1d73d84
+2026-02-07 03:14:15,004 - services.tpr_automation - INFO - ✅ Page 3 complete
+2026-02-07 03:14:17,683 - services.tpr_automation - INFO - 🎬 **DEMO MODE** - Skipping actual submission
+2026-02-07 03:14:17,876 - services.tpr_automation - INFO - 📋 Form is filled and ready for review!
+2026-02-07 03:14:21,058 - services.tpr_automation - INFO - Demo mode: returning mock TPR number DEMO-123456
+2026-02-07 03:14:21,249 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-07 03:14:21,252 - services.google_drive - INFO - Google Drive authenticated successfully
+2026-02-07 03:14:21,741 - services.google_drive - INFO - Resolved shortcut 'Spring Carnival 2026' to folder ID: 1X3udtQgIRcN6rG...
+2026-02-07 03:14:24,861 - services.google_drive - INFO - Uploaded file: Misc_Dunkin'_87_18.pdf (ID: 1tI6UAFE9l4kovr9sVqPSZGFYyhaKx5hx)
+2026-02-07 03:14:26,974 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-07 03:14:26,978 - services.google_sheets - INFO - Google Sheets authenticated successfully
+2026-02-07 03:14:26,979 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-07 03:14:27,452 - services.google_sheets - INFO - Matched to sheet: Misc Line Items
+2026-02-07 03:14:28,928 - services.google_sheets - INFO - Matched to line item: General Body Meeting (row 14)
+2026-02-07 03:14:29,628 - services.google_sheets - INFO - Updated budget sheet: Dunkin' 01-29
+2026-02-07 03:14:29,630 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-07 03:14:30,966 - services.google_sheets - INFO - Using sheet name: Sheet1
+2026-02-07 03:14:31,297 - services.google_sheets - INFO - Updated TPR tracking: Dunkin' 01-29 - DEMO-123456
+2026-02-07 03:34:29,887 - asyncio - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x10f4c70d0>
+2026-02-07 10:59:57,060 - __main__ - INFO - Validating configuration...
+2026-02-07 10:59:57,061 - __main__ - INFO - Configuration validated ✓
+2026-02-07 10:59:57,277 - __main__ - ERROR - Fatal error: cannot import name 'process_receipt' from 'services.ocr_processor' (/Users/arnavpallem/Desktop/TartanHacks26/services/ocr_processor.py)
+Traceback (most recent call last):
+  File "/Users/arnavpallem/Desktop/TartanHacks26/main.py", line 111, in main
+    from services.email_webhook import run_webhook_server_async
+  File "/Users/arnavpallem/Desktop/TartanHacks26/services/email_webhook.py", line 20, in <module>
+    from services.ocr_processor import process_receipt
+ImportError: cannot import name 'process_receipt' from 'services.ocr_processor' (/Users/arnavpallem/Desktop/TartanHacks26/services/ocr_processor.py)
+2026-02-07 11:01:02,911 - __main__ - INFO - Validating configuration...
+2026-02-07 11:01:02,911 - __main__ - INFO - Configuration validated ✓
+2026-02-07 11:01:03,139 - __main__ - INFO - Starting email webhook server...
+2026-02-07 11:01:03,139 - __main__ - INFO - Starting Slack bot...
+2026-02-07 11:01:03,140 - services.slack_bot - INFO - Starting Slack bot...
+2026-02-07 11:03:09,669 - services.email_webhook - INFO - Received email from treasurer@springcarnival.org: Fwd: Attached is requested Order# 8 placed at: Jimmy Johns #215 412-681-9010
+2026-02-07 11:03:09,674 - services.email_webhook - INFO - Saved PDF attachment: /Users/arnavpallem/Desktop/TartanHacks26/temp/email_receipt_20260207_110309.pdf
+2026-02-07 11:03:09,674 - services.ocr_processor - INFO - Processing receipt: /Users/arnavpallem/Desktop/TartanHacks26/temp/email_receipt_20260207_110309.pdf
+2026-02-07 11:03:12,315 - services.ocr_processor - INFO - Gemini extracted: {'vendor': 'Jimmy Johns', 'date': '02/04/2026', 'amount': 56.99, 'category': 'Misc', 'short_description': 'Sandwiches and delivery', 'is_food': True, 'is_travel': False}
+2026-02-07 11:03:12,320 - services.ocr_processor - INFO - Extracted: vendor=Jimmy Johns, date=2026-02-04 00:00:00, amount=56.99, category=Misc, description=Sandwiches and delivery
+2026-02-07 11:03:12,321 - services.email_webhook - INFO - Extracted receipt: Jimmy Johns - $56.99
+2026-02-07 11:03:12,321 - services.email_webhook - WARNING - Slack bot not initialized
+2026-02-07 11:11:14,808 - asyncio - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x10d46bb90>
+2026-02-07 11:11:17,575 - __main__ - INFO - Validating configuration...
+2026-02-07 11:11:17,575 - __main__ - INFO - Configuration validated ✓
+2026-02-07 11:11:17,818 - __main__ - INFO - Starting email webhook server...
+2026-02-07 11:11:17,818 - __main__ - INFO - Starting Slack bot...
+2026-02-07 11:11:17,820 - services.slack_bot - INFO - Starting Slack bot...
+2026-02-07 11:12:00,162 - services.email_webhook - INFO - Received email from treasurer@springcarnival.org: Fwd: Attached is requested Order# 8 placed at: Jimmy Johns #215 412-681-9010
+2026-02-07 11:12:00,164 - services.email_webhook - INFO - Saved PDF attachment: /Users/arnavpallem/Desktop/TartanHacks26/temp/email_receipt_20260207_111200.pdf
+2026-02-07 11:12:00,164 - services.ocr_processor - INFO - Processing receipt: /Users/arnavpallem/Desktop/TartanHacks26/temp/email_receipt_20260207_111200.pdf
+2026-02-07 11:12:02,533 - services.ocr_processor - INFO - Gemini extracted: {'vendor': 'Jimmy Johns', 'date': '02/04/2026', 'amount': 56.99, 'category': 'Misc', 'short_description': 'Sandwiches and delivery', 'is_food': True, 'is_travel': False}
+2026-02-07 11:12:02,538 - services.ocr_processor - INFO - Extracted: vendor=Jimmy Johns, date=2026-02-04 00:00:00, amount=56.99, category=Misc, description=Sandwiches and delivery
+2026-02-07 11:12:02,538 - services.email_webhook - INFO - Extracted receipt: Jimmy Johns - $56.99
+2026-02-07 11:12:02,730 - services.email_webhook - INFO - Posted to Slack channel C0ADL6ESN4A, thread: 1770480722.700309
+2026-02-07 11:14:47,333 - services.slack_bot - INFO - Downloaded file to: /Users/arnavpallem/Desktop/TartanHacks26/temp/Misc_Dunkin_87.18_1-29-26.pdf
+2026-02-07 11:14:47,335 - services.ocr_processor - INFO - Processing receipt: /Users/arnavpallem/Desktop/TartanHacks26/temp/Misc_Dunkin_87.18_1-29-26.pdf
+2026-02-07 11:14:50,088 - services.ocr_processor - INFO - Gemini extracted: {'vendor': "Dunkin'", 'date': '01/29/2026', 'amount': 87.18, 'category': 'Misc', 'short_description': 'Hot Chocolate', 'is_food': True, 'is_travel': False}
+2026-02-07 11:14:50,091 - services.ocr_processor - INFO - Extracted: vendor=Dunkin', date=2026-01-29 00:00:00, amount=87.18, category=Misc, description=Hot Chocolate
+2026-02-07 11:15:03,691 - services.tpr_automation - INFO - Browser started with persistent profile
+2026-02-07 11:15:03,695 - services.tpr_automation - INFO - 🔐 Navigating to TPR form...
+2026-02-07 11:15:06,293 - services.tpr_automation - INFO - 🔑 Clicking Sign In...
+2026-02-07 11:15:08,668 - services.tpr_automation - INFO - 🔑 Entering credentials...
+2026-02-07 11:15:09,092 - services.tpr_automation - INFO - 🔐 Submitting login...
+2026-02-07 11:15:12,408 - services.tpr_automation - INFO - ⏳ Waiting for TPR form to load (complete 2FA if prompted)...
+2026-02-07 11:15:20,073 - services.tpr_automation - INFO - ✅ Login successful! Form is ready.
+2026-02-07 11:15:20,298 - services.tpr_automation - INFO - 📝 Filling Page 1 - Preparer Details...
+2026-02-07 11:15:23,986 - services.tpr_automation - INFO - Selected 'No' from dropdown qff044216c0c0371873df8535121951a2e30b5ae6
+2026-02-07 11:15:24,406 - services.tpr_automation - INFO - Selected 'PCard/Travel Card/HazMat Card' from dropdown qf79cf22d534268b1bf2b1f6f0fc3f109d6221475
+2026-02-07 11:15:24,831 - services.tpr_automation - INFO - Selected 'Yes' from dropdown q6dcbaa2e5c4c019f0ed81c6e3ab0a069b2d7186a
+2026-02-07 11:15:25,453 - services.tpr_automation - INFO - Selected 'Other' from dropdown q19da8dcd4690bc026113caa40404b16790f15cf3
+2026-02-07 11:15:31,301 - services.tpr_automation - INFO - Selected 'Agency' by value from dropdown qdefce2003f32081f8a2a64148773a5a1ba9b41b3
+2026-02-07 11:15:31,839 - services.tpr_automation - INFO - Selected 'No' from dropdown qaece189b0a164fc94f7b00751eac4baa171bf8eb
+2026-02-07 11:15:31,844 - services.tpr_automation - INFO - ✅ Page 1 complete
+2026-02-07 11:15:35,374 - services.tpr_automation - INFO - 📝 Filling Page 2 - Purchasing Information...
+2026-02-07 11:15:36,348 - services.tpr_automation - INFO - Selected 'No' from dropdown q8ebb6bca519bb54e1c45d50673a5f1a1e5752bde
+2026-02-07 11:15:36,968 - services.tpr_automation - INFO - Selected 'More than 5' from dropdown q3a4d41749358f266ed855aeb3d29ac79afd2e6ad
+2026-02-07 11:15:37,590 - services.tpr_automation - INFO - Entered attendee count: 7
+2026-02-07 11:15:37,590 - services.tpr_automation - INFO - ✅ Page 2 complete
+2026-02-07 11:15:40,297 - services.tpr_automation - INFO - 📝 Filling Page 3 - Receipt Details...
+2026-02-07 11:15:41,609 - services.tpr_automation - INFO - Entered date: 01292026
+2026-02-07 11:15:41,848 - services.tpr_automation - INFO - 📎 Receipt uploaded
+2026-02-07 11:15:45,158 - services.tpr_automation - INFO - Selected 'Yes' from dropdown q858fbb6a128a9eb779b71c2a37677dc11dbf3317
+2026-02-07 11:15:45,780 - services.tpr_automation - INFO - Selected 'No' from dropdown q038d1874a2b91c02a871d70276ab568526f79553
+2026-02-07 11:15:46,395 - services.tpr_automation - INFO - Selected 'No' from dropdown qbdedddc80be3684bb95f4cc1b3705c5af1d73d84
+2026-02-07 11:15:46,898 - services.tpr_automation - INFO - ✅ Page 3 complete
+2026-02-07 11:15:49,523 - services.tpr_automation - INFO - 🎬 **DEMO MODE** - Skipping actual submission
+2026-02-07 11:15:49,808 - services.tpr_automation - INFO - 📋 Form is filled and ready for review!
+2026-02-07 11:15:53,046 - services.tpr_automation - INFO - Demo mode: returning mock TPR number DEMO-123456
+2026-02-07 11:15:53,530 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-07 11:15:53,535 - services.google_drive - INFO - Google Drive authenticated successfully
+2026-02-07 11:15:54,066 - services.google_drive - INFO - Resolved shortcut 'Spring Carnival 2026' to folder ID: 1X3udtQgIRcN6rG...
+2026-02-07 11:15:57,195 - services.google_drive - INFO - Uploaded file: Misc_Dunkin'_87_18.pdf (ID: 156JlLnlV4yrLOBPLgtYc8MyiPrZ5-V-8)
+2026-02-07 11:15:59,359 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-07 11:15:59,365 - services.google_sheets - INFO - Google Sheets authenticated successfully
+2026-02-07 11:15:59,366 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-07 11:15:59,813 - services.google_sheets - INFO - Matched to sheet: Misc Line Items
+2026-02-07 11:16:02,099 - services.google_sheets - INFO - Matched to line item: Grand Total (row 1)
+2026-02-07 11:16:04,063 - services.google_sheets - INFO - Updated budget sheet: Dunkin' 01-29
+2026-02-07 11:16:04,064 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-07 11:16:05,817 - services.google_sheets - INFO - Using sheet name: Sheet1
+2026-02-07 11:16:06,346 - services.google_sheets - INFO - Updated TPR tracking: Dunkin' 01-29 - DEMO-123456
+2026-02-07 11:23:33,423 - asyncio - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x10c0a9890>
+2026-02-07 11:23:35,593 - __main__ - INFO - Validating configuration...
+2026-02-07 11:23:35,593 - __main__ - INFO - Configuration validated ✓
+2026-02-07 11:23:35,810 - __main__ - INFO - Starting email webhook server...
+2026-02-07 11:23:35,810 - __main__ - INFO - Starting Slack bot...
+2026-02-07 11:23:35,811 - services.slack_bot - INFO - Starting Slack bot...
+2026-02-07 11:24:29,927 - services.email_webhook - INFO - Received email from treasurer@springcarnival.org: Fwd: Attached is requested Order# 8 placed at: Jimmy Johns #215 412-681-9010
+2026-02-07 11:24:29,929 - services.email_webhook - INFO - Saved PDF attachment: /Users/arnavpallem/Desktop/TartanHacks26/temp/email_receipt_20260207_112429.pdf
+2026-02-07 11:24:29,929 - services.ocr_processor - INFO - Processing receipt: /Users/arnavpallem/Desktop/TartanHacks26/temp/email_receipt_20260207_112429.pdf
+2026-02-07 11:24:31,994 - services.ocr_processor - INFO - Gemini extracted: {'vendor': 'Jimmy Johns', 'date': '02/04/2026', 'amount': 56.99, 'category': 'Misc', 'short_description': 'Sandwiches and party box', 'is_food': True, 'is_travel': False}
+2026-02-07 11:24:31,997 - services.ocr_processor - INFO - Extracted: vendor=Jimmy Johns, date=2026-02-04 00:00:00, amount=56.99, category=Misc, description=Sandwiches and party box
+2026-02-07 11:24:31,997 - services.email_webhook - INFO - Extracted receipt: Jimmy Johns - $56.99
+2026-02-07 11:24:32,174 - services.email_webhook - INFO - Posted to Slack channel C0ADL6ESN4A, thread: 1770481472.147969
+2026-02-07 11:25:12,868 - services.tpr_automation - INFO - Browser started with persistent profile
+2026-02-07 11:25:12,868 - services.tpr_automation - INFO - 🔐 Navigating to TPR form...
+2026-02-07 11:25:16,629 - services.tpr_automation - INFO - 🔑 Clicking Sign In...
+2026-02-07 11:25:19,158 - services.tpr_automation - INFO - 🔑 Entering credentials...
+2026-02-07 11:25:19,582 - services.tpr_automation - INFO - 🔐 Submitting login...
+2026-02-07 11:25:22,830 - services.tpr_automation - INFO - ⏳ Waiting for TPR form to load (complete 2FA if prompted)...
+2026-02-07 11:25:29,939 - services.tpr_automation - INFO - ✅ Login successful! Form is ready.
+2026-02-07 11:25:30,208 - services.tpr_automation - INFO - 📝 Filling Page 1 - Preparer Details...
+2026-02-07 11:25:34,083 - services.tpr_automation - INFO - Selected 'No' from dropdown qff044216c0c0371873df8535121951a2e30b5ae6
+2026-02-07 11:25:34,504 - services.tpr_automation - INFO - Selected 'PCard/Travel Card/HazMat Card' from dropdown qf79cf22d534268b1bf2b1f6f0fc3f109d6221475
+2026-02-07 11:25:34,930 - services.tpr_automation - INFO - Selected 'Yes' from dropdown q6dcbaa2e5c4c019f0ed81c6e3ab0a069b2d7186a
+2026-02-07 11:25:35,552 - services.tpr_automation - INFO - Selected 'Other' from dropdown q19da8dcd4690bc026113caa40404b16790f15cf3
+2026-02-07 11:25:41,389 - services.tpr_automation - INFO - Selected 'Agency' by value from dropdown qdefce2003f32081f8a2a64148773a5a1ba9b41b3
+2026-02-07 11:25:41,931 - services.tpr_automation - INFO - Selected 'No' from dropdown qaece189b0a164fc94f7b00751eac4baa171bf8eb
+2026-02-07 11:25:41,936 - services.tpr_automation - INFO - ✅ Page 1 complete
+2026-02-07 11:25:45,533 - services.tpr_automation - INFO - 📝 Filling Page 2 - Purchasing Information...
+2026-02-07 11:25:46,479 - services.tpr_automation - INFO - Selected 'No' from dropdown q8ebb6bca519bb54e1c45d50673a5f1a1e5752bde
+2026-02-07 11:25:47,104 - services.tpr_automation - INFO - Selected 'More than 5' from dropdown q3a4d41749358f266ed855aeb3d29ac79afd2e6ad
+2026-02-07 11:25:47,723 - services.tpr_automation - INFO - Entered attendee count: 10
+2026-02-07 11:25:47,723 - services.tpr_automation - INFO - ✅ Page 2 complete
+2026-02-07 11:25:50,550 - services.tpr_automation - INFO - 📝 Filling Page 3 - Receipt Details...
+2026-02-07 11:25:51,860 - services.tpr_automation - INFO - Entered date: 02042026
+2026-02-07 11:25:52,093 - services.tpr_automation - INFO - 📎 Receipt uploaded
+2026-02-07 11:25:55,390 - services.tpr_automation - INFO - Selected 'Yes' from dropdown q858fbb6a128a9eb779b71c2a37677dc11dbf3317
+2026-02-07 11:25:56,013 - services.tpr_automation - INFO - Selected 'No' from dropdown q038d1874a2b91c02a871d70276ab568526f79553
+2026-02-07 11:25:56,633 - services.tpr_automation - INFO - Selected 'No' from dropdown qbdedddc80be3684bb95f4cc1b3705c5af1d73d84
+2026-02-07 11:25:57,137 - services.tpr_automation - INFO - ✅ Page 3 complete
+2026-02-07 11:25:59,899 - services.tpr_automation - INFO - 🔍 TPR form is ready for review!
+2026-02-07 11:26:00,107 - services.tpr_automation - INFO - 👆 Please review the form in the browser and click 'Submit Form' when ready.
+2026-02-07 11:26:00,329 - services.tpr_automation - INFO - ⏳ Waiting for your submission...
+2026-02-07 11:28:30,011 - services.tpr_automation - ERROR - Error waiting for submission: Page.wait_for_selector: Target page, context or browser has been closed
+Call log:
+  - waiting for locator("text=has been submitted, text=confirmation, text=successfully submitted") to be visible
+
+2026-02-07 11:33:19,607 - asyncio - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x10c35ff10>
+2026-02-07 11:33:25,900 - __main__ - INFO - Validating configuration...
+2026-02-07 11:33:25,900 - __main__ - INFO - Configuration validated ✓
+2026-02-07 11:33:26,137 - __main__ - INFO - Starting email webhook server...
+2026-02-07 11:33:26,137 - __main__ - INFO - Starting Slack bot...
+2026-02-07 11:33:26,138 - services.slack_bot - INFO - Starting Slack bot...
+2026-02-07 11:34:54,340 - services.email_webhook - INFO - Received email from treasurer@springcarnival.org: Fwd: Spring Carnival Committee, your plan has renewed
+2026-02-07 11:34:54,343 - services.email_webhook - INFO - Saved PDF attachment: /Users/arnavpallem/Desktop/TartanHacks26/temp/email_receipt_20260207_113454.pdf
+2026-02-07 11:34:54,343 - services.ocr_processor - INFO - Processing receipt: /Users/arnavpallem/Desktop/TartanHacks26/temp/email_receipt_20260207_113454.pdf
+2026-02-07 11:34:56,944 - services.ocr_processor - INFO - Gemini extracted: {'vendor': 'Slack', 'date': '11/14/2025', 'amount': 86.12, 'category': 'Misc', 'short_description': 'Pro monthly plan', 'is_food': False, 'is_travel': False}
+2026-02-07 11:34:56,948 - services.ocr_processor - INFO - Extracted: vendor=Slack, date=2025-11-14 00:00:00, amount=86.12, category=Misc, description=Pro monthly plan
+2026-02-07 11:34:56,948 - services.email_webhook - INFO - Extracted receipt: Slack - $86.12
+2026-02-07 11:34:57,384 - services.email_webhook - INFO - Posted to Slack channel C0ADL6ESN4A, thread: 1770482097.321939
+2026-02-07 11:36:13,039 - services.tpr_automation - INFO - Browser started with persistent profile
+2026-02-07 11:36:13,039 - services.tpr_automation - INFO - 🔐 Navigating to TPR form...
+2026-02-07 11:36:15,733 - services.tpr_automation - INFO - 🔑 Clicking Sign In...
+2026-02-07 11:36:18,128 - services.tpr_automation - INFO - 🔑 Entering credentials...
+2026-02-07 11:36:18,610 - services.tpr_automation - INFO - 🔐 Submitting login...
+2026-02-07 11:36:21,997 - services.tpr_automation - INFO - ⏳ Waiting for TPR form to load (complete 2FA if prompted)...
+2026-02-07 11:36:29,382 - services.tpr_automation - INFO - ✅ Login successful! Form is ready.
+2026-02-07 11:36:30,403 - services.tpr_automation - INFO - 📝 Filling Page 1 - Preparer Details...
+2026-02-07 11:36:34,243 - services.tpr_automation - INFO - Selected 'No' from dropdown qff044216c0c0371873df8535121951a2e30b5ae6
+2026-02-07 11:36:34,665 - services.tpr_automation - INFO - Selected 'PCard/Travel Card/HazMat Card' from dropdown qf79cf22d534268b1bf2b1f6f0fc3f109d6221475
+2026-02-07 11:36:35,088 - services.tpr_automation - INFO - Selected 'Yes' from dropdown q6dcbaa2e5c4c019f0ed81c6e3ab0a069b2d7186a
+2026-02-07 11:36:35,700 - services.tpr_automation - INFO - Selected 'Other' from dropdown q19da8dcd4690bc026113caa40404b16790f15cf3
+2026-02-07 11:36:41,540 - services.tpr_automation - INFO - Selected 'Agency' by value from dropdown qdefce2003f32081f8a2a64148773a5a1ba9b41b3
+2026-02-07 11:36:42,069 - services.tpr_automation - INFO - Selected 'No' from dropdown qaece189b0a164fc94f7b00751eac4baa171bf8eb
+2026-02-07 11:36:42,075 - services.tpr_automation - INFO - ✅ Page 1 complete
+2026-02-07 11:36:45,786 - services.tpr_automation - INFO - 📝 Filling Page 2 - Purchasing Information...
+2026-02-07 11:36:47,025 - services.tpr_automation - INFO - Selected 'No' from dropdown q8ebb6bca519bb54e1c45d50673a5f1a1e5752bde
+2026-02-07 11:36:47,026 - services.tpr_automation - INFO - ✅ Page 2 complete
+2026-02-07 11:36:50,718 - services.tpr_automation - INFO - 📝 Filling Page 3 - Receipt Details...
+2026-02-07 11:36:52,321 - services.tpr_automation - INFO - Entered date: 11142025
+2026-02-07 11:36:52,552 - services.tpr_automation - INFO - 📎 Receipt uploaded
+2026-02-07 11:36:56,362 - services.tpr_automation - INFO - Selected 'Yes' from dropdown q858fbb6a128a9eb779b71c2a37677dc11dbf3317
+2026-02-07 11:36:56,983 - services.tpr_automation - INFO - Selected 'No' from dropdown q038d1874a2b91c02a871d70276ab568526f79553
+2026-02-07 11:36:57,607 - services.tpr_automation - INFO - Selected 'No' from dropdown qbdedddc80be3684bb95f4cc1b3705c5af1d73d84
+2026-02-07 11:36:58,111 - services.tpr_automation - INFO - ✅ Page 3 complete
+2026-02-07 11:37:00,947 - services.tpr_automation - INFO - 🎬 **DEMO MODE** - Skipping actual submission
+2026-02-07 11:37:01,260 - services.tpr_automation - INFO - 📋 Form is filled and ready for review!
+2026-02-07 11:37:04,677 - services.tpr_automation - INFO - Demo mode: returning mock TPR number DEMO-123456
+2026-02-07 11:37:05,867 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-07 11:37:05,873 - services.google_drive - INFO - Google Drive authenticated successfully
+2026-02-07 11:37:06,884 - services.google_drive - INFO - Resolved shortcut 'Spring Carnival 2026' to folder ID: 1X3udtQgIRcN6rG...
+2026-02-07 11:37:09,866 - services.google_drive - INFO - Uploaded file: Misc_Slack_86_12_11-14-25.pdf (ID: 10RQHrfyR7WO4lk0pRdxKeEV4xDZLYXlI)
+2026-02-07 11:37:12,363 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-07 11:37:12,369 - services.google_sheets - INFO - Google Sheets authenticated successfully
+2026-02-07 11:37:12,370 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-07 11:37:12,818 - services.google_sheets - INFO - Matched to sheet: Entertainment Line Items
+2026-02-07 11:37:15,396 - services.google_sheets - INFO - Matched to line item: Grand Total (row 1)
+2026-02-07 11:37:17,061 - services.google_sheets - INFO - Updated budget sheet: Slack 11-14
+2026-02-07 11:37:17,065 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-07 11:37:18,609 - services.google_sheets - INFO - Using sheet name: Sheet1
+2026-02-07 11:37:18,951 - services.google_sheets - INFO - Updated TPR tracking: Slack 11-14 - DEMO-123456
+2026-02-07 12:08:52,604 - asyncio - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x10c323990>
+2026-02-07 12:08:57,337 - __main__ - INFO - Validating configuration...
+2026-02-07 12:08:57,337 - __main__ - INFO - Configuration validated ✓
+2026-02-07 12:08:57,561 - __main__ - INFO - Starting email webhook server...
+2026-02-07 12:08:57,561 - __main__ - INFO - Starting Slack bot...
+2026-02-07 12:08:57,562 - services.slack_bot - INFO - Starting Slack bot...
+2026-02-07 12:09:22,819 - services.email_webhook - INFO - Received email from treasurer@springcarnival.org: Fwd: Spring Carnival Committee, your plan has renewed
+2026-02-07 12:09:22,821 - services.email_webhook - INFO - Saved PDF attachment: /Users/arnavpallem/Desktop/TartanHacks26/temp/email_receipt_20260207_120922.pdf
+2026-02-07 12:09:22,821 - services.ocr_processor - INFO - Processing receipt: /Users/arnavpallem/Desktop/TartanHacks26/temp/email_receipt_20260207_120922.pdf
+2026-02-07 12:09:25,545 - services.ocr_processor - INFO - Gemini extracted: {'vendor': 'Slack', 'date': '11/14/2025', 'amount': 86.12, 'category': 'Misc', 'short_description': 'Pro monthly plan', 'is_food': False, 'is_travel': False}
+2026-02-07 12:09:25,549 - services.ocr_processor - INFO - Extracted: vendor=Slack, date=2025-11-14 00:00:00, amount=86.12, category=Misc, description=Pro monthly plan
+2026-02-07 12:09:25,549 - services.email_webhook - INFO - Extracted receipt: Slack - $86.12
+2026-02-07 12:09:25,947 - services.email_webhook - INFO - Posted to Slack channel C0ADL6ESN4A, thread: 1770484165.869959
+2026-02-07 12:09:49,758 - services.tpr_automation - INFO - Browser started with persistent profile
+2026-02-07 12:09:49,759 - services.tpr_automation - INFO - 🔐 Navigating to TPR form...
+2026-02-07 12:09:52,758 - services.tpr_automation - INFO - 🔑 Clicking Sign In...
+2026-02-07 12:09:55,705 - services.tpr_automation - INFO - 🔑 Entering credentials...
+2026-02-07 12:09:56,225 - services.tpr_automation - INFO - 🔐 Submitting login...
+2026-02-07 12:09:59,792 - services.tpr_automation - INFO - ⏳ Waiting for TPR form to load (complete 2FA if prompted)...
+2026-02-07 12:10:09,171 - services.tpr_automation - INFO - ✅ Login successful! Form is ready.
+2026-02-07 12:10:09,528 - services.tpr_automation - INFO - 📝 Filling Page 1 - Preparer Details...
+2026-02-07 12:10:13,943 - services.tpr_automation - INFO - Selected 'No' from dropdown qff044216c0c0371873df8535121951a2e30b5ae6
+2026-02-07 12:10:14,364 - services.tpr_automation - INFO - Selected 'PCard/Travel Card/HazMat Card' from dropdown qf79cf22d534268b1bf2b1f6f0fc3f109d6221475
+2026-02-07 12:10:14,791 - services.tpr_automation - INFO - Selected 'Yes' from dropdown q6dcbaa2e5c4c019f0ed81c6e3ab0a069b2d7186a
+2026-02-07 12:10:15,413 - services.tpr_automation - INFO - Selected 'Other' from dropdown q19da8dcd4690bc026113caa40404b16790f15cf3
+2026-02-07 12:10:21,244 - services.tpr_automation - INFO - Selected 'Agency' by value from dropdown qdefce2003f32081f8a2a64148773a5a1ba9b41b3
+2026-02-07 12:10:21,779 - services.tpr_automation - INFO - Selected 'No' from dropdown qaece189b0a164fc94f7b00751eac4baa171bf8eb
+2026-02-07 12:10:21,783 - services.tpr_automation - INFO - ✅ Page 1 complete
+2026-02-07 12:10:25,632 - services.tpr_automation - INFO - 📝 Filling Page 2 - Purchasing Information...
+2026-02-07 12:10:26,761 - services.tpr_automation - INFO - Selected 'No' from dropdown q8ebb6bca519bb54e1c45d50673a5f1a1e5752bde
+2026-02-07 12:10:26,762 - services.tpr_automation - INFO - ✅ Page 2 complete
+2026-02-07 12:10:29,836 - services.tpr_automation - INFO - 📝 Filling Page 3 - Receipt Details...
+2026-02-07 12:10:31,186 - services.tpr_automation - INFO - Entered date: 11142025
+2026-02-07 12:10:31,415 - services.tpr_automation - INFO - 📎 Receipt uploaded
+2026-02-07 12:10:34,766 - services.tpr_automation - INFO - Selected 'Yes' from dropdown q858fbb6a128a9eb779b71c2a37677dc11dbf3317
+2026-02-07 12:10:35,389 - services.tpr_automation - INFO - Selected 'No' from dropdown q038d1874a2b91c02a871d70276ab568526f79553
+2026-02-07 12:10:36,074 - services.tpr_automation - INFO - Selected 'No' from dropdown qbdedddc80be3684bb95f4cc1b3705c5af1d73d84
+2026-02-07 12:10:36,584 - services.tpr_automation - INFO - ✅ Page 3 complete
+2026-02-07 12:10:39,478 - services.tpr_automation - INFO - 🎬 **DEMO MODE** - Skipping actual submission
+2026-02-07 12:10:39,981 - services.tpr_automation - INFO - 📋 Form is filled and ready for review!
+2026-02-07 12:10:43,280 - services.tpr_automation - INFO - Demo mode: returning mock TPR number DEMO-123456
+2026-02-07 12:10:44,210 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-07 12:10:44,216 - services.google_drive - INFO - Google Drive authenticated successfully
+2026-02-07 12:10:45,122 - services.google_drive - INFO - Resolved shortcut 'Spring Carnival 2026' to folder ID: 1X3udtQgIRcN6rG...
+2026-02-07 12:10:48,603 - services.google_drive - INFO - Uploaded file: Misc_Slack_86_12_11-14-25.pdf (ID: 1L11G_yBCXQBQ5NatLMCl2tZJvZ4nUfLI)
+2026-02-07 12:10:51,235 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-07 12:10:51,240 - services.google_sheets - INFO - Google Sheets authenticated successfully
+2026-02-07 12:10:51,241 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-07 12:10:51,797 - services.google_sheets - INFO - Matched to sheet: Entertainment Line Items
+2026-02-07 12:10:53,965 - services.google_sheets - INFO - Matched to line item: Slack 11-14 (row 1)
+2026-02-07 12:10:55,029 - services.google_sheets - INFO - Updated budget sheet: Slack 11-14
+2026-02-07 12:10:55,031 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-07 12:10:56,989 - services.google_sheets - INFO - Using sheet name: Sheet1
+2026-02-07 12:10:57,303 - services.google_sheets - INFO - Updated TPR tracking: Slack 11-14 - DEMO-123456
+2026-02-07 12:11:32,351 - services.justification_store - INFO - Saved new justification for vendor: Slack
+2026-02-07 12:12:11,603 - services.email_webhook - INFO - Received email from treasurer@springcarnival.org: Fwd: Spring Carnival Committee, your plan has renewed
+2026-02-07 12:12:11,606 - services.email_webhook - INFO - Saved PDF attachment: /Users/arnavpallem/Desktop/TartanHacks26/temp/email_receipt_20260207_121211.pdf
+2026-02-07 12:12:11,606 - services.ocr_processor - INFO - Processing receipt: /Users/arnavpallem/Desktop/TartanHacks26/temp/email_receipt_20260207_121211.pdf
+2026-02-07 12:12:13,688 - services.ocr_processor - INFO - Gemini extracted: {'vendor': 'Slack', 'date': '11/14/2025', 'amount': 86.12, 'category': 'Misc', 'short_description': 'Monthly plan start', 'is_food': False, 'is_travel': False}
+2026-02-07 12:12:13,690 - services.ocr_processor - INFO - Extracted: vendor=Slack, date=2025-11-14 00:00:00, amount=86.12, category=Misc, description=Monthly plan start
+2026-02-07 12:12:13,691 - services.email_webhook - INFO - Extracted receipt: Slack - $86.12
+2026-02-07 12:12:13,928 - services.email_webhook - INFO - Posted to Slack channel C0ADL6ESN4A, thread: 1770484333.898119
+2026-02-07 12:12:13,932 - services.justification_store - INFO - Found matching justification for 'Slack' -> 'slack' (score: 100.0)
+2026-02-07 12:12:27,068 - services.email_webhook - ERROR - Error in TPR automation
+Traceback (most recent call last):
+  File "/Users/arnavpallem/Desktop/TartanHacks26/services/email_webhook.py", line 327, in process_email_receipt
+    tpr_number = await tpr_automation.process_tpr(tpr_request, demo_mode=demo_mode)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/arnavpallem/Desktop/TartanHacks26/services/tpr_automation.py", line 580, in process_tpr
+    await self.start()
+  File "/Users/arnavpallem/Desktop/TartanHacks26/services/tpr_automation.py", line 122, in start
+    self.context = await playwright.chromium.launch_persistent_context(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/arnavpallem/Desktop/TartanHacks26/venv/lib/python3.11/site-packages/playwright/async_api/_generated.py", line 14840, in launch_persistent_context
+    await self._impl_obj.launch_persistent_context(
+  File "/Users/arnavpallem/Desktop/TartanHacks26/venv/lib/python3.11/site-packages/playwright/_impl/_browser_type.py", line 164, in launch_persistent_context
+    result = await self._channel.send_return_as_dict(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/arnavpallem/Desktop/TartanHacks26/venv/lib/python3.11/site-packages/playwright/_impl/_connection.py", line 83, in send_return_as_dict
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/arnavpallem/Desktop/TartanHacks26/venv/lib/python3.11/site-packages/playwright/_impl/_connection.py", line 559, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.Error: BrowserType.launch_persistent_context: Failed to create a ProcessSingleton for your profile directory. This usually means that the profile is already in use by another instance of Chromium.
+Call log:
+  - <launching> /Applications/Google Chrome.app/Contents/MacOS/Google Chrome --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument,OptimizationHints --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --enable-automation --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --no-sandbox --user-data-dir=/Users/arnavpallem/.playwright_chrome_profile --remote-debugging-pipe about:blank
+  - <launched> pid=55254
+  - [pid=55254][err] [55254:21844417:0207/121227.051655:ERROR:chrome/browser/process_singleton_posix.cc:345] Failed to create /Users/arnavpallem/.playwright_chrome_profile/SingletonLock: File exists (17)
+  - [pid=55254][err] [55254:21844417:0207/121227.052105:ERROR:chrome/app/chrome_main_delegate.cc:510] Failed to create a ProcessSingleton for your profile directory. This means that running multiple instances would start multiple browser processes rather than opening a new window in the existing process. Aborting now to avoid profile corruption.
+  - [pid=55254] <gracefully close start>
+  - [pid=55254] <kill>
+  - [pid=55254] <will force kill>
+  - [pid=55254] exception while trying to kill process: Error: kill EPERM
+  - [pid=55254] <process did exit: exitCode=21, signal=null>
+  - [pid=55254] starting temporary directories cleanup
+  - [pid=55254] finished temporary directories cleanup
+  - [pid=55254] <gracefully close end>
+
+2026-02-07 12:20:27,099 - asyncio - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x108a23850>
+2026-02-07 15:02:06,673 - __main__ - INFO - Validating configuration...
+2026-02-07 15:02:06,673 - __main__ - INFO - Configuration validated ✓
+2026-02-07 15:02:06,910 - __main__ - INFO - Starting email webhook server...
+2026-02-07 15:02:06,911 - __main__ - INFO - Starting Slack bot...
+2026-02-07 15:02:06,911 - services.slack_bot - INFO - Starting Slack bot...
+2026-02-07 15:02:49,598 - services.email_webhook - INFO - Received email from treasurer@springcarnival.org: Fwd: Spring Carnival Committee, your plan has renewed
+2026-02-07 15:02:49,599 - services.email_webhook - INFO - Saved PDF attachment: /Users/arnavpallem/Desktop/TartanHacks26/temp/email_receipt_20260207_150249.pdf
+2026-02-07 15:02:49,599 - services.ocr_processor - INFO - Processing receipt: /Users/arnavpallem/Desktop/TartanHacks26/temp/email_receipt_20260207_150249.pdf
+2026-02-07 15:02:52,533 - services.ocr_processor - INFO - Gemini extracted: {'vendor': 'Slack', 'date': '11/14/2025', 'amount': 86.12, 'category': 'Misc', 'short_description': 'Pro monthly plan', 'is_food': False, 'confidence': 95}
+2026-02-07 15:02:52,538 - services.ocr_processor - INFO - Extracted: vendor=Slack, date=2025-11-14 00:00:00, amount=86.12, category=Misc, confidence=95%
+2026-02-07 15:02:52,539 - services.email_webhook - INFO - Extracted receipt: Slack - $86.12
+2026-02-07 15:02:53,019 - services.email_webhook - INFO - Posted to Slack channel C0ADL6ESN4A, thread: 1770494572.961469
+2026-02-07 15:02:53,029 - services.justification_store - INFO - Found matching justification for 'Slack' -> 'slack' (score: 100.0)
+2026-02-07 15:02:57,689 - services.tpr_automation - INFO - Browser started with persistent profile
+2026-02-07 15:02:57,689 - services.tpr_automation - INFO - 🔐 Navigating to TPR form...
+2026-02-07 15:03:01,018 - services.tpr_automation - INFO - 🔑 Clicking Sign In...
+2026-02-07 15:03:04,039 - services.tpr_automation - INFO - 🔑 Entering credentials...
+2026-02-07 15:03:04,665 - services.tpr_automation - INFO - 🔐 Submitting login...
+2026-02-07 15:03:09,027 - services.tpr_automation - INFO - ⏳ Waiting for TPR form to load (complete 2FA if prompted)...
+2026-02-07 15:03:16,554 - services.tpr_automation - INFO - ✅ Login successful! Form is ready.
+2026-02-07 15:03:16,783 - services.tpr_automation - INFO - 📝 Filling Page 1 - Preparer Details...
+2026-02-07 15:03:20,835 - services.tpr_automation - INFO - Selected 'No' from dropdown qff044216c0c0371873df8535121951a2e30b5ae6
+2026-02-07 15:03:21,256 - services.tpr_automation - INFO - Selected 'PCard/Travel Card/HazMat Card' from dropdown qf79cf22d534268b1bf2b1f6f0fc3f109d6221475
+2026-02-07 15:03:21,680 - services.tpr_automation - INFO - Selected 'Yes' from dropdown q6dcbaa2e5c4c019f0ed81c6e3ab0a069b2d7186a
+2026-02-07 15:03:22,305 - services.tpr_automation - INFO - Selected 'Other' from dropdown q19da8dcd4690bc026113caa40404b16790f15cf3
+2026-02-07 15:03:28,150 - services.tpr_automation - INFO - Selected 'Agency' by value from dropdown qdefce2003f32081f8a2a64148773a5a1ba9b41b3
+2026-02-07 15:03:28,720 - services.tpr_automation - INFO - Selected 'No' from dropdown qaece189b0a164fc94f7b00751eac4baa171bf8eb
+2026-02-07 15:03:28,723 - services.tpr_automation - INFO - ✅ Page 1 complete
+2026-02-07 15:03:32,352 - services.tpr_automation - INFO - 📝 Filling Page 2 - Purchasing Information...
+2026-02-07 15:03:33,474 - services.tpr_automation - INFO - Selected 'No' from dropdown q8ebb6bca519bb54e1c45d50673a5f1a1e5752bde
+2026-02-07 15:03:33,474 - services.tpr_automation - INFO - ✅ Page 2 complete
+2026-02-07 15:03:36,457 - services.tpr_automation - INFO - 📝 Filling Page 3 - Receipt Details...
+2026-02-07 15:03:37,786 - services.tpr_automation - INFO - Entered date: 11142025
+2026-02-07 15:03:38,019 - services.tpr_automation - INFO - 📎 Receipt uploaded
+2026-02-07 15:03:41,410 - services.tpr_automation - INFO - Selected 'Yes' from dropdown q858fbb6a128a9eb779b71c2a37677dc11dbf3317
+2026-02-07 15:03:42,029 - services.tpr_automation - INFO - Selected 'No' from dropdown q038d1874a2b91c02a871d70276ab568526f79553
+2026-02-07 15:03:42,653 - services.tpr_automation - INFO - Selected 'No' from dropdown qbdedddc80be3684bb95f4cc1b3705c5af1d73d84
+2026-02-07 15:03:43,156 - services.tpr_automation - INFO - ✅ Page 3 complete
+2026-02-07 15:03:46,024 - services.tpr_automation - INFO - 🎬 **DEMO MODE** - Skipping actual submission
+2026-02-07 15:03:46,386 - services.tpr_automation - INFO - 📋 Form is filled and ready for review!
+2026-02-07 15:03:49,747 - services.tpr_automation - INFO - Demo mode: returning mock TPR number DEMO-123456
+2026-02-07 15:03:50,779 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-07 15:03:50,782 - services.google_drive - INFO - Google Drive authenticated successfully
+2026-02-07 15:03:51,288 - services.google_drive - INFO - Resolved shortcut 'Spring Carnival 2026' to folder ID: 1X3udtQgIRcN6rG...
+2026-02-07 15:03:54,756 - services.google_drive - INFO - Uploaded file: Misc_Slack_86_12_11-14-25.pdf (ID: 1kqnjUtZRq6N3Cemqdi3jCtT5Pl3RjgAp)
+2026-02-07 15:03:56,672 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-07 15:03:56,682 - services.google_sheets - INFO - Google Sheets authenticated successfully
+2026-02-07 15:03:56,685 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-07 15:03:57,378 - services.google_sheets - INFO - Matched to sheet: Entertainment Line Items
+2026-02-07 15:03:59,678 - services.line_item_classifier - INFO - LLM classified 'Slack' as line item: 'Grand Total'
+2026-02-07 15:03:59,687 - services.google_sheets - INFO - LLM matched to line item: Grand Total (row 1)
+2026-02-07 15:04:01,357 - services.google_sheets - INFO - Updated budget sheet: Slack 11-14
+2026-02-07 15:04:01,361 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-07 15:04:02,907 - services.google_sheets - INFO - Using sheet name: Sheet1
+2026-02-07 15:04:03,353 - services.google_sheets - INFO - Updated TPR tracking: Slack 11-14 - DEMO-123456
+2026-02-07 15:10:48,376 - asyncio - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x10dcb0c10>
+2026-02-07 15:11:59,019 - __main__ - INFO - Validating configuration...
+2026-02-07 15:11:59,019 - __main__ - INFO - Configuration validated ✓
+2026-02-07 15:11:59,252 - __main__ - INFO - Starting email webhook server...
+2026-02-07 15:11:59,252 - __main__ - INFO - Starting Slack bot...
+2026-02-07 15:11:59,253 - services.slack_bot - INFO - Starting Slack bot...
+2026-02-07 15:12:30,009 - services.email_webhook - INFO - Received email from treasurer@springcarnival.org: Fwd: Spring Carnival Committee, your plan has renewed
+2026-02-07 15:12:30,010 - services.email_webhook - INFO - Saved PDF attachment: /Users/arnavpallem/Desktop/TartanHacks26/temp/email_receipt_20260207_151230.pdf
+2026-02-07 15:12:30,010 - services.ocr_processor - INFO - Processing receipt: /Users/arnavpallem/Desktop/TartanHacks26/temp/email_receipt_20260207_151230.pdf
+2026-02-07 15:12:33,171 - services.ocr_processor - INFO - Gemini extracted: {'vendor': 'Slack', 'date': '11/14/2025', 'amount': 86.12, 'category': 'Misc', 'short_description': 'Pro monthly plan', 'is_food': False, 'confidence': 95}
+2026-02-07 15:12:33,199 - services.ocr_processor - INFO - Extracted: vendor=Slack, date=2025-11-14 00:00:00, amount=86.12, category=Misc, confidence=95%
+2026-02-07 15:12:33,199 - services.email_webhook - INFO - Extracted receipt: Slack - $86.12
+2026-02-07 15:12:33,759 - services.email_webhook - INFO - Posted to Slack channel C0ADL6ESN4A, thread: 1770495153.724829
+2026-02-07 15:12:33,767 - services.justification_store - INFO - Found matching justification for 'Slack' -> 'slack' (score: 100.0)
+2026-02-07 15:12:37,623 - services.tpr_automation - INFO - Browser started with persistent profile
+2026-02-07 15:12:37,624 - services.tpr_automation - INFO - 🔐 Navigating to TPR form...
+2026-02-07 15:12:40,367 - services.tpr_automation - INFO - 🔑 Clicking Sign In...
+2026-02-07 15:12:42,613 - services.tpr_automation - INFO - 🔑 Entering credentials...
+2026-02-07 15:12:43,173 - services.tpr_automation - INFO - 🔐 Submitting login...
+2026-02-07 15:12:46,441 - services.tpr_automation - INFO - ⏳ Waiting for TPR form to load (complete 2FA if prompted)...
+2026-02-07 15:12:54,015 - services.tpr_automation - INFO - ✅ Login successful! Form is ready.
+2026-02-07 15:12:54,336 - services.tpr_automation - INFO - 📝 Filling Page 1 - Preparer Details...
+2026-02-07 15:12:58,517 - services.tpr_automation - INFO - Selected 'No' from dropdown qff044216c0c0371873df8535121951a2e30b5ae6
+2026-02-07 15:12:58,935 - services.tpr_automation - INFO - Selected 'PCard/Travel Card/HazMat Card' from dropdown qf79cf22d534268b1bf2b1f6f0fc3f109d6221475
+2026-02-07 15:12:59,361 - services.tpr_automation - INFO - Selected 'Yes' from dropdown q6dcbaa2e5c4c019f0ed81c6e3ab0a069b2d7186a
+2026-02-07 15:12:59,984 - services.tpr_automation - INFO - Selected 'Other' from dropdown q19da8dcd4690bc026113caa40404b16790f15cf3
+2026-02-07 15:13:05,851 - services.tpr_automation - INFO - Selected 'Agency' by value from dropdown qdefce2003f32081f8a2a64148773a5a1ba9b41b3
+2026-02-07 15:13:06,409 - services.tpr_automation - INFO - Selected 'No' from dropdown qaece189b0a164fc94f7b00751eac4baa171bf8eb
+2026-02-07 15:13:06,448 - services.tpr_automation - INFO - ✅ Page 1 complete
+2026-02-07 15:13:10,338 - services.tpr_automation - INFO - 📝 Filling Page 2 - Purchasing Information...
+2026-02-07 15:13:11,307 - services.tpr_automation - INFO - Selected 'No' from dropdown q8ebb6bca519bb54e1c45d50673a5f1a1e5752bde
+2026-02-07 15:13:11,307 - services.tpr_automation - INFO - ✅ Page 2 complete
+2026-02-07 15:13:14,279 - services.tpr_automation - INFO - 📝 Filling Page 3 - Receipt Details...
+2026-02-07 15:13:15,872 - services.tpr_automation - INFO - Entered date: 11142025
+2026-02-07 15:13:16,107 - services.tpr_automation - INFO - 📎 Receipt uploaded
+2026-02-07 15:13:19,810 - services.tpr_automation - INFO - Selected 'Yes' from dropdown q858fbb6a128a9eb779b71c2a37677dc11dbf3317
+2026-02-07 15:13:20,434 - services.tpr_automation - INFO - Selected 'No' from dropdown q038d1874a2b91c02a871d70276ab568526f79553
+2026-02-07 15:13:21,058 - services.tpr_automation - INFO - Selected 'No' from dropdown qbdedddc80be3684bb95f4cc1b3705c5af1d73d84
+2026-02-07 15:13:21,568 - services.tpr_automation - INFO - ✅ Page 3 complete
+2026-02-07 15:13:24,682 - services.tpr_automation - INFO - 🎬 **DEMO MODE** - Skipping actual submission
+2026-02-07 15:13:25,302 - services.tpr_automation - INFO - 📋 Form is filled and ready for review!
+2026-02-07 15:13:28,623 - services.tpr_automation - INFO - Demo mode: returning mock TPR number DEMO-123456
+2026-02-07 15:13:29,470 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-07 15:13:29,482 - services.google_drive - INFO - Google Drive authenticated successfully
+2026-02-07 15:13:30,184 - services.google_drive - INFO - Resolved shortcut 'Spring Carnival 2026' to folder ID: 1X3udtQgIRcN6rG...
+2026-02-07 15:13:33,422 - services.google_drive - INFO - Uploaded file: Misc_Slack_86_12_11-14-25.pdf (ID: 1gGNNpI4HR-2TvZ7m9Aqrw6SyRgGuEfIC)
+2026-02-07 15:13:34,612 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-07 15:13:34,617 - services.google_sheets - INFO - Google Sheets authenticated successfully
+2026-02-07 15:13:34,618 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-07 15:13:35,382 - services.google_sheets - INFO - Matched to sheet: Entertainment Line Items
+2026-02-07 15:13:38,006 - services.line_item_classifier - INFO - LLM classified 'Slack' (Slack is the primary communica...) as line item: 'Grand Total'
+2026-02-07 15:13:38,008 - services.google_sheets - INFO - LLM matched to line item: Grand Total (row 1)
+2026-02-07 15:13:39,463 - services.google_sheets - INFO - Updated budget sheet: Slack 11-14
+2026-02-07 15:13:39,465 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-07 15:13:40,792 - services.google_sheets - INFO - Using sheet name: Sheet1
+2026-02-07 15:13:41,145 - services.google_sheets - INFO - Updated TPR tracking: Slack 11-14 - DEMO-123456
+2026-02-07 15:16:22,900 - asyncio - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x11049cc90>
+2026-02-07 15:16:26,736 - __main__ - INFO - Validating configuration...
+2026-02-07 15:16:26,736 - __main__ - INFO - Configuration validated ✓
+2026-02-07 15:16:26,975 - __main__ - INFO - Starting email webhook server...
+2026-02-07 15:16:26,975 - __main__ - INFO - Starting Slack bot...
+2026-02-07 15:16:26,976 - services.slack_bot - INFO - Starting Slack bot...
+2026-02-07 15:16:50,170 - services.email_webhook - INFO - Received email from treasurer@springcarnival.org: Fwd: Spring Carnival Committee, your plan has renewed
+2026-02-07 15:16:50,171 - services.email_webhook - INFO - Saved PDF attachment: /Users/arnavpallem/Desktop/TartanHacks26/temp/email_receipt_20260207_151650.pdf
+2026-02-07 15:16:50,171 - services.ocr_processor - INFO - Processing receipt: /Users/arnavpallem/Desktop/TartanHacks26/temp/email_receipt_20260207_151650.pdf
+2026-02-07 15:16:52,453 - services.ocr_processor - INFO - Gemini extracted: {'vendor': 'Slack', 'date': '11/14/2025', 'amount': 86.12, 'category': 'Misc', 'short_description': 'Pro monthly plan', 'is_food': False, 'confidence': 95}
+2026-02-07 15:16:52,459 - services.ocr_processor - INFO - Extracted: vendor=Slack, date=2025-11-14 00:00:00, amount=86.12, category=Misc, confidence=95%
+2026-02-07 15:16:52,459 - services.email_webhook - INFO - Extracted receipt: Slack - $86.12
+2026-02-07 15:16:52,768 - services.email_webhook - INFO - Posted to Slack channel C0ADL6ESN4A, thread: 1770495412.736569
+2026-02-07 15:16:52,770 - services.justification_store - INFO - Found matching justification for 'Slack' -> 'slack' (score: 100.0)
+2026-02-07 15:16:57,101 - services.tpr_automation - INFO - Browser started with persistent profile
+2026-02-07 15:16:57,102 - services.tpr_automation - INFO - 🔐 Navigating to TPR form...
+2026-02-07 15:17:00,556 - services.tpr_automation - INFO - 🔑 Clicking Sign In...
+2026-02-07 15:17:03,123 - services.tpr_automation - INFO - 🔑 Entering credentials...
+2026-02-07 15:17:03,802 - services.tpr_automation - INFO - 🔐 Submitting login...
+2026-02-07 15:17:07,236 - services.tpr_automation - INFO - ⏳ Waiting for TPR form to load (complete 2FA if prompted)...
+2026-02-07 15:17:13,920 - services.tpr_automation - INFO - ✅ Login successful! Form is ready.
+2026-02-07 15:17:14,192 - services.tpr_automation - INFO - 📝 Filling Page 1 - Preparer Details...
+2026-02-07 15:17:18,407 - services.tpr_automation - INFO - Selected 'No' from dropdown qff044216c0c0371873df8535121951a2e30b5ae6
+2026-02-07 15:17:18,825 - services.tpr_automation - INFO - Selected 'PCard/Travel Card/HazMat Card' from dropdown qf79cf22d534268b1bf2b1f6f0fc3f109d6221475
+2026-02-07 15:17:19,248 - services.tpr_automation - INFO - Selected 'Yes' from dropdown q6dcbaa2e5c4c019f0ed81c6e3ab0a069b2d7186a
+2026-02-07 15:17:19,869 - services.tpr_automation - INFO - Selected 'Other' from dropdown q19da8dcd4690bc026113caa40404b16790f15cf3
+2026-02-07 15:17:25,723 - services.tpr_automation - INFO - Selected 'Agency' by value from dropdown qdefce2003f32081f8a2a64148773a5a1ba9b41b3
+2026-02-07 15:17:26,247 - services.tpr_automation - INFO - Selected 'No' from dropdown qaece189b0a164fc94f7b00751eac4baa171bf8eb
+2026-02-07 15:17:26,253 - services.tpr_automation - INFO - ✅ Page 1 complete
+2026-02-07 15:17:29,995 - services.tpr_automation - INFO - 📝 Filling Page 2 - Purchasing Information...
+2026-02-07 15:17:31,027 - services.tpr_automation - INFO - Selected 'No' from dropdown q8ebb6bca519bb54e1c45d50673a5f1a1e5752bde
+2026-02-07 15:17:31,027 - services.tpr_automation - INFO - ✅ Page 2 complete
+2026-02-07 15:17:33,956 - services.tpr_automation - INFO - 📝 Filling Page 3 - Receipt Details...
+2026-02-07 15:17:35,296 - services.tpr_automation - INFO - Entered date: 11142025
+2026-02-07 15:17:35,527 - services.tpr_automation - INFO - 📎 Receipt uploaded
+2026-02-07 15:17:38,856 - services.tpr_automation - INFO - Selected 'Yes' from dropdown q858fbb6a128a9eb779b71c2a37677dc11dbf3317
+2026-02-07 15:17:39,480 - services.tpr_automation - INFO - Selected 'No' from dropdown q038d1874a2b91c02a871d70276ab568526f79553
+2026-02-07 15:17:40,111 - services.tpr_automation - INFO - Selected 'No' from dropdown qbdedddc80be3684bb95f4cc1b3705c5af1d73d84
+2026-02-07 15:17:40,615 - services.tpr_automation - INFO - ✅ Page 3 complete
+2026-02-07 15:17:43,651 - services.tpr_automation - INFO - 🎬 **DEMO MODE** - Skipping actual submission
+2026-02-07 15:17:43,908 - services.tpr_automation - INFO - 📋 Form is filled and ready for review!
+2026-02-07 15:17:47,408 - services.tpr_automation - INFO - Demo mode: returning mock TPR number DEMO-123456
+2026-02-07 15:17:48,313 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-07 15:17:48,318 - services.google_drive - INFO - Google Drive authenticated successfully
+2026-02-07 15:17:48,819 - services.google_drive - INFO - Resolved shortcut 'Spring Carnival 2026' to folder ID: 1X3udtQgIRcN6rG...
+2026-02-07 15:17:51,972 - services.google_drive - INFO - Uploaded file: Misc_Slack_86_12_11-14-25.pdf (ID: 1zElk8KVo0YW6oXULdFRaYOVBQgnNgTct)
+2026-02-07 15:17:53,607 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-07 15:17:53,614 - services.google_sheets - INFO - Google Sheets authenticated successfully
+2026-02-07 15:17:53,616 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-07 15:17:54,156 - services.google_sheets - INFO - Matched to sheet: Misc Line Items
+2026-02-07 15:17:56,825 - services.line_item_classifier - INFO - LLM classified 'Slack' (Slack is the primary communica...) as line item: 'Online Marketing Subscriptions'
+2026-02-07 15:17:56,827 - services.google_sheets - INFO - LLM matched to line item: Online Marketing Subscriptions (row 42)
+2026-02-07 15:17:58,635 - services.google_sheets - INFO - Updated budget sheet: Slack 11-14
+2026-02-07 15:17:58,639 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-07 15:18:00,161 - services.google_sheets - INFO - Using sheet name: Sheet1
+2026-02-07 15:18:00,442 - services.google_sheets - INFO - Updated TPR tracking: Slack 11-14 - DEMO-123456
+2026-02-07 15:25:55,884 - asyncio - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x110664f10>
+2026-02-07 16:37:57,112 - __main__ - INFO - Validating configuration...
+2026-02-07 16:37:57,112 - __main__ - INFO - Configuration validated ✓
+2026-02-07 16:37:57,342 - __main__ - INFO - Starting email webhook server...
+2026-02-07 16:37:57,342 - __main__ - INFO - Starting Slack bot...
+2026-02-07 16:37:57,343 - services.slack_bot - INFO - Starting Slack bot...
+2026-02-07 16:38:17,290 - services.slack_bot - INFO - Downloaded file to: /Users/arnavpallem/Desktop/TartanHacks26/temp/Misc_Dunkin_87.18_1-29-26.pdf
+2026-02-07 16:38:17,291 - services.ocr_processor - INFO - Processing receipt: /Users/arnavpallem/Desktop/TartanHacks26/temp/Misc_Dunkin_87.18_1-29-26.pdf
+2026-02-07 16:38:19,952 - services.ocr_processor - INFO - Gemini extracted: {'vendor': "Dunkin'", 'date': '01/29/2026', 'amount': 87.18, 'category': 'Misc', 'short_description': 'Hot Chocolate', 'is_food': True, 'confidence': 95}
+2026-02-07 16:38:19,959 - services.ocr_processor - INFO - Extracted: vendor=Dunkin', date=2026-01-29 00:00:00, amount=87.18, category=Misc, confidence=95%
+2026-02-07 16:38:33,307 - services.tpr_automation - INFO - Browser started with persistent profile
+2026-02-07 16:38:33,307 - services.tpr_automation - INFO - 🔐 Navigating to TPR form...
+2026-02-07 16:38:35,259 - services.tpr_automation - ERROR - Login failed: Page.wait_for_timeout: Target page, context or browser has been closed
+2026-02-07 16:38:35,259 - services.tpr_automation - INFO - ❌ Login failed: Page.wait_for_timeout: Target page, context or browser has been closed
+2026-02-07 16:38:35,524 - asyncio - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x10c1ea790>
+2026-02-07 16:38:37,509 - __main__ - INFO - Validating configuration...
+2026-02-07 16:38:37,509 - __main__ - INFO - Configuration validated ✓
+2026-02-07 16:38:37,716 - __main__ - INFO - Starting email webhook server...
+2026-02-07 16:38:37,717 - __main__ - INFO - Starting Slack bot...
+2026-02-07 16:38:37,717 - services.slack_bot - INFO - Starting Slack bot...
+2026-02-07 16:39:45,081 - services.slack_bot - INFO - Downloaded file to: /Users/arnavpallem/Desktop/TartanHacks26/temp/Misc_Dunkin_87.18_1-29-26.pdf
+2026-02-07 16:39:45,085 - services.ocr_processor - INFO - Processing receipt: /Users/arnavpallem/Desktop/TartanHacks26/temp/Misc_Dunkin_87.18_1-29-26.pdf
+2026-02-07 16:39:47,381 - services.ocr_processor - INFO - Gemini extracted: {'vendor': "Dunkin'", 'date': '01/29/2026', 'amount': 87.18, 'category': 'Misc', 'short_description': "Box O' Joe", 'is_food': True, 'confidence': 95}
+2026-02-07 16:39:47,387 - services.ocr_processor - INFO - Extracted: vendor=Dunkin', date=2026-01-29 00:00:00, amount=87.18, category=Misc, confidence=95%
+2026-02-07 16:40:42,657 - services.tpr_automation - INFO - Browser started with persistent profile
+2026-02-07 16:40:42,658 - services.tpr_automation - INFO - 🔐 Navigating to TPR form...
+2026-02-07 16:40:45,157 - services.tpr_automation - INFO - 🔑 Clicking Sign In...
+2026-02-07 16:40:47,283 - services.tpr_automation - INFO - 🔑 Entering credentials...
+2026-02-07 16:40:47,715 - services.tpr_automation - INFO - 🔐 Submitting login...
+2026-02-07 16:40:50,876 - services.tpr_automation - INFO - ⏳ Waiting for TPR form to load (complete 2FA if prompted)...
+2026-02-07 16:40:57,053 - services.tpr_automation - INFO - ✅ Login successful! Form is ready.
+2026-02-07 16:40:57,264 - services.tpr_automation - INFO - 📝 Filling Page 1 - Preparer Details...
+2026-02-07 16:41:01,080 - services.tpr_automation - INFO - Selected 'No' from dropdown qff044216c0c0371873df8535121951a2e30b5ae6
+2026-02-07 16:41:01,506 - services.tpr_automation - INFO - Selected 'PCard/Travel Card/HazMat Card' from dropdown qf79cf22d534268b1bf2b1f6f0fc3f109d6221475
+2026-02-07 16:41:01,926 - services.tpr_automation - INFO - Selected 'Yes' from dropdown q6dcbaa2e5c4c019f0ed81c6e3ab0a069b2d7186a
+2026-02-07 16:41:02,554 - services.tpr_automation - INFO - Selected 'Other' from dropdown q19da8dcd4690bc026113caa40404b16790f15cf3
+2026-02-07 16:41:08,399 - services.tpr_automation - INFO - Selected 'Agency' by value from dropdown qdefce2003f32081f8a2a64148773a5a1ba9b41b3
+2026-02-07 16:41:08,930 - services.tpr_automation - INFO - Selected 'No' from dropdown qaece189b0a164fc94f7b00751eac4baa171bf8eb
+2026-02-07 16:41:08,933 - services.tpr_automation - INFO - ✅ Page 1 complete
+2026-02-07 16:41:12,437 - services.tpr_automation - INFO - 📝 Filling Page 2 - Purchasing Information...
+2026-02-07 16:41:13,291 - services.tpr_automation - INFO - Selected 'No' from dropdown q8ebb6bca519bb54e1c45d50673a5f1a1e5752bde
+2026-02-07 16:41:13,912 - services.tpr_automation - INFO - Selected 'Less than or equal to 5' from dropdown q3a4d41749358f266ed855aeb3d29ac79afd2e6ad
+2026-02-07 16:41:14,535 - services.tpr_automation - INFO - Entered attendee names: John Smith, Jane Doe, Bob Wilson, Billy Joel
+2026-02-07 16:41:14,536 - services.tpr_automation - INFO - ✅ Page 2 complete
+2026-02-07 16:41:17,214 - services.tpr_automation - INFO - 📝 Filling Page 3 - Receipt Details...
+2026-02-07 16:41:18,473 - services.tpr_automation - INFO - Entered date: 01292026
+2026-02-07 16:41:18,703 - services.tpr_automation - INFO - 📎 Receipt uploaded
+2026-02-07 16:41:21,995 - services.tpr_automation - INFO - Selected 'Yes' from dropdown q858fbb6a128a9eb779b71c2a37677dc11dbf3317
+2026-02-07 16:41:22,618 - services.tpr_automation - INFO - Selected 'No' from dropdown q038d1874a2b91c02a871d70276ab568526f79553
+2026-02-07 16:41:23,242 - services.tpr_automation - INFO - Selected 'No' from dropdown qbdedddc80be3684bb95f4cc1b3705c5af1d73d84
+2026-02-07 16:41:23,747 - services.tpr_automation - INFO - ✅ Page 3 complete
+2026-02-07 16:41:26,470 - services.tpr_automation - INFO - 🎬 **DEMO MODE** - Skipping actual submission
+2026-02-07 16:41:26,639 - services.tpr_automation - INFO - 📋 Form is filled and ready for review!
+2026-02-07 16:41:29,819 - services.tpr_automation - INFO - Demo mode: returning mock TPR number DEMO-123456
+2026-02-07 16:41:30,245 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-07 16:41:30,248 - services.google_drive - INFO - Google Drive authenticated successfully
+2026-02-07 16:41:30,729 - services.google_drive - INFO - Resolved shortcut 'Spring Carnival 2026' to folder ID: 1X3udtQgIRcN6rG...
+2026-02-07 16:41:33,812 - services.google_drive - INFO - Uploaded file: Misc_Dunkin'_87_18_01-29-26.pdf (ID: 1n2nsDwZ1_LJ0Bxl14c4VEeXbwv1raEZe)
+2026-02-07 16:41:36,101 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-07 16:41:36,105 - services.google_sheets - INFO - Google Sheets authenticated successfully
+2026-02-07 16:41:36,106 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-07 16:41:36,554 - services.google_sheets - INFO - Matched to sheet: Misc Line Items
+2026-02-07 16:41:38,763 - services.line_item_classifier - INFO - LLM classified 'Dunkin'' (Bought Dunkin Donuts for a GBM...) as line item: 'General Body Meeting'
+2026-02-07 16:41:38,766 - services.google_sheets - INFO - LLM matched to line item: General Body Meeting (row 14)
+2026-02-07 16:41:40,682 - services.google_sheets - INFO - Updated budget sheet: Dunkin' 01-29
+2026-02-07 16:41:40,683 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-02-07 16:41:42,063 - services.google_sheets - INFO - Using sheet name: Sheet1
+2026-02-07 16:41:42,309 - services.google_sheets - INFO - Updated TPR tracking: Dunkin' 01-29 - DEMO-123456
+2026-02-07 16:43:57,122 - services.email_webhook - INFO - Received email from treasurer@springcarnival.org: Fwd: Spring Carnival Committee, your plan has renewed
+2026-02-07 16:43:57,124 - services.email_webhook - INFO - Saved PDF attachment: /Users/arnavpallem/Desktop/TartanHacks26/temp/email_receipt_20260207_164357.pdf
+2026-02-07 16:43:57,124 - services.ocr_processor - INFO - Processing receipt: /Users/arnavpallem/Desktop/TartanHacks26/temp/email_receipt_20260207_164357.pdf
+2026-02-07 16:43:59,509 - services.ocr_processor - INFO - Gemini extracted: {'vendor': 'Slack', 'date': '11/14/2025', 'amount': 86.12, 'category': 'Misc', 'short_description': 'Pro monthly plan', 'is_food': False, 'confidence': 95}
+2026-02-07 16:43:59,513 - services.ocr_processor - INFO - Extracted: vendor=Slack, date=2025-11-14 00:00:00, amount=86.12, category=Misc, confidence=95%
+2026-02-07 16:43:59,513 - services.email_webhook - INFO - Extracted receipt: Slack - $86.12
+2026-02-07 16:43:59,776 - services.email_webhook - INFO - Posted to Slack channel C0ADL6ESN4A, thread: 1770500639.745459
+2026-02-07 16:43:59,780 - services.justification_store - INFO - Found matching justification for 'Slack' -> 'slack' (score: 100.0)
+2026-02-07 16:44:01,125 - services.email_webhook - ERROR - Error in TPR automation
+Traceback (most recent call last):
+  File "/Users/arnavpallem/Desktop/TartanHacks26/services/email_webhook.py", line 339, in process_email_receipt
+    tpr_number = await tpr_automation.process_tpr(tpr_request, demo_mode=demo_mode)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/arnavpallem/Desktop/TartanHacks26/services/tpr_automation.py", line 580, in process_tpr
+    await self.start()
+  File "/Users/arnavpallem/Desktop/TartanHacks26/services/tpr_automation.py", line 122, in start
+    self.context = await playwright.chromium.launch_persistent_context(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/arnavpallem/Desktop/TartanHacks26/venv/lib/python3.11/site-packages/playwright/async_api/_generated.py", line 14840, in launch_persistent_context
+    await self._impl_obj.launch_persistent_context(
+  File "/Users/arnavpallem/Desktop/TartanHacks26/venv/lib/python3.11/site-packages/playwright/_impl/_browser_type.py", line 164, in launch_persistent_context
+    result = await self._channel.send_return_as_dict(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/arnavpallem/Desktop/TartanHacks26/venv/lib/python3.11/site-packages/playwright/_impl/_connection.py", line 83, in send_return_as_dict
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/arnavpallem/Desktop/TartanHacks26/venv/lib/python3.11/site-packages/playwright/_impl/_connection.py", line 559, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.Error: BrowserType.launch_persistent_context: Failed to create a ProcessSingleton for your profile directory. This usually means that the profile is already in use by another instance of Chromium.
+Call log:
+  - <launching> /Applications/Google Chrome.app/Contents/MacOS/Google Chrome --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument,OptimizationHints --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --enable-automation --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --no-sandbox --user-data-dir=/Users/arnavpallem/.playwright_chrome_profile --remote-debugging-pipe about:blank
+  - <launched> pid=49206
+  - [pid=49206][err] [49206:22247958:0207/164401.106369:ERROR:chrome/browser/process_singleton_posix.cc:345] Failed to create /Users/arnavpallem/.playwright_chrome_profile/SingletonLock: File exists (17)
+  - [pid=49206][err] [49206:22247958:0207/164401.106725:ERROR:chrome/app/chrome_main_delegate.cc:510] Failed to create a ProcessSingleton for your profile directory. This means that running multiple instances would start multiple browser processes rather than opening a new window in the existing process. Aborting now to avoid profile corruption.
+  - [pid=49206] <gracefully close start>
+  - [pid=49206] <kill>
+  - [pid=49206] <will force kill>
+  - [pid=49206] exception while trying to kill process: Error: kill EPERM
+  - [pid=49206] <process did exit: exitCode=21, signal=null>
+  - [pid=49206] starting temporary directories cleanup
+  - [pid=49206] finished temporary directories cleanup
+  - [pid=49206] <gracefully close end>
+
+2026-02-07 16:44:47,454 - services.email_webhook - INFO - Received email from treasurer@springcarnival.org: Fwd: Spring Carnival Committee, your plan has renewed
+2026-02-07 16:44:47,457 - services.email_webhook - INFO - Saved PDF attachment: /Users/arnavpallem/Desktop/TartanHacks26/temp/email_receipt_20260207_164447.pdf
+2026-02-07 16:44:47,458 - services.ocr_processor - INFO - Processing receipt: /Users/arnavpallem/Desktop/TartanHacks26/temp/email_receipt_20260207_164447.pdf
+2026-02-07 16:44:49,563 - services.ocr_processor - INFO - Gemini extracted: {'vendor': 'Slack', 'date': '11/14/2025', 'amount': 86.12, 'category': 'Misc', 'short_description': 'Pro monthly plan', 'is_food': False, 'confidence': 95}
+2026-02-07 16:44:49,564 - services.ocr_processor - INFO - Extracted: vendor=Slack, date=2025-11-14 00:00:00, amount=86.12, category=Misc, confidence=95%
+2026-02-07 16:44:49,564 - services.email_webhook - INFO - Extracted receipt: Slack - $86.12
+2026-02-07 16:44:49,713 - services.email_webhook - INFO - Posted to Slack channel C0ADL6ESN4A, thread: 1770500689.685469
+2026-02-07 16:44:49,714 - services.justification_store - INFO - Found matching justification for 'Slack' -> 'slack' (score: 100.0)
+2026-02-07 16:44:50,645 - services.email_webhook - ERROR - Error in TPR automation
+Traceback (most recent call last):
+  File "/Users/arnavpallem/Desktop/TartanHacks26/services/email_webhook.py", line 339, in process_email_receipt
+    tpr_number = await tpr_automation.process_tpr(tpr_request, demo_mode=demo_mode)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/arnavpallem/Desktop/TartanHacks26/services/tpr_automation.py", line 580, in process_tpr
+    await self.start()
+  File "/Users/arnavpallem/Desktop/TartanHacks26/services/tpr_automation.py", line 122, in start
+    self.context = await playwright.chromium.launch_persistent_context(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/arnavpallem/Desktop/TartanHacks26/venv/lib/python3.11/site-packages/playwright/async_api/_generated.py", line 14840, in launch_persistent_context
+    await self._impl_obj.launch_persistent_context(
+  File "/Users/arnavpallem/Desktop/TartanHacks26/venv/lib/python3.11/site-packages/playwright/_impl/_browser_type.py", line 164, in launch_persistent_context
+    result = await self._channel.send_return_as_dict(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/arnavpallem/Desktop/TartanHacks26/venv/lib/python3.11/site-packages/playwright/_impl/_connection.py", line 83, in send_return_as_dict
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/arnavpallem/Desktop/TartanHacks26/venv/lib/python3.11/site-packages/playwright/_impl/_connection.py", line 559, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.Error: BrowserType.launch_persistent_context: Failed to create a ProcessSingleton for your profile directory. This usually means that the profile is already in use by another instance of Chromium.
+Call log:
+  - <launching> /Applications/Google Chrome.app/Contents/MacOS/Google Chrome --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument,OptimizationHints --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --enable-automation --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --no-sandbox --user-data-dir=/Users/arnavpallem/.playwright_chrome_profile --remote-debugging-pipe about:blank
+  - <launched> pid=49905
+  - [pid=49905][err] [49905:22250844:0207/164450.634108:ERROR:chrome/browser/process_singleton_posix.cc:345] Failed to create /Users/arnavpallem/.playwright_chrome_profile/SingletonLock: File exists (17)
+  - [pid=49905][err] [49905:22250844:0207/164450.634432:ERROR:chrome/app/chrome_main_delegate.cc:510] Failed to create a ProcessSingleton for your profile directory. This means that running multiple instances would start multiple browser processes rather than opening a new window in the existing process. Aborting now to avoid profile corruption.
+  - [pid=49905] <gracefully close start>
+  - [pid=49905] <kill>
+  - [pid=49905] <will force kill>
+  - [pid=49905] exception while trying to kill process: Error: kill EPERM
+  - [pid=49905] <process did exit: exitCode=21, signal=null>
+  - [pid=49905] starting temporary directories cleanup
+  - [pid=49905] finished temporary directories cleanup
+  - [pid=49905] <gracefully close end>
+
+2026-02-07 16:47:53,016 - services.email_webhook - INFO - Received email from treasurer@springcarnival.org: Fwd: Spring Carnival Committee, your plan has renewed
+2026-02-07 16:47:53,018 - services.email_webhook - INFO - Saved PDF attachment: /Users/arnavpallem/Desktop/TartanHacks26/temp/email_receipt_20260207_164753.pdf
+2026-02-07 16:47:53,018 - services.ocr_processor - INFO - Processing receipt: /Users/arnavpallem/Desktop/TartanHacks26/temp/email_receipt_20260207_164753.pdf
+2026-02-07 16:47:54,980 - services.ocr_processor - INFO - Gemini extracted: {'vendor': 'Slack', 'date': '11/14/2025', 'amount': 86.12, 'category': 'Misc', 'short_description': 'Pro monthly plan', 'is_food': False, 'confidence': 95}
+2026-02-07 16:47:54,983 - services.ocr_processor - INFO - Extracted: vendor=Slack, date=2025-11-14 00:00:00, amount=86.12, category=Misc, confidence=95%
+2026-02-07 16:47:54,984 - services.email_webhook - INFO - Extracted receipt: Slack - $86.12
+2026-02-07 16:47:55,154 - services.email_webhook - INFO - Posted to Slack channel C0ADL6ESN4A, thread: 1770500875.124199
+2026-02-07 16:47:55,154 - services.justification_store - INFO - Found matching justification for 'Slack' -> 'slack' (score: 100.0)
+2026-02-07 16:47:58,581 - services.tpr_automation - INFO - Browser started with persistent profile
+2026-02-07 16:47:58,581 - services.tpr_automation - INFO - 🔐 Navigating to TPR form...
+2026-02-07 16:48:01,345 - services.tpr_automation - INFO - 🔑 Clicking Sign In...
+2026-02-07 16:48:03,736 - services.tpr_automation - INFO - 🔑 Entering credentials...
+2026-02-07 16:48:04,169 - services.tpr_automation - INFO - 🔐 Submitting login...
+2026-02-07 16:48:07,336 - services.tpr_automation - INFO - ⏳ Waiting for TPR form to load (complete 2FA if prompted)...
+2026-02-07 16:48:13,565 - services.tpr_automation - INFO - ✅ Login successful! Form is ready.
+2026-02-07 16:48:13,744 - services.tpr_automation - INFO - 📝 Filling Page 1 - Preparer Details...
+2026-02-07 16:48:17,604 - services.tpr_automation - INFO - Selected 'No' from dropdown qff044216c0c0371873df8535121951a2e30b5ae6
+2026-02-07 16:48:18,026 - services.tpr_automation - INFO - Selected 'PCard/Travel Card/HazMat Card' from dropdown qf79cf22d534268b1bf2b1f6f0fc3f109d6221475
+2026-02-07 16:48:18,450 - services.tpr_automation - INFO - Selected 'Yes' from dropdown q6dcbaa2e5c4c019f0ed81c6e3ab0a069b2d7186a
+2026-02-07 16:48:19,066 - services.tpr_automation - INFO - Selected 'Other' from dropdown q19da8dcd4690bc026113caa40404b16790f15cf3
+2026-02-07 16:48:24,910 - services.tpr_automation - INFO - Selected 'Agency' by value from dropdown qdefce2003f32081f8a2a64148773a5a1ba9b41b3
+2026-02-07 16:48:25,438 - services.tpr_automation - INFO - Selected 'No' from dropdown qaece189b0a164fc94f7b00751eac4baa171bf8eb
+2026-02-07 16:48:25,443 - services.tpr_automation - INFO - ✅ Page 1 complete
+2026-02-07 16:48:28,952 - services.tpr_automation - INFO - 📝 Filling Page 2 - Purchasing Information...
+2026-02-07 16:48:29,985 - services.tpr_automation - INFO - Selected 'No' from dropdown q8ebb6bca519bb54e1c45d50673a5f1a1e5752bde
+2026-02-07 16:48:29,986 - services.tpr_automation - INFO - ✅ Page 2 complete
+2026-02-07 16:48:32,769 - services.tpr_automation - INFO - 📝 Filling Page 3 - Receipt Details...
+2026-02-07 16:48:34,016 - services.tpr_automation - INFO - Entered date: 11142025
+2026-02-07 16:48:34,286 - services.tpr_automation - INFO - 📎 Receipt uploaded
+2026-02-07 16:48:37,636 - services.tpr_automation - INFO - Selected 'Yes' from dropdown q858fbb6a128a9eb779b71c2a37677dc11dbf3317
+2026-02-07 16:48:38,264 - services.tpr_automation - INFO - Selected 'No' from dropdown q038d1874a2b91c02a871d70276ab568526f79553
+2026-02-07 16:48:38,877 - services.tpr_automation - INFO - Selected 'No' from dropdown qbdedddc80be3684bb95f4cc1b3705c5af1d73d84
+2026-02-07 16:48:39,383 - services.tpr_automation - INFO - ✅ Page 3 complete
+2026-02-07 16:48:42,258 - services.tpr_automation - INFO - 🎬 **DEMO MODE** - Skipping actual submission
+2026-02-07 16:48:42,434 - services.tpr_automation - INFO - 📋 Form is filled and ready for review!
+2026-02-07 16:48:45,688 - services.tpr_automation - INFO - Demo mode: returning mock TPR number DEMO-123456
+2026-02-07 16:48:48,671 - services.google_drive - INFO - Uploaded file: Misc_Slack_86_12_11-14-25.pdf (ID: 1ml-ES8OBW9fGQvjGoqq--6QTjWKV-2kk)
+2026-02-07 16:48:50,922 - services.google_sheets - INFO - Matched to sheet: Misc Line Items
+2026-02-07 16:48:52,970 - services.line_item_classifier - INFO - LLM classified 'Slack' (Slack is the primary communica...) as line item: 'Online Marketing Subscriptions'
+2026-02-07 16:48:52,975 - services.google_sheets - INFO - LLM matched to line item: Online Marketing Subscriptions (row 42)
+2026-02-07 16:48:54,741 - services.google_sheets - INFO - Updated budget sheet: Slack 11-14
+2026-02-07 16:48:55,551 - services.google_sheets - INFO - Using sheet name: Sheet1
+2026-02-07 16:48:55,789 - services.google_sheets - INFO - Updated TPR tracking: Slack 11-14 - DEMO-123456

@@ -6,15 +6,16 @@ This bot automates club financial management for Spring Carnival Committee:
 - TPR form automation
 - Google Drive uploads
 - Budget spreadsheet updates
-- Gmail monitoring for receipts
+- Email webhook for receipt forwarding
 """
 import asyncio
 import logging
 import sys
-import schedule
 from datetime import datetime
 
-from config.settings import validate_config, SlackConfig
+import argparse
+
+from config.settings import validate_config, SlackConfig, MailgunConfig
 from services.slack_bot import start_slack_bot, get_slack_bot
 from services.gmail_monitor import run_daily_gmail_check
 
@@ -57,15 +58,30 @@ async def schedule_gmail_check():
 
 async def main():
     """Main entry point for the Finance Bot."""
+    
+    # Parse command line arguments first
+    parser = argparse.ArgumentParser(description='Finance Automation Bot')
+    parser.add_argument('--demo', action='store_true', 
+                      help='Run in demo mode (skip actual TPR submission)')
+    parser.add_argument('--webhook', action='store_true',
+                      help='Run email webhook server for Mailgun inbound emails')
+    args = parser.parse_args()
+    
     print("""
     ╔═══════════════════════════════════════════════════════════╗
     ║     Finance Automation Bot - Spring Carnival Committee    ║
     ╠═══════════════════════════════════════════════════════════╣
     ║  📄 Receipt Processing    📝 TPR Automation               ║
     ║  ☁️  Google Drive         📊 Sheets Integration           ║
-    ║  📧 Gmail Monitoring                                      ║
+    ║  📧 Email Webhook                                         ║
     ╚═══════════════════════════════════════════════════════════╝
     """)
+    
+    if args.demo:
+        print("🎬 DEMO MODE ENABLED - TPR forms will not be submitted")
+    
+    if args.webhook:
+        print(f"📧 EMAIL WEBHOOK ENABLED - Listening on port {MailgunConfig.WEBHOOK_PORT}")
     
     # Validate configuration
     logger.info("Validating configuration...")
@@ -84,16 +100,30 @@ async def main():
     
     # Start services
     try:
+        tasks = []
+        
         # Start Gmail monitoring in background
         gmail_task = asyncio.create_task(schedule_gmail_check())
+        tasks.append(gmail_task)
+        
+        # Start webhook server if enabled
+        if args.webhook:
+            from services.email_webhook import run_webhook_server_async, set_demo_mode
+            # Set demo mode for email webhook processing
+            set_demo_mode(args.demo)
+            logger.info("Starting email webhook server...")
+            webhook_task = asyncio.create_task(run_webhook_server_async())
+            tasks.append(webhook_task)
         
         # Start Slack bot (this blocks)
         logger.info("Starting Slack bot...")
         print("\n✅ Bot is running! Mention it in Slack with a receipt to get started.")
         print("   Format: @FinanceBot [receipt.pdf] Description of purchase")
+        if args.webhook:
+            print(f"\n📧 Webhook listening at: http://localhost:{MailgunConfig.WEBHOOK_PORT}/webhook/mailgun")
         print("\n   Press Ctrl+C to stop.\n")
         
-        await start_slack_bot()
+        await start_slack_bot(demo_mode=args.demo)
         
     except KeyboardInterrupt:
         logger.info("Shutting down...")
@@ -105,3 +135,4 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
+

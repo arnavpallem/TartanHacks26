@@ -21,11 +21,11 @@ BUDGET_SHEETS = [
 
 # Department keywords for line item matching
 DEPARTMENT_KEYWORDS = {
-    "Misc": ["misc", "general", "office", "admin", "gbm", "meeting", "exec", "stoles"],
+    "Misc": ["misc", "general", "office", "admin", "gbm", "meeting", "exec", "stoles", "subscription", "slack", "google", "workspace", "software", "saas", "online"],
     "Operations": ["operations", "ops", "logistics", "equipment", "tools", "supplies"],
     "Electrical": ["electrical", "electric", "power", "lights", "wiring", "cables"],
     "Booth": ["booth", "construction", "paint", "lumber", "hardware", "decorations"],
-    "Entertainment": ["entertainment", "music", "audio", "video", "performance", "show"],
+    "Entertainment": ["entertainment", "music", "audio", "video", "performance", "show", "speaker", "dj"],
 }
 
 # TPR Tracking Sheet columns (0-indexed)

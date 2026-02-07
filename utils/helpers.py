@@ -114,6 +114,24 @@ def format_amount_for_tpr(amount: Decimal) -> str:
     return f"{amount:.2f}"
 
 
+def sanitize_for_tpr(text: str) -> str:
+    """
+    Sanitize text for TPR form fields.
+    The TPR form is very strict and doesn't accept any punctuation.
+    Keeps only alphanumeric characters and spaces.
+    """
+    if not text:
+        return ""
+    
+    # Remove ALL punctuation - keep only letters, numbers, and spaces
+    sanitized = re.sub(r'[^a-zA-Z0-9\s]', ' ', text)
+    
+    # Clean up multiple spaces
+    sanitized = re.sub(r'\s+', ' ', sanitized).strip()
+    
+    return sanitized
+
+
 def sanitize_filename(filename: str) -> str:
     """Remove or replace invalid characters from filename."""
     # Replace invalid characters with underscores
@@ -123,12 +141,49 @@ def sanitize_filename(filename: str) -> str:
     return sanitized or "receipt"
 
 
-def generate_receipt_filename(vendor: str, date_str: str, amount: Decimal) -> str:
+def generate_receipt_filename(
+    vendor: str, 
+    date_str: str, 
+    amount: Decimal,
+    department: str = "Misc"
+) -> str:
     """
     Generate a standardized receipt filename.
-    Format: Dept_VendorName_Amount.pdf
+    Format: Department_Vendor_Amount_MM-DD-YY.pdf
+    
+    Args:
+        vendor: Vendor name
+        date_str: Date string (will be converted to MM-DD-YY)
+        amount: Purchase amount
+        department: Budget department (default: Misc)
+        
+    Returns:
+        Formatted filename
     """
+    # Clean department (remove "Line Items" suffix if present)
+    dept_clean = sanitize_filename(department.replace(" Line Items", ""))[:15]
+    
+    # Clean vendor name (first word only, max 20 chars)
     vendor_clean = sanitize_filename(vendor.split()[0] if vendor else "Unknown")[:20]
+    
+    # Format amount (no decimal point for clean filename)
     amount_str = f"{amount:.2f}".replace(".", "_")
     
-    return f"Misc_{vendor_clean}_{amount_str}.pdf"
+    # Parse and format date as MM-DD-YY
+    from datetime import datetime
+    try:
+        # Try to parse various date formats
+        for fmt in ["%m/%d/%Y", "%Y-%m-%d", "%m-%d-%Y", "%m/%d/%y"]:
+            try:
+                dt = datetime.strptime(date_str, fmt)
+                date_formatted = dt.strftime("%m-%d-%y")
+                break
+            except ValueError:
+                continue
+        else:
+            # If no format matched, use today
+            date_formatted = datetime.now().strftime("%m-%d-%y")
+    except Exception:
+        date_formatted = datetime.now().strftime("%m-%d-%y")
+    
+    return f"{dept_clean}_{vendor_clean}_{amount_str}_{date_formatted}.pdf"

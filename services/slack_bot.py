@@ -21,6 +21,7 @@ from services.tpr_automation import TPRFormAutomation, create_tpr_request
 from services.google_drive import upload_receipt_to_drive
 from services.google_sheets import update_budget, update_tpr_tracking
 from utils.helpers import extract_one_word_descriptor, generate_receipt_filename
+from services.justification_store import find_matching_justification, save_justification
 
 logger = logging.getLogger(__name__)
 
@@ -34,9 +35,10 @@ app = AsyncApp(
 class SlackBotService:
     """Main Slack bot service for handling receipt processing."""
     
-    def __init__(self):
+    def __init__(self, demo_mode: bool = False):
         self.app = app
         self.client: Optional[AsyncWebClient] = None
+        self.demo_mode = demo_mode
         self._setup_handlers()
     
     def _setup_handlers(self):
@@ -121,20 +123,102 @@ class SlackBotService:
                 return
             
             # Report extracted data
+            food_indicator = "🍕 " if receipt_data.is_food else ""
             await say(
                 f"✅ **Extracted Data:**\n"
                 f"• Vendor: {receipt_data.vendor}\n"
                 f"• Date: {receipt_data.formatted_date}\n"
-                f"• Amount: ${receipt_data.formatted_amount}\n\n"
-                f"🔄 Starting TPR form automation...",
+                f"• Amount: ${receipt_data.formatted_amount}\n"
+                f"• Category: {receipt_data.category}\n"
+                f"• Description: {receipt_data.short_description}\n"
+                f"{food_indicator}Food Purchase: {'Yes' if receipt_data.is_food else 'No'}",
                 thread_ts=thread_ts
             )
             
-            # Create TPR request
+            # If food purchase, ask for attendee information
+            attendee_count = None
+            attendee_names = None
+            
+            if receipt_data.is_food:
+                # Track last message timestamp to avoid picking up same response twice
+                last_seen_ts = thread_ts
+                
+                # Get user ID from event for pinging
+                user_id = event.get("user", "")
+                ping = f"<@{user_id}> " if user_id else ""
+                
+                # Ask for attendee count - ping the user
+                await say(
+                    f"{ping}🍕 **Food Purchase Detected!**\n\n"
+                    "How many people consumed this food?\n"
+                    "Please reply with just a number (e.g., `3` or `15`).",
+                    thread_ts=thread_ts
+                )
+                
+                # Wait for user response
+                count_response, last_seen_ts = await self._wait_for_reply(
+                    event.get("channel"), 
+                    thread_ts, 
+                    client,
+                    timeout=120,
+                    after_ts=last_seen_ts
+                )
+                
+                if count_response is None:
+                    await say(
+                        "⏰ No response received. Proceeding without attendee information.\n"
+                        "You may need to fill this in manually on the TPR form.",
+                        thread_ts=thread_ts
+                    )
+                else:
+                    try:
+                        attendee_count = int(count_response.strip())
+                        await say(f"✅ Got it - {attendee_count} attendees.", thread_ts=thread_ts)
+                        
+                        # If 5 or fewer, ask for names
+                        if attendee_count <= 5:
+                            await say(
+                                f"{ping}Since there are {attendee_count} or fewer attendees, "
+                                "I need their names.\n\n"
+                                "Please reply with all names separated by commas.\n"
+                                "Example: `John Smith, Jane Doe, Bob Wilson`",
+                                thread_ts=thread_ts
+                            )
+                            
+                            # Wait for names, using the updated last_seen_ts
+                            names_response, _ = await self._wait_for_reply(
+                                event.get("channel"),
+                                thread_ts,
+                                client,
+                                timeout=120,
+                                after_ts=last_seen_ts  # Don't pick up the count response again
+                            )
+                            
+                            if names_response:
+                                attendee_names = names_response
+                                await say(f"✅ Names recorded: {attendee_names}", thread_ts=thread_ts)
+                            else:
+                                await say(
+                                    "⏰ No names received. You may need to fill this in manually.",
+                                    thread_ts=thread_ts
+                                )
+                    except ValueError:
+                        await say(
+                            f"⚠️ Couldn't parse '{count_response}' as a number. "
+                            "Proceeding without attendee information.",
+                            thread_ts=thread_ts
+                        )
+                        attendee_count = None
+            
+            await say("🔄 Starting TPR form automation...", thread_ts=thread_ts)
+            
+            # Create TPR request with food info
             tpr_request = await create_tpr_request(
                 receipt=receipt_data,
                 justification=slack_message.justification,
-                department=slack_message.department
+                department=slack_message.department,
+                attendee_count=attendee_count,
+                attendee_names=attendee_names
             )
             
             # Start TPR automation
@@ -144,7 +228,7 @@ class SlackBotService:
             tpr_automation = TPRFormAutomation(headless=False)
             tpr_automation.set_notify_callback(notify_callback)
             
-            tpr_number = await tpr_automation.process_tpr(tpr_request)
+            tpr_number = await tpr_automation.process_tpr(tpr_request, demo_mode=self.demo_mode)
             
             if not tpr_number:
                 await say(
@@ -160,7 +244,8 @@ class SlackBotService:
             receipt_filename = generate_receipt_filename(
                 receipt_data.vendor,
                 receipt_data.formatted_date,
-                receipt_data.amount
+                receipt_data.amount,
+                department=receipt_data.category or slack_message.department or "Misc"
             )
             receipt_link = await upload_receipt_to_drive(file_path, receipt_filename)
             
@@ -170,10 +255,12 @@ class SlackBotService:
             purchase = Purchase(
                 description=f"{receipt_data.vendor} - {slack_message.justification[:50]}",
                 amount=receipt_data.amount,
+                vendor=receipt_data.vendor,  # Vendor for display_name
                 receipt_link=receipt_link,
                 tpr_number=tpr_number,
                 department=slack_message.department,
-                date=receipt_data.date
+                date=receipt_data.date,
+                justification=slack_message.justification
             )
             
             await update_budget(purchase)
@@ -188,6 +275,36 @@ class SlackBotService:
                 f"• TPR Tracking: ✅ Updated",
                 thread_ts=thread_ts
             )
+            
+            # Ask if this is a recurring purchase
+            await say(
+                "🔄 Is this a **recurring purchase** (e.g., monthly subscription)?\n"
+                "Reply `yes` to save this justification for future purchases from this vendor, "
+                "or `no` to continue.",
+                thread_ts=thread_ts
+            )
+            
+            # Wait for response
+            recurring_response, _ = await self._wait_for_reply(
+                event.get("channel"),
+                thread_ts,
+                client,
+                timeout=60,
+                after_ts=thread_ts
+            )
+            
+            if recurring_response and recurring_response.strip().lower() in ["yes", "y"]:
+                # Save the justification for this vendor
+                save_justification(
+                    vendor=receipt_data.vendor,
+                    justification=slack_message.justification,
+                    category=receipt_data.category or "Misc"
+                )
+                await say(
+                    f"✅ Saved! Future purchases from *{receipt_data.vendor}* will suggest:\n"
+                    f"_{slack_message.justification}_",
+                    thread_ts=thread_ts
+                )
             
         except Exception as e:
             logger.exception("Error processing receipt")
@@ -215,6 +332,58 @@ class SlackBotService:
         logger.info(f"Downloaded file to: {file_path}")
         return file_path
     
+    async def _wait_for_reply(
+        self, 
+        channel: str, 
+        thread_ts: str, 
+        client: AsyncWebClient, 
+        timeout: int = 120,
+        after_ts: str = None
+    ) -> tuple[Optional[str], str]:
+        """
+        Wait for a user reply in a thread.
+        
+        Args:
+            channel: Channel ID
+            thread_ts: Thread timestamp to watch
+            client: Slack client
+            timeout: Seconds to wait for response
+            after_ts: Only return messages newer than this timestamp
+            
+        Returns:
+            Tuple of (reply text or None, timestamp of last message seen)
+        """
+        poll_interval = 2  # seconds
+        elapsed = 0
+        last_message_ts = after_ts or thread_ts
+        
+        while elapsed < timeout:
+            await asyncio.sleep(poll_interval)
+            elapsed += poll_interval
+            
+            try:
+                # Get thread replies
+                result = await client.conversations_replies(
+                    channel=channel,
+                    ts=thread_ts,
+                    limit=20
+                )
+                
+                messages = result.get("messages", [])
+                
+                # Look for new messages from users (not from bot)
+                for msg in reversed(messages):
+                    msg_ts = msg.get("ts", "")
+                    # Check if this is a newer message and not from the bot
+                    if msg_ts > last_message_ts and not msg.get("bot_id"):
+                        # Found a user reply - return it with its timestamp
+                        return msg.get("text", ""), msg_ts
+                        
+            except Exception as e:
+                logger.warning(f"Error polling for reply: {e}")
+        
+        return None, last_message_ts
+    
     async def send_message(self, channel: str, text: str, thread_ts: str = None):
         """Send a message to a channel."""
         if self.client:
@@ -235,15 +404,15 @@ class SlackBotService:
 _bot: Optional[SlackBotService] = None
 
 
-def get_slack_bot() -> SlackBotService:
+def get_slack_bot(demo_mode: bool = False) -> SlackBotService:
     """Get the global Slack bot instance."""
     global _bot
     if _bot is None:
-        _bot = SlackBotService()
+        _bot = SlackBotService(demo_mode=demo_mode)
     return _bot
 
 
-async def start_slack_bot():
+async def start_slack_bot(demo_mode: bool = False):
     """Start the Slack bot."""
-    bot = get_slack_bot()
+    bot = get_slack_bot(demo_mode=demo_mode)
     await bot.start()

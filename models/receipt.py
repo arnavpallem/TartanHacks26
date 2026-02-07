@@ -21,6 +21,7 @@ class ReceiptData:
     short_description: Optional[str] = None  # 2-4 word description
     is_food: bool = False  # For TPR form
     is_travel: bool = False  # For TPR form
+    confidence: int = 0  # 0-100, auto-approve if >= 90
     
     @property
     def formatted_date(self) -> str:
@@ -43,6 +44,7 @@ class TPRRequest:
     is_travel: bool = False
     is_food: bool = False
     attendee_count: Optional[int] = None
+    attendee_names: Optional[str] = None  # Comma-separated names for <=5 attendees
     tpr_number: Optional[str] = None
     
     @property
@@ -57,15 +59,26 @@ class Purchase:
     """A processed purchase ready for spreadsheet entry."""
     description: str
     amount: Decimal
+    vendor: str = ""
     receipt_link: str = ""
     tpr_number: str = ""
     department: Optional[str] = None
     date: Optional[datetime] = None
+    justification: str = ""  # For LLM line item classification
     
     @property
     def amount_negative(self) -> str:
         """Return amount as negative value for budget 'Actual' column."""
         return f"-{self.amount:.2f}"
+    
+    @property
+    def display_name(self) -> str:
+        """Return vendor + date for sheet display (e.g., 'Dunkin 01-29')."""
+        vendor_part = self.vendor or self.description[:15]
+        if self.date:
+            date_part = self.date.strftime("%m-%d")
+            return f"{vendor_part} {date_part}"
+        return vendor_part
 
 
 @dataclass

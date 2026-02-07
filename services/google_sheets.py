@@ -134,10 +134,11 @@ class GoogleSheetsService:
         ).execute()
         return result.get('values', [])
     
-    def find_line_item_row(self, sheet_name: str, description: str) -> Tuple[int, str]:
+    def find_line_item_row(self, sheet_name: str, description: str, vendor: str = "", amount: float = 0, category: str = "", justification: str = "") -> Tuple[int, str]:
         """
         Find the row number of the best matching line item in a budget sheet.
         Line items are bold rows that serve as category headers.
+        Uses LLM for intelligent classification.
         
         Returns:
             Tuple of (row_number, line_item_name)
@@ -168,17 +169,38 @@ class GoogleSheetsService:
                     if cell_value:
                         bold_rows.append((i + 1, cell_value))  # 1-indexed
         
-        # Match description to line items using fuzzy matching
+        # Use LLM classifier to match line item
         if bold_rows:
-            from rapidfuzz import fuzz, process
-            line_item_names = [row[1] for row in bold_rows]
-            result = process.extractOne(description, line_item_names, scorer=fuzz.partial_ratio)
+            from services.line_item_classifier import classify_line_item
             
-            if result and result[1] > 50:
-                matched_name = result[0]
-                for row_num, name in bold_rows:
-                    if name == matched_name:
-                        return (row_num, name)
+            # Filter out invalid line items (headers, totals, etc.)
+            invalid_patterns = ["grand total", "total", "subtotal", "summary"]
+            valid_rows = [
+                (row_num, name) for row_num, name in bold_rows
+                if name.lower().strip() not in invalid_patterns
+                and not name.lower().startswith("total")
+                and len(name.strip()) > 2
+            ]
+            
+            if not valid_rows:
+                valid_rows = bold_rows  # Fallback to all if filtering removes everything
+            
+            line_item_names = [row[1] for row in valid_rows]
+            
+            # Use LLM to classify
+            matched_name = classify_line_item(
+                vendor=vendor,
+                amount=amount,
+                description=description,
+                category=category,
+                line_items=line_item_names,
+                justification=justification
+            )
+            
+            # Find the row number for the matched name
+            for row_num, name in bold_rows:
+                if name == matched_name:
+                    return (row_num, name)
         
         # Default to first line item if no match
         if bold_rows:
@@ -226,8 +248,8 @@ class GoogleSheetsService:
         
         1. Determine which sheet based on department/description
         2. Find the matching line item
-        3. Insert a new row above the line item
-        4. Fill in the purchase details
+        3. Move one row up from line item, then insert above (preserves formatting)
+        4. Fill in the purchase details with vendor+date name and HYPERLINK chip
         """
         if not self.service:
             self.authenticate()
@@ -238,40 +260,57 @@ class GoogleSheetsService:
         sheet_name = match_department(purchase.description, purchase.department)
         logger.info(f"Matched to sheet: {sheet_name}")
         
-        # Find the line item row
-        line_item_row, line_item_name = self.find_line_item_row(sheet_name, purchase.description)
-        logger.info(f"Matched to line item: {line_item_name} (row {line_item_row})")
+        # Find the line item row using LLM classification
+        line_item_row, line_item_name = self.find_line_item_row(
+            sheet_name=sheet_name,
+            description=purchase.description,
+            vendor=purchase.vendor,
+            amount=float(purchase.amount),
+            category=purchase.department or "",
+            justification=purchase.justification
+        )
+        logger.info(f"LLM matched to line item: {line_item_name} (row {line_item_row})")
         
-        # Insert row above line item
-        self.insert_row_above(spreadsheet_id, sheet_name, line_item_row)
+        # Insert row ONE ABOVE the line item (move up first, then insert)
+        # This preserves formatting by inserting between existing data row and line item
+        insert_at_row = line_item_row - 1 if line_item_row > 2 else line_item_row
+        self.insert_row_above(spreadsheet_id, sheet_name, insert_at_row)
         
-        # Fill in the new row (now at line_item_row)
+        # Create HYPERLINK formula for clickable link chip
+        if purchase.receipt_link:
+            # HYPERLINK formula creates a clickable chip in Google Sheets
+            link_formula = f'=HYPERLINK("{purchase.receipt_link}", "Receipt")'
+        else:
+            link_formula = ''
+        
+        # Fill in the new row (now at insert_at_row)
+        # Use display_name (vendor + date) instead of description
         values = [
             [
-                purchase.description,           # Column A - Description
+                purchase.display_name,          # Column A - Vendor + Date name
                 purchase.amount_negative,       # Column B - Actual (negative)
                 '',                             # Column C
                 '',                             # Column D
                 '',                             # Column E
                 '',                             # Column F
-                purchase.receipt_link           # Column G - Receipt link
+                link_formula                    # Column G - Receipt link as HYPERLINK chip
             ]
         ]
         
         self.service.spreadsheets().values().update(
             spreadsheetId=spreadsheet_id,
-            range=f"'{sheet_name}'!A{line_item_row}:G{line_item_row}",
+            range=f"'{sheet_name}'!A{insert_at_row}:G{insert_at_row}",
             valueInputOption='USER_ENTERED',
             body={'values': values}
         ).execute()
         
-        logger.info(f"Updated budget sheet: {purchase.description}")
+        logger.info(f"Updated budget sheet: {purchase.display_name}")
     
     def update_tpr_tracking(self, purchase: Purchase):
         """
         Add a purchase to the TPR tracking sheet.
         
-        Columns: B=Description, C=Amount, D=TPR#
+        Columns: B=Name (Vendor+Date), C=Amount, D=TPR#
         (Skip A=Person and E=Reimbursement)
         """
         if not self.service:
@@ -292,14 +331,14 @@ class GoogleSheetsService:
         sheet_name = sheets[0]['properties']['title']
         logger.info(f"Using sheet name: {sheet_name}")
         
-        # Append new row
+        # Append new row - use display_name (vendor + date)
         values = [
             [
-                '',                      # Column A - Person (skip)
-                purchase.description,    # Column B - Description
-                float(purchase.amount),  # Column C - Amount
-                purchase.tpr_number,     # Column D - TPR #
-                ''                       # Column E - Reimbursement (skip)
+                '',                          # Column A - Person (skip)
+                purchase.display_name,       # Column B - Vendor + Date name
+                float(purchase.amount),      # Column C - Amount
+                purchase.tpr_number,         # Column D - TPR #
+                ''                           # Column E - Reimbursement (skip)
             ]
         ]
         
@@ -311,7 +350,7 @@ class GoogleSheetsService:
             body={'values': values}
         ).execute()
         
-        logger.info(f"Updated TPR tracking: {purchase.description} - {purchase.tpr_number}")
+        logger.info(f"Updated TPR tracking: {purchase.display_name} - {purchase.tpr_number}")
 
 
 # Global instance
