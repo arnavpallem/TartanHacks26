@@ -1,0 +1,414 @@
+2026-02-06 17:10:50,790 - __main__ - INFO - Validating configuration...
+2026-02-06 17:10:50,790 - __main__ - INFO - Configuration validated ✓
+2026-02-06 17:10:50,790 - __main__ - INFO - Starting Slack bot...
+2026-02-06 17:10:50,791 - services.slack_bot - INFO - Starting Slack bot...
+2026-02-06 17:11:18,403 - asyncio - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x11455ad90>
+2026-02-06 20:45:50,870 - __main__ - INFO - Validating configuration...
+2026-02-06 20:45:50,870 - __main__ - INFO - Configuration validated ✓
+2026-02-06 20:45:50,870 - __main__ - INFO - Starting Slack bot...
+2026-02-06 20:45:50,871 - services.slack_bot - INFO - Starting Slack bot...
+2026-02-06 20:55:09,244 - services.slack_bot - INFO - Downloaded file to: /Users/arnavpallem/Desktop/TartanHacks26/temp/HW2_10403-2.pdf
+2026-02-06 20:55:09,246 - services.ocr_processor - INFO - Processing receipt: /Users/arnavpallem/Desktop/TartanHacks26/temp/HW2_10403-2.pdf
+2026-02-06 20:55:19,480 - services.ocr_processor - WARNING - Could not extract date from receipt
+2026-02-06 20:55:19,482 - services.ocr_processor - WARNING - Could not extract amount from receipt
+2026-02-06 20:56:34,750 - services.slack_bot - INFO - Downloaded file to: /Users/arnavpallem/Desktop/TartanHacks26/temp/Misc_Dunkin_87.18_1-29-26.pdf
+2026-02-06 20:56:34,751 - services.ocr_processor - INFO - Processing receipt: /Users/arnavpallem/Desktop/TartanHacks26/temp/Misc_Dunkin_87.18_1-29-26.pdf
+2026-02-06 20:56:38,245 - services.ocr_processor - INFO - Extracted: vendor=Carnegie Mellon University Mail - Your order from , date=2026-02-01 00:00:00, amount=87.18
+2026-02-06 20:56:45,056 - services.tpr_automation - INFO - Browser started
+2026-02-06 20:56:45,058 - services.tpr_automation - INFO - 🔐 Navigating to TPR form...
+2026-02-06 20:56:46,892 - services.tpr_automation - INFO - ✅ Login successful!
+2026-02-06 20:56:47,124 - services.tpr_automation - INFO - 📝 Filling Page 1 - Preparer Details...
+2026-02-06 20:56:49,304 - services.tpr_automation - INFO - ✅ Page 1 complete
+2026-02-06 20:56:49,488 - services.tpr_automation - INFO - 📝 Filling Page 2 - Purchasing Information...
+2026-02-06 20:56:49,771 - services.tpr_automation - INFO - ✅ Page 2 complete
+2026-02-06 20:56:49,955 - services.tpr_automation - INFO - 📝 Filling Page 3 - Receipt Details...
+2026-02-06 20:56:50,153 - services.tpr_automation - INFO - ✅ Page 3 complete
+2026-02-06 20:56:50,323 - services.tpr_automation - INFO - 🔍 TPR form is ready for review!
+2026-02-06 20:56:50,493 - services.tpr_automation - INFO - 👆 Please review the form in the browser and click 'Submit Form' when ready.
+2026-02-06 20:56:50,761 - services.tpr_automation - INFO - ⏳ Waiting for your submission...
+2026-02-06 20:58:31,915 - services.tpr_automation - ERROR - Error waiting for submission: Page.wait_for_selector: Target page, context or browser has been closed
+Call log:
+  - waiting for locator("text=has been submitted, text=confirmation, text=successfully submitted") to be visible
+    - waiting for navigation to finish...
+    - navigated to "https://api-2320b628.duosecurity.com/frame/frameless/v4/auth?sid=frameless-26e2e734-38a1-4d1c-b859-4538abf5c229&tx=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJkdW9fdW5hbWUiOiJhcGFsbGVtIiwic2NvcGUiOiJvcGV…"
+    - waiting for" https://api-2320b628.duosecurity.com/frame/frameless/v4/auth?sid=frameless-26e2e734-38a1-4d1c-b859-4538abf5c229&tx=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJkdW9fdW5hbWUiOiJhcGFsbGVtIiwic2NvcGUiOiJvcGV…" navigation to finish...
+    - navigated to "https://api-2320b628.duosecurity.com/frame/v4/auth/prompt?sid=frameless-26e2e734-38a1-4d1c-b859-4538abf5c229"
+    - waiting for" https://api-2320b628.duosecurity.com/frame/v4/oidc/exit" navigation to finish...
+    - navigated to "https://login.cmu.edu/idp/profile/SAML2/Redirect/SSO?execution=e1s4"
+    - waiting for" https://xforms.andrew.cmu.edu/SATransactionProcessingRequest" navigation to finish...
+    - navigated to "https://xforms.andrew.cmu.edu/SATransactionProcessingRequest"
+    - waiting for" https://xforms.andrew.cmu.edu/xfp/form/202/resume/236742" navigation to finish...
+    - navigated to "https://xforms.andrew.cmu.edu/xfp/form/202"
+    - waiting for" https://xforms.andrew.cmu.edu/xfp/form/202" navigation to finish...
+    - navigated to "https://xforms.andrew.cmu.edu/xfp/form/202"
+    - waiting for navigation to finish...
+    - navigated to "https://xforms.andrew.cmu.edu/xfp/form/202"
+    - waiting for" https://xforms.andrew.cmu.edu/xfp/form/202" navigation to finish...
+    - navigated to "https://xforms.andrew.cmu.edu/xfp/form/202"
+    - waiting for" https://xforms.andrew.cmu.edu/xfp/forms" navigation to finish...
+    - navigated to "https://xforms.andrew.cmu.edu/xfp/forms"
+    2 × waiting for" https://xforms.andrew.cmu.edu/xfp/form/202" navigation to finish...
+      - navigated to "https://xforms.andrew.cmu.edu/xfp/form/202"
+
+2026-02-06 20:59:29,912 - __main__ - INFO - Validating configuration...
+2026-02-06 20:59:29,912 - __main__ - INFO - Configuration validated ✓
+2026-02-06 20:59:29,913 - __main__ - INFO - Starting Slack bot...
+2026-02-06 20:59:29,913 - services.slack_bot - INFO - Starting Slack bot...
+2026-02-06 21:01:45,360 - services.slack_bot - INFO - Downloaded file to: /Users/arnavpallem/Desktop/TartanHacks26/temp/Misc_Dunkin_87.18_1-29-26.pdf
+2026-02-06 21:01:45,361 - services.ocr_processor - INFO - Processing receipt: /Users/arnavpallem/Desktop/TartanHacks26/temp/Misc_Dunkin_87.18_1-29-26.pdf
+2026-02-06 21:01:49,022 - services.ocr_processor - INFO - Extracted: vendor=Carnegie Mellon University Mail - Your order from , date=2026-02-01 00:00:00, amount=87.18
+2026-02-06 21:01:53,022 - services.tpr_automation - INFO - Browser started
+2026-02-06 21:01:53,022 - services.tpr_automation - INFO - 🔐 Navigating to TPR form...
+2026-02-06 21:01:54,924 - services.tpr_automation - INFO - ✅ Login successful!
+2026-02-06 21:01:55,105 - services.tpr_automation - INFO - 📝 Filling Page 1 - Preparer Details...
+2026-02-06 21:01:57,375 - services.tpr_automation - INFO - ✅ Page 1 complete
+2026-02-06 21:01:57,531 - services.tpr_automation - INFO - 📝 Filling Page 2 - Purchasing Information...
+2026-02-06 21:01:57,736 - services.tpr_automation - INFO - ✅ Page 2 complete
+2026-02-06 21:01:57,987 - services.tpr_automation - INFO - 📝 Filling Page 3 - Receipt Details...
+2026-02-06 21:01:58,170 - services.tpr_automation - INFO - ✅ Page 3 complete
+2026-02-06 21:01:58,396 - services.tpr_automation - INFO - 🔍 TPR form is ready for review!
+2026-02-06 21:01:58,632 - services.tpr_automation - INFO - 👆 Please review the form in the browser and click 'Submit Form' when ready.
+2026-02-06 21:01:58,815 - services.tpr_automation - INFO - ⏳ Waiting for your submission...
+2026-02-06 21:02:58,760 - services.tpr_automation - ERROR - Error waiting for submission: Page.wait_for_selector: Target page, context or browser has been closed
+Call log:
+  - waiting for locator("text=has been submitted, text=confirmation, text=successfully submitted") to be visible
+    - waiting for" https://api-2320b628.duosecurity.com/oauth/v1/authorize?scope=openid&nonce=fd47a307c9a1ecf6d39ee804e76188611f3e&response_type=code&redirect_uri=https%3A%2F%2Flogin.cmu.edu%2Fidp%2Fprofile%2FAuthn%2FD…" navigation to finish...
+    - navigated to "https://api-2320b628.duosecurity.com/frame/frameless/v4/auth?sid=frameless-88ae4ce3-697f-41eb-b8ae-63e3629f771b&tx=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJkdW9fdW5hbWUiOiJhcGFsbGVtIiwic2NvcGUiOiJvcGV…"
+    - waiting for navigation to finish...
+    - navigated to "https://api-2320b628.duosecurity.com/frame/v4/preauth/healthcheck?sid=frameless-88ae4ce3-697f-41eb-b8ae-63e3629f771b"
+    - waiting for" https://api-2320b628.duosecurity.com/frame/v4/return?sid=frameless-88ae4ce3-697f-41eb-b8ae-63e3629f771b" navigation to finish...
+    - navigated to "https://api-2320b628.duosecurity.com/frame/frameless/v4/auth?sid=frameless-88ae4ce3-697f-41eb-b8ae-63e3629f771b&tx=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJkdW9fdW5hbWUiOiJhcGFsbGVtIiwic2NvcGUiOiJvcGV…"
+    - waiting for" https://api-2320b628.duosecurity.com/frame/v4/auth/prompt?sid=frameless-88ae4ce3-697f-41eb-b8ae-63e3629f771b" navigation to finish...
+    - navigated to "https://api-2320b628.duosecurity.com/frame/v4/auth/prompt?sid=frameless-88ae4ce3-697f-41eb-b8ae-63e3629f771b"
+    - waiting for" https://login.cmu.edu/idp/profile/SAML2/Redirect/SSO?execution=e1s3&_eventId_proceed=1" navigation to finish...
+    - navigated to "https://login.cmu.edu/idp/profile/SAML2/Redirect/SSO?execution=e1s4"
+    - waiting for" https://xforms.andrew.cmu.edu/SATransactionProcessingRequest" navigation to finish...
+    - navigated to "https://xforms.andrew.cmu.edu/SATransactionProcessingRequest"
+    - waiting for" https://xforms.andrew.cmu.edu/xfp/form/202" navigation to finish...
+    - navigated to "https://xforms.andrew.cmu.edu/xfp/form/202"
+
+2026-02-06 21:52:25,280 - __main__ - INFO - Validating configuration...
+2026-02-06 21:52:25,280 - __main__ - INFO - Configuration validated ✓
+2026-02-06 21:52:25,280 - __main__ - INFO - Starting Slack bot...
+2026-02-06 21:52:25,281 - services.slack_bot - INFO - Starting Slack bot...
+2026-02-06 21:52:58,216 - services.slack_bot - INFO - Downloaded file to: /Users/arnavpallem/Desktop/TartanHacks26/temp/Misc_Dunkin_87.18_1-29-26.pdf
+2026-02-06 21:52:58,217 - services.ocr_processor - INFO - Processing receipt: /Users/arnavpallem/Desktop/TartanHacks26/temp/Misc_Dunkin_87.18_1-29-26.pdf
+2026-02-06 21:53:01,745 - services.ocr_processor - INFO - Extracted: vendor=Carnegie Mellon University Mail - Your order from , date=2026-02-01 00:00:00, amount=87.18
+2026-02-06 21:53:06,417 - services.tpr_automation - INFO - Browser started
+2026-02-06 21:53:06,418 - services.tpr_automation - INFO - 🔐 Navigating to TPR form...
+2026-02-06 21:53:09,388 - services.tpr_automation - INFO - ✅ Login successful!
+2026-02-06 21:53:09,914 - services.tpr_automation - INFO - 📝 Filling Page 1 - Preparer Details...
+2026-02-06 21:53:10,254 - services.slack_bot - ERROR - Error processing receipt
+Traceback (most recent call last):
+  File "/Users/arnavpallem/Desktop/TartanHacks26/services/slack_bot.py", line 147, in _process_mention
+    tpr_number = await tpr_automation.process_tpr(tpr_request)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/arnavpallem/Desktop/TartanHacks26/services/tpr_automation.py", line 457, in process_tpr
+    await self.fill_page_1(tpr_request)
+  File "/Users/arnavpallem/Desktop/TartanHacks26/services/tpr_automation.py", line 221, in fill_page_1
+    lookup_btn = await page.query_selector('.btn--lookup, button:has-text("Lookup")')
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/arnavpallem/Desktop/TartanHacks26/venv/lib/python3.11/site-packages/playwright/async_api/_generated.py", line 8140, in query_selector
+    await self._impl_obj.query_selector(selector=selector, strict=strict)
+  File "/Users/arnavpallem/Desktop/TartanHacks26/venv/lib/python3.11/site-packages/playwright/_impl/_page.py", line 407, in query_selector
+    return await self._main_frame.query_selector(selector, strict)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/arnavpallem/Desktop/TartanHacks26/venv/lib/python3.11/site-packages/playwright/_impl/_frame.py", line 348, in query_selector
+    await self._channel.send("querySelector", None, locals_to_params(locals()))
+  File "/Users/arnavpallem/Desktop/TartanHacks26/venv/lib/python3.11/site-packages/playwright/_impl/_connection.py", line 69, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/arnavpallem/Desktop/TartanHacks26/venv/lib/python3.11/site-packages/playwright/_impl/_connection.py", line 559, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.Error: Page.query_selector: Execution context was destroyed, most likely because of a navigation
+2026-02-06 21:54:26,011 - asyncio - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x11654e610>
+2026-02-06 21:57:03,260 - __main__ - INFO - Validating configuration...
+2026-02-06 21:57:03,260 - __main__ - INFO - Configuration validated ✓
+2026-02-06 21:57:03,260 - __main__ - INFO - Starting Slack bot...
+2026-02-06 21:57:03,261 - services.slack_bot - INFO - Starting Slack bot...
+2026-02-06 21:57:58,545 - services.slack_bot - INFO - Downloaded file to: /Users/arnavpallem/Desktop/TartanHacks26/temp/Misc_Dunkin_87.18_1-29-26.pdf
+2026-02-06 21:57:58,548 - services.ocr_processor - INFO - Processing receipt: /Users/arnavpallem/Desktop/TartanHacks26/temp/Misc_Dunkin_87.18_1-29-26.pdf
+2026-02-06 21:58:02,149 - services.ocr_processor - INFO - Extracted: vendor=Carnegie Mellon University Mail - Your order from , date=2026-02-01 00:00:00, amount=87.18
+2026-02-06 21:58:06,206 - services.tpr_automation - INFO - Browser started
+2026-02-06 21:58:06,207 - services.tpr_automation - INFO - 🔐 Navigating to TPR form...
+2026-02-06 21:58:14,990 - services.tpr_automation - INFO - ⏳ Waiting for TPR form to load (complete 2FA if prompted)...
+2026-02-06 21:58:50,188 - services.tpr_automation - ERROR - Login failed: Page.query_selector: Execution context was destroyed, most likely because of a navigation
+2026-02-06 21:58:50,189 - services.tpr_automation - INFO - ❌ Login failed: Page.query_selector: Execution context was destroyed, most likely because of a navigation
+2026-02-06 22:01:31,789 - asyncio - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x114715a90>
+2026-02-06 22:01:33,454 - __main__ - INFO - Validating configuration...
+2026-02-06 22:01:33,454 - __main__ - INFO - Configuration validated ✓
+2026-02-06 22:01:33,454 - __main__ - INFO - Starting Slack bot...
+2026-02-06 22:01:33,454 - services.slack_bot - INFO - Starting Slack bot...
+2026-02-06 22:01:58,747 - services.slack_bot - INFO - Downloaded file to: /Users/arnavpallem/Desktop/TartanHacks26/temp/Misc_Dunkin_87.18_1-29-26.pdf
+2026-02-06 22:01:58,748 - services.ocr_processor - INFO - Processing receipt: /Users/arnavpallem/Desktop/TartanHacks26/temp/Misc_Dunkin_87.18_1-29-26.pdf
+2026-02-06 22:02:02,170 - services.ocr_processor - INFO - Extracted: vendor=Carnegie Mellon University Mail - Your order from , date=2026-02-01 00:00:00, amount=87.18
+2026-02-06 22:02:04,920 - services.tpr_automation - INFO - Browser started
+2026-02-06 22:02:04,922 - services.tpr_automation - INFO - 🔐 Navigating to TPR form...
+2026-02-06 22:02:08,727 - services.tpr_automation - INFO - ⏳ Waiting for TPR form to load (complete 2FA if prompted)...
+2026-02-06 22:02:40,177 - services.tpr_automation - INFO - ✅ Login successful! Form is ready.
+2026-02-06 22:02:40,812 - services.tpr_automation - INFO - 📝 Filling Page 1 - Preparer Details...
+2026-02-06 22:03:45,393 - services.slack_bot - ERROR - Error processing receipt
+Traceback (most recent call last):
+  File "/Users/arnavpallem/Desktop/TartanHacks26/services/slack_bot.py", line 147, in _process_mention
+    tpr_number = await tpr_automation.process_tpr(tpr_request)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/arnavpallem/Desktop/TartanHacks26/services/tpr_automation.py", line 472, in process_tpr
+    await self.fill_page_1(tpr_request)
+  File "/Users/arnavpallem/Desktop/TartanHacks26/services/tpr_automation.py", line 246, in fill_page_1
+    await self._select_dropdown(FIELD_IDS["transaction_type"], TRANSACTION_TYPE)
+  File "/Users/arnavpallem/Desktop/TartanHacks26/services/tpr_automation.py", line 441, in _select_dropdown
+    await select.select_option(value=value)
+  File "/Users/arnavpallem/Desktop/TartanHacks26/venv/lib/python3.11/site-packages/playwright/async_api/_generated.py", line 2308, in select_option
+    await self._impl_obj.select_option(
+  File "/Users/arnavpallem/Desktop/TartanHacks26/venv/lib/python3.11/site-packages/playwright/_impl/_element_handle.py", line 180, in select_option
+    return await self._channel.send("selectOption", self._frame._timeout, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/arnavpallem/Desktop/TartanHacks26/venv/lib/python3.11/site-packages/playwright/_impl/_connection.py", line 69, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/arnavpallem/Desktop/TartanHacks26/venv/lib/python3.11/site-packages/playwright/_impl/_connection.py", line 559, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.TimeoutError: ElementHandle.select_option: Timeout 30000ms exceeded.
+Call log:
+  - attempting select option action
+    2 × waiting for element to be visible and enabled
+      - did not find some options
+    - retrying select option action
+    - waiting 20ms
+    2 × waiting for element to be visible and enabled
+      - did not find some options
+    - retrying select option action
+      - waiting 100ms
+    59 × waiting for element to be visible and enabled
+       - did not find some options
+     - retrying select option action
+       - waiting 500ms
+
+2026-02-06 22:08:42,363 - asyncio - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x116a8fdd0>
+2026-02-06 22:08:44,575 - __main__ - INFO - Validating configuration...
+2026-02-06 22:08:44,575 - __main__ - INFO - Configuration validated ✓
+2026-02-06 22:08:44,575 - __main__ - INFO - Starting Slack bot...
+2026-02-06 22:08:44,576 - services.slack_bot - INFO - Starting Slack bot...
+2026-02-06 22:09:32,298 - services.slack_bot - INFO - Downloaded file to: /Users/arnavpallem/Desktop/TartanHacks26/temp/Misc_Dunkin_87.18_1-29-26.pdf
+2026-02-06 22:09:32,300 - services.ocr_processor - INFO - Processing receipt: /Users/arnavpallem/Desktop/TartanHacks26/temp/Misc_Dunkin_87.18_1-29-26.pdf
+2026-02-06 22:09:35,835 - services.ocr_processor - INFO - Extracted: vendor=Carnegie Mellon University Mail - Your order from , date=2026-02-01 00:00:00, amount=87.18
+2026-02-06 22:09:38,301 - services.tpr_automation - INFO - Browser started
+2026-02-06 22:09:38,301 - services.tpr_automation - INFO - 🔐 Navigating to TPR form...
+2026-02-06 22:09:47,788 - services.tpr_automation - INFO - 🔑 Entering credentials...
+2026-02-06 22:09:49,846 - services.tpr_automation - INFO - ⏳ Waiting for TPR form to load (complete 2FA if prompted)...
+2026-02-06 22:10:28,011 - services.tpr_automation - INFO - ⏳ Still waiting... (30s elapsed). Complete 2FA if prompted.
+2026-02-06 22:10:31,210 - services.tpr_automation - INFO - ✅ Login successful! Form is ready.
+2026-02-06 22:10:36,040 - services.tpr_automation - INFO - 📝 Filling Page 1 - Preparer Details...
+2026-02-06 22:10:42,049 - services.tpr_automation - INFO - Selected 'No' from dropdown qff044216c0c0371873df8535121951a2e30b5ae6
+2026-02-06 22:10:42,470 - services.tpr_automation - INFO - Selected 'PCard/Travel Card/HazMat Card' from dropdown qf79cf22d534268b1bf2b1f6f0fc3f109d6221475
+2026-02-06 22:10:42,890 - services.tpr_automation - INFO - Selected 'Yes' from dropdown q6dcbaa2e5c4c019f0ed81c6e3ab0a069b2d7186a
+2026-02-06 22:10:43,512 - services.tpr_automation - INFO - Selected 'Other' from dropdown q19da8dcd4690bc026113caa40404b16790f15cf3
+2026-02-06 22:10:49,346 - services.tpr_automation - INFO - Selected 'Agency' by value from dropdown qdefce2003f32081f8a2a64148773a5a1ba9b41b3
+2026-02-06 22:10:49,883 - services.tpr_automation - INFO - Selected 'No' from dropdown qaece189b0a164fc94f7b00751eac4baa171bf8eb
+2026-02-06 22:10:49,886 - services.tpr_automation - INFO - ✅ Page 1 complete
+2026-02-06 22:10:54,248 - services.tpr_automation - INFO - 📝 Filling Page 2 - Purchasing Information...
+2026-02-06 22:10:55,994 - services.tpr_automation - INFO - Selected 'No' from dropdown q8ebb6bca519bb54e1c45d50673a5f1a1e5752bde
+2026-02-06 22:10:55,994 - services.tpr_automation - INFO - ✅ Page 2 complete
+2026-02-06 22:10:59,425 - services.tpr_automation - INFO - 📝 Filling Page 3 - Receipt Details...
+2026-02-06 22:11:00,112 - services.slack_bot - ERROR - Error processing receipt
+Traceback (most recent call last):
+  File "/Users/arnavpallem/Desktop/TartanHacks26/services/slack_bot.py", line 147, in _process_mention
+    tpr_number = await tpr_automation.process_tpr(tpr_request)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/arnavpallem/Desktop/TartanHacks26/services/tpr_automation.py", line 513, in process_tpr
+    await self.fill_page_3(tpr_request)
+  File "/Users/arnavpallem/Desktop/TartanHacks26/services/tpr_automation.py", line 353, in fill_page_3
+    await date_field.fill(receipt.formatted_date)
+  File "/Users/arnavpallem/Desktop/TartanHacks26/venv/lib/python3.11/site-packages/playwright/async_api/_generated.py", line 2413, in fill
+    await self._impl_obj.fill(
+  File "/Users/arnavpallem/Desktop/TartanHacks26/venv/lib/python3.11/site-packages/playwright/_impl/_element_handle.py", line 202, in fill
+    await self._channel.send(
+  File "/Users/arnavpallem/Desktop/TartanHacks26/venv/lib/python3.11/site-packages/playwright/_impl/_connection.py", line 69, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/arnavpallem/Desktop/TartanHacks26/venv/lib/python3.11/site-packages/playwright/_impl/_connection.py", line 559, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.Error: ElementHandle.fill: Error: Malformed value
+Call log:
+    - fill("02/01/2026")
+  - attempting fill action
+    - waiting for element to be visible, enabled and editable
+
+2026-02-06 22:11:39,546 - asyncio - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x116643190>
+2026-02-06 22:17:02,921 - __main__ - INFO - Validating configuration...
+2026-02-06 22:17:02,921 - __main__ - INFO - Configuration validated ✓
+2026-02-06 22:17:02,921 - __main__ - INFO - Starting Slack bot...
+2026-02-06 22:17:02,922 - services.slack_bot - INFO - Starting Slack bot...
+2026-02-06 22:17:43,382 - services.slack_bot - INFO - Downloaded file to: /Users/arnavpallem/Desktop/TartanHacks26/temp/Misc_Dunkin_87.18_1-29-26.pdf
+2026-02-06 22:17:43,383 - services.ocr_processor - INFO - Processing receipt: /Users/arnavpallem/Desktop/TartanHacks26/temp/Misc_Dunkin_87.18_1-29-26.pdf
+2026-02-06 22:17:46,879 - services.ocr_processor - INFO - Extracted: vendor=Carnegie Mellon University Mail - Your order from , date=2026-02-01 00:00:00, amount=87.18
+2026-02-06 22:17:51,331 - services.tpr_automation - INFO - Browser started
+2026-02-06 22:17:51,331 - services.tpr_automation - INFO - 🔐 Navigating to TPR form...
+2026-02-06 22:17:55,121 - services.tpr_automation - INFO - ⏳ Waiting for TPR form to load (complete 2FA if prompted)...
+2026-02-06 22:18:28,274 - services.tpr_automation - INFO - ⏳ Still waiting... (30s elapsed). Complete 2FA if prompted.
+2026-02-06 22:18:34,992 - services.tpr_automation - INFO - ✅ Login successful! Form is ready.
+2026-02-06 22:18:36,265 - services.tpr_automation - INFO - 📝 Filling Page 1 - Preparer Details...
+2026-02-06 22:18:40,727 - services.tpr_automation - INFO - Selected 'No' from dropdown qff044216c0c0371873df8535121951a2e30b5ae6
+2026-02-06 22:18:41,140 - services.tpr_automation - INFO - Selected 'PCard/Travel Card/HazMat Card' from dropdown qf79cf22d534268b1bf2b1f6f0fc3f109d6221475
+2026-02-06 22:18:41,560 - services.tpr_automation - INFO - Selected 'Yes' from dropdown q6dcbaa2e5c4c019f0ed81c6e3ab0a069b2d7186a
+2026-02-06 22:18:42,181 - services.tpr_automation - INFO - Selected 'Other' from dropdown q19da8dcd4690bc026113caa40404b16790f15cf3
+2026-02-06 22:18:48,030 - services.tpr_automation - INFO - Selected 'Agency' by value from dropdown qdefce2003f32081f8a2a64148773a5a1ba9b41b3
+2026-02-06 22:18:48,553 - services.tpr_automation - INFO - Selected 'No' from dropdown qaece189b0a164fc94f7b00751eac4baa171bf8eb
+2026-02-06 22:18:48,557 - services.tpr_automation - INFO - ✅ Page 1 complete
+2026-02-06 22:18:53,526 - services.tpr_automation - INFO - 📝 Filling Page 2 - Purchasing Information...
+2026-02-06 22:18:54,751 - services.tpr_automation - INFO - Selected 'No' from dropdown q8ebb6bca519bb54e1c45d50673a5f1a1e5752bde
+2026-02-06 22:18:54,752 - services.tpr_automation - INFO - ✅ Page 2 complete
+2026-02-06 22:18:58,336 - services.tpr_automation - INFO - 📝 Filling Page 3 - Receipt Details...
+2026-02-06 22:19:00,839 - services.tpr_automation - INFO - Entered date: 02/01/2026
+2026-02-06 22:19:01,076 - services.tpr_automation - INFO - 📎 Receipt uploaded
+2026-02-06 22:19:03,788 - services.tpr_automation - INFO - Selected 'Yes' from dropdown q858fbb6a128a9eb779b71c2a37677dc11dbf3317
+2026-02-06 22:19:03,896 - services.tpr_automation - INFO - Selected 'No' from dropdown q038d1874a2b91c02a871d70276ab568526f79553
+2026-02-06 22:19:03,900 - services.tpr_automation - INFO - ✅ Page 3 complete
+2026-02-06 22:19:08,790 - services.tpr_automation - INFO - 🔍 TPR form is ready for review!
+2026-02-06 22:19:09,257 - services.tpr_automation - INFO - 👆 Please review the form in the browser and click 'Submit Form' when ready.
+2026-02-06 22:19:09,961 - services.tpr_automation - INFO - ⏳ Waiting for your submission...
+2026-02-06 22:23:28,017 - asyncio - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x114366cd0>
+2026-02-06 22:23:30,130 - __main__ - INFO - Validating configuration...
+2026-02-06 22:23:30,130 - __main__ - INFO - Configuration validated ✓
+2026-02-06 22:23:30,130 - __main__ - INFO - Starting Slack bot...
+2026-02-06 22:23:30,131 - services.slack_bot - INFO - Starting Slack bot...
+2026-02-06 22:23:53,493 - services.slack_bot - INFO - Downloaded file to: /Users/arnavpallem/Desktop/TartanHacks26/temp/Misc_Dunkin_87.18_1-29-26.pdf
+2026-02-06 22:23:53,495 - services.ocr_processor - INFO - Processing receipt: /Users/arnavpallem/Desktop/TartanHacks26/temp/Misc_Dunkin_87.18_1-29-26.pdf
+2026-02-06 22:23:57,135 - services.ocr_processor - INFO - Extracted: vendor=Carnegie Mellon University Mail - Your order from , date=2026-02-01 00:00:00, amount=87.18
+2026-02-06 22:24:00,673 - services.tpr_automation - INFO - Browser started
+2026-02-06 22:24:00,673 - services.tpr_automation - INFO - 🔐 Navigating to TPR form...
+2026-02-06 22:24:14,508 - services.tpr_automation - INFO - 🔑 Entering credentials...
+2026-02-06 22:24:38,757 - services.tpr_automation - INFO - ⏳ Waiting for TPR form to load (complete 2FA if prompted)...
+2026-02-06 22:24:51,404 - services.tpr_automation - INFO - ✅ Login successful! Form is ready.
+2026-02-06 22:24:51,990 - services.tpr_automation - INFO - 📝 Filling Page 1 - Preparer Details...
+2026-02-06 22:24:56,316 - services.tpr_automation - INFO - Selected 'No' from dropdown qff044216c0c0371873df8535121951a2e30b5ae6
+2026-02-06 22:24:56,739 - services.tpr_automation - INFO - Selected 'PCard/Travel Card/HazMat Card' from dropdown qf79cf22d534268b1bf2b1f6f0fc3f109d6221475
+2026-02-06 22:24:57,165 - services.tpr_automation - INFO - Selected 'Yes' from dropdown q6dcbaa2e5c4c019f0ed81c6e3ab0a069b2d7186a
+2026-02-06 22:24:57,788 - services.tpr_automation - INFO - Selected 'Other' from dropdown q19da8dcd4690bc026113caa40404b16790f15cf3
+2026-02-06 22:25:03,642 - services.tpr_automation - INFO - Selected 'Agency' by value from dropdown qdefce2003f32081f8a2a64148773a5a1ba9b41b3
+2026-02-06 22:25:04,174 - services.tpr_automation - INFO - Selected 'No' from dropdown qaece189b0a164fc94f7b00751eac4baa171bf8eb
+2026-02-06 22:25:04,179 - services.tpr_automation - INFO - ✅ Page 1 complete
+2026-02-06 22:25:08,204 - services.tpr_automation - INFO - 📝 Filling Page 2 - Purchasing Information...
+2026-02-06 22:25:09,625 - services.tpr_automation - INFO - Selected 'No' from dropdown q8ebb6bca519bb54e1c45d50673a5f1a1e5752bde
+2026-02-06 22:25:09,626 - services.tpr_automation - INFO - ✅ Page 2 complete
+2026-02-06 22:25:12,934 - services.tpr_automation - INFO - 📝 Filling Page 3 - Receipt Details...
+2026-02-06 22:25:14,640 - services.tpr_automation - INFO - Entered date: 02012026
+2026-02-06 22:25:14,871 - services.tpr_automation - INFO - 📎 Receipt uploaded
+2026-02-06 22:25:18,096 - services.tpr_automation - INFO - Selected 'Yes' from dropdown q858fbb6a128a9eb779b71c2a37677dc11dbf3317
+2026-02-06 22:25:18,209 - services.tpr_automation - INFO - Selected 'No' from dropdown q038d1874a2b91c02a871d70276ab568526f79553
+2026-02-06 22:25:18,215 - services.tpr_automation - INFO - ✅ Page 3 complete
+2026-02-06 22:25:29,644 - services.tpr_automation - INFO - 🔍 TPR form is ready for review!
+2026-02-06 22:25:30,890 - services.tpr_automation - INFO - 👆 Please review the form in the browser and click 'Submit Form' when ready.
+2026-02-06 22:25:31,947 - services.tpr_automation - INFO - ⏳ Waiting for your submission...
+2026-02-06 22:34:35,825 - asyncio - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x11619b610>
+2026-02-06 22:34:37,880 - __main__ - INFO - Validating configuration...
+2026-02-06 22:34:37,880 - __main__ - INFO - Configuration validated ✓
+2026-02-06 22:34:37,880 - __main__ - INFO - Starting Slack bot...
+2026-02-06 22:34:37,881 - services.slack_bot - INFO - Starting Slack bot...
+2026-02-06 22:35:30,593 - services.slack_bot - INFO - Downloaded file to: /Users/arnavpallem/Desktop/TartanHacks26/temp/Misc_Dunkin_87.18_1-29-26.pdf
+2026-02-06 22:35:30,594 - services.ocr_processor - INFO - Processing receipt: /Users/arnavpallem/Desktop/TartanHacks26/temp/Misc_Dunkin_87.18_1-29-26.pdf
+2026-02-06 22:35:34,151 - services.ocr_processor - INFO - Extracted: vendor=Carnegie Mellon University Mail - Your order from , date=2026-02-01 00:00:00, amount=87.18
+2026-02-06 22:35:37,436 - services.tpr_automation - INFO - Browser started
+2026-02-06 22:35:37,437 - services.tpr_automation - INFO - 🔐 Navigating to TPR form...
+2026-02-06 22:35:39,840 - services.tpr_automation - INFO - ⏳ Waiting for TPR form to load (complete 2FA if prompted)...
+2026-02-06 22:36:11,897 - services.tpr_automation - INFO - ⏳ Still waiting... (30s elapsed). Complete 2FA if prompted.
+2026-02-06 22:36:26,520 - services.tpr_automation - INFO - ✅ Login successful! Form is ready.
+2026-02-06 22:36:26,901 - services.tpr_automation - INFO - 📝 Filling Page 1 - Preparer Details...
+2026-02-06 22:36:30,735 - services.tpr_automation - INFO - Selected 'No' from dropdown qff044216c0c0371873df8535121951a2e30b5ae6
+2026-02-06 22:36:31,162 - services.tpr_automation - INFO - Selected 'PCard/Travel Card/HazMat Card' from dropdown qf79cf22d534268b1bf2b1f6f0fc3f109d6221475
+2026-02-06 22:36:31,594 - services.tpr_automation - INFO - Selected 'Yes' from dropdown q6dcbaa2e5c4c019f0ed81c6e3ab0a069b2d7186a
+2026-02-06 22:36:32,219 - services.tpr_automation - INFO - Selected 'Other' from dropdown q19da8dcd4690bc026113caa40404b16790f15cf3
+2026-02-06 22:36:38,076 - services.tpr_automation - INFO - Selected 'Agency' by value from dropdown qdefce2003f32081f8a2a64148773a5a1ba9b41b3
+2026-02-06 22:36:38,610 - services.tpr_automation - INFO - Selected 'No' from dropdown qaece189b0a164fc94f7b00751eac4baa171bf8eb
+2026-02-06 22:36:38,615 - services.tpr_automation - INFO - ✅ Page 1 complete
+2026-02-06 22:36:42,214 - services.tpr_automation - INFO - 📝 Filling Page 2 - Purchasing Information...
+2026-02-06 22:36:43,140 - services.tpr_automation - INFO - Selected 'No' from dropdown q8ebb6bca519bb54e1c45d50673a5f1a1e5752bde
+2026-02-06 22:36:43,140 - services.tpr_automation - INFO - ✅ Page 2 complete
+2026-02-06 22:36:46,037 - services.tpr_automation - INFO - 📝 Filling Page 3 - Receipt Details...
+2026-02-06 22:36:47,362 - services.tpr_automation - INFO - Entered date: 02012026
+2026-02-06 22:36:47,594 - services.tpr_automation - INFO - 📎 Receipt uploaded
+2026-02-06 22:36:51,115 - services.tpr_automation - INFO - Selected 'Yes' from dropdown q858fbb6a128a9eb779b71c2a37677dc11dbf3317
+2026-02-06 22:36:51,736 - services.tpr_automation - INFO - Selected 'No' from dropdown q038d1874a2b91c02a871d70276ab568526f79553
+2026-02-06 22:37:02,475 - services.tpr_automation - WARNING - Could not select 'No' from q1d21bda779d6a69e85de5c54802a4c2b1eacf71f. Available options: [{'value': '', 'text': 'Please Select', 'label': 'Please Select'}, {'value': 'Yes', 'text': 'Yes', 'label': 'Yes'}, {'value': 'No', 'text': 'No', 'label': 'No'}]
+2026-02-06 22:37:07,586 - services.tpr_automation - ERROR - Failed to get options from q1d21bda779d6a69e85de5c54802a4c2b1eacf71f: ElementHandle.select_option: Timeout 5000ms exceeded.
+Call log:
+  - attempting select option action
+    2 × waiting for element to be visible and enabled
+      - element is not visible
+    - retrying select option action
+    - waiting 20ms
+    2 × waiting for element to be visible and enabled
+      - element is not visible
+    - retrying select option action
+      - waiting 100ms
+    10 × waiting for element to be visible and enabled
+       - element is not visible
+     - retrying select option action
+       - waiting 500ms
+
+2026-02-06 22:37:26,796 - services.tpr_automation - WARNING - Fallback click selection failed for q1d21bda779d6a69e85de5c54802a4c2b1eacf71f: ElementHandle.click: Element is not attached to the DOM
+Call log:
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is not visible
+    - retrying click action
+    - waiting 20ms
+    2 × waiting for element to be visible, enabled and stable
+      - element is not visible
+    - retrying click action
+      - waiting 100ms
+    33 × waiting for element to be visible, enabled and stable
+       - element is not visible
+     - retrying click action
+       - waiting 500ms
+    - waiting for" https://xforms.andrew.cmu.edu/xfp/form/202" navigation to finish...
+    - navigated to "https://xforms.andrew.cmu.edu/xfp/form/202"
+    - waiting for element to be visible, enabled and stable
+
+2026-02-06 22:37:27,302 - services.tpr_automation - INFO - ✅ Page 3 complete
+2026-02-06 22:37:30,494 - services.tpr_automation - INFO - 🔍 TPR form is ready for review!
+2026-02-06 22:37:31,179 - services.tpr_automation - INFO - 👆 Please review the form in the browser and click 'Submit Form' when ready.
+2026-02-06 22:37:32,055 - services.tpr_automation - INFO - ⏳ Waiting for your submission...
+2026-02-06 22:42:18,221 - asyncio - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x1122cfc10>
+2026-02-06 22:42:20,197 - __main__ - INFO - Validating configuration...
+2026-02-06 22:42:20,198 - __main__ - INFO - Configuration validated ✓
+2026-02-06 22:42:20,198 - __main__ - INFO - Starting Slack bot...
+2026-02-06 22:42:20,198 - services.slack_bot - INFO - Starting Slack bot...
+2026-02-06 22:42:39,201 - services.slack_bot - INFO - Downloaded file to: /Users/arnavpallem/Desktop/TartanHacks26/temp/Misc_Dunkin_87.18_1-29-26.pdf
+2026-02-06 22:42:39,204 - services.ocr_processor - INFO - Processing receipt: /Users/arnavpallem/Desktop/TartanHacks26/temp/Misc_Dunkin_87.18_1-29-26.pdf
+2026-02-06 22:42:42,815 - services.ocr_processor - INFO - Extracted: vendor=Carnegie Mellon University Mail - Your order from , date=2026-02-01 00:00:00, amount=87.18
+2026-02-06 22:42:46,452 - services.tpr_automation - INFO - Browser started
+2026-02-06 22:42:46,453 - services.tpr_automation - INFO - 🔐 Navigating to TPR form...
+2026-02-06 22:42:48,658 - services.tpr_automation - INFO - ⏳ Waiting for TPR form to load (complete 2FA if prompted)...
+2026-02-06 22:43:21,547 - services.tpr_automation - INFO - ✅ Login successful! Form is ready.
+2026-02-06 22:43:21,854 - services.tpr_automation - INFO - 📝 Filling Page 1 - Preparer Details...
+2026-02-06 22:43:25,801 - services.tpr_automation - INFO - Selected 'No' from dropdown qff044216c0c0371873df8535121951a2e30b5ae6
+2026-02-06 22:43:26,219 - services.tpr_automation - INFO - Selected 'PCard/Travel Card/HazMat Card' from dropdown qf79cf22d534268b1bf2b1f6f0fc3f109d6221475
+2026-02-06 22:43:26,643 - services.tpr_automation - INFO - Selected 'Yes' from dropdown q6dcbaa2e5c4c019f0ed81c6e3ab0a069b2d7186a
+2026-02-06 22:43:27,265 - services.tpr_automation - INFO - Selected 'Other' from dropdown q19da8dcd4690bc026113caa40404b16790f15cf3
+2026-02-06 22:43:33,102 - services.tpr_automation - INFO - Selected 'Agency' by value from dropdown qdefce2003f32081f8a2a64148773a5a1ba9b41b3
+2026-02-06 22:43:33,638 - services.tpr_automation - INFO - Selected 'No' from dropdown qaece189b0a164fc94f7b00751eac4baa171bf8eb
+2026-02-06 22:43:33,641 - services.tpr_automation - INFO - ✅ Page 1 complete
+2026-02-06 22:43:37,182 - services.tpr_automation - INFO - 📝 Filling Page 2 - Purchasing Information...
+2026-02-06 22:43:38,492 - services.tpr_automation - INFO - Selected 'No' from dropdown q8ebb6bca519bb54e1c45d50673a5f1a1e5752bde
+2026-02-06 22:43:38,492 - services.tpr_automation - INFO - ✅ Page 2 complete
+2026-02-06 22:43:41,382 - services.tpr_automation - INFO - 📝 Filling Page 3 - Receipt Details...
+2026-02-06 22:43:42,828 - services.tpr_automation - INFO - Entered date: 02012026
+2026-02-06 22:43:43,054 - services.tpr_automation - INFO - 📎 Receipt uploaded
+2026-02-06 22:43:46,435 - services.tpr_automation - INFO - Selected 'Yes' from dropdown q858fbb6a128a9eb779b71c2a37677dc11dbf3317
+2026-02-06 22:43:47,062 - services.tpr_automation - INFO - Selected 'No' from dropdown q038d1874a2b91c02a871d70276ab568526f79553
+2026-02-06 22:43:47,684 - services.tpr_automation - INFO - Selected 'No' from dropdown qbdedddc80be3684bb95f4cc1b3705c5af1d73d84
+2026-02-06 22:43:48,188 - services.tpr_automation - INFO - ✅ Page 3 complete
+2026-02-06 22:43:50,839 - services.tpr_automation - INFO - 🔍 TPR form is ready for review!
+2026-02-06 22:43:51,084 - services.tpr_automation - INFO - 👆 Please review the form in the browser and click 'Submit Form' when ready.
+2026-02-06 22:43:51,437 - services.tpr_automation - INFO - ⏳ Waiting for your submission...
+2026-02-06 22:45:07,962 - asyncio - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x112297b90>
