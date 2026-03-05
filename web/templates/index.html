@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TPRobot</title>
+    <meta name="description" content="Submit receipts for TPR processing">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <span class="nav-icon">📄</span>
+            <span class="nav-title">TPRobot</span>
+        </div>
+        <div class="nav-links">
+            <a href="/" class="nav-link active">Upload</a>
+            <a href="/status" class="nav-link">My Submissions</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="hero">
+            <h1>Submit a Receipt</h1>
+            <p class="hero-sub">Upload your receipt and we'll handle the TPR paperwork automatically.</p>
+        </section>
+
+        <div class="card upload-card" id="uploadCard">
+            <form id="uploadForm" action="/api/upload" method="POST" enctype="multipart/form-data">
+                <!-- Drop Zone -->
+                <div class="drop-zone" id="dropZone">
+                    <div class="drop-zone-content">
+                        <div class="drop-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                                <polyline points="17 8 12 3 7 8" />
+                                <line x1="12" y1="3" x2="12" y2="15" />
+                            </svg>
+                        </div>
+                        <p class="drop-text">Drag & drop your receipt here</p>
+                        <p class="drop-hint">or click to browse — PDF, PNG, JPG accepted</p>
+                    </div>
+                    <div class="drop-zone-file" id="dropZoneFile" style="display:none;">
+                        <span class="file-icon">📎</span>
+                        <span class="file-name" id="fileName"></span>
+                        <button type="button" class="file-remove" id="removeFile" title="Remove file">&times;</button>
+                    </div>
+                    <input type="file" name="receipt" id="fileInput" accept=".pdf,.png,.jpg,.jpeg,.webp" required
+                        hidden>
+                </div>
+
+                <!-- Form Fields -->
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="andrewId">Andrew ID</label>
+                        <input type="text" id="andrewId" name="andrew_id" placeholder="e.g. apallem" required
+                            pattern="[a-zA-Z0-9]+" minlength="2" maxlength="20">
+                        <span class="form-hint">Your CMU Andrew ID</span>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="justification">Business Justification</label>
+                        <textarea id="justification" name="justification" rows="3"
+                            placeholder="Describe why this purchase was necessary for Spring Carnival..."
+                            required></textarea>
+                        <span class="form-hint">Be specific — this goes directly on the TPR form</span>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-submit" id="submitBtn">
+                    <span class="btn-text">Submit Receipt</span>
+                    <span class="btn-loading" style="display:none;">
+                        <span class="spinner"></span> Uploading...
+                    </span>
+                </button>
+            </form>
+        </div>
+
+        <!-- Processing info -->
+        <section class="info-section">
+            <div class="info-grid">
+                <div class="info-item">
+                    <span class="info-icon">🤖</span>
+                    <h3>AI-Powered OCR</h3>
+                    <p>Receipt data is extracted automatically using a vision model</p>
+                </div>
+                <div class="info-item">
+                    <span class="info-icon">📝</span>
+                    <h3>Auto-Fill TPR</h3>
+                    <p>CMU Transaction Processing Request forms are filled out for you</p>
+                </div>
+                <div class="info-item">
+                    <span class="info-icon">📊</span>
+                    <h3>Track Status</h3>
+                    <p>Monitor your submissions and TPR processing in real time</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>TPRobot &middot; Receipt Processing &amp; TPR Automation</p>
+    </footer>
+
+    <script>
+        // --- Drag & Drop ---
+        const dropZone = document.getElementById('dropZone');
+        const fileInput = document.getElementById('fileInput');
+        const dropContent = dropZone.querySelector('.drop-zone-content');
+        const dropFile = document.getElementById('dropZoneFile');
+        const fileName = document.getElementById('fileName');
+        const removeBtn = document.getElementById('removeFile');
+        const form = document.getElementById('uploadForm');
+        const submitBtn = document.getElementById('submitBtn');
+
+        dropZone.addEventListener('click', () => fileInput.click());
+
+        dropZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropZone.classList.add('drag-over');
+        });
+
+        dropZone.addEventListener('dragleave', () => {
+            dropZone.classList.remove('drag-over');
+        });
+
+        dropZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropZone.classList.remove('drag-over');
+            if (e.dataTransfer.files.length) {
+                fileInput.files = e.dataTransfer.files;
+                showFile(e.dataTransfer.files[0]);
+            }
+        });
+
+        fileInput.addEventListener('change', () => {
+            if (fileInput.files.length) showFile(fileInput.files[0]);
+        });
+
+        function showFile(file) {
+            fileName.textContent = file.name;
+            dropContent.style.display = 'none';
+            dropFile.style.display = 'flex';
+            dropZone.classList.add('has-file');
+        }
+
+        removeBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            fileInput.value = '';
+            dropContent.style.display = '';
+            dropFile.style.display = 'none';
+            dropZone.classList.remove('has-file');
+        });
+
+        // --- Form submission ---
+        form.addEventListener('submit', () => {
+            submitBtn.querySelector('.btn-text').style.display = 'none';
+            submitBtn.querySelector('.btn-loading').style.display = 'inline-flex';
+            submitBtn.disabled = true;
+        });
+
+        // Persist Andrew ID in localStorage
+        const andrewInput = document.getElementById('andrewId');
+        const saved = localStorage.getItem('andrew_id');
+        if (saved) andrewInput.value = saved;
+        andrewInput.addEventListener('input', () => {
+            localStorage.setItem('andrew_id', andrewInput.value.toLowerCase());
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Submissions — TPRobot</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <span class="nav-icon">📄</span>
+            <span class="nav-title">TPRobot</span>
+        </div>
+        <div class="nav-links">
+            <a href="/" class="nav-link">Upload</a>
+            <a href="/status" class="nav-link active">My Submissions</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="hero">
+            <h1>My Submissions</h1>
+            <p class="hero-sub">Track the status of your receipt submissions and TPR processing.</p>
+        </section>
+
+        <!-- Lookup bar -->
+        <div class="card lookup-card">
+            <form id="lookupForm" method="GET" action="/status" class="lookup-form">
+                <input type="text" name="andrew_id" id="andrewIdLookup" placeholder="Enter your Andrew ID..."
+                    value="{{ andrew_id }}" required pattern="[a-zA-Z0-9]+" minlength="2">
+                <button type="submit" class="btn btn-primary">View Submissions</button>
+            </form>
+        </div>
+
+        {% if andrew_id %}
+        <!-- Success toast -->
+        <div id="successToast" class="toast toast-success" style="display:none;">
+            ✅ Receipt submitted successfully! Processing will begin shortly.
+        </div>
+
+        <!-- Submissions table -->
+        {% if submissions %}
+        <div class="card table-card">
+            <div class="table-responsive">
+                <table class="submissions-table">
+                    <thead>
+                        <tr>
+                            <th>Status</th>
+                            <th>Vendor</th>
+                            <th>Amount</th>
+                            <th>Date</th>
+                            <th>TPR #</th>
+                            <th>Submitted</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for sub in submissions %}
+                        <tr class="status-{{ sub.status }}">
+                            <td>
+                                <span class="status-badge status-{{ sub.status }}">
+                                    {{ sub.status_emoji }} {{ sub.status | replace('_', ' ') | title }}
+                                </span>
+                            </td>
+                            <td class="vendor-cell">{{ sub.vendor or '—' }}</td>
+                            <td class="amount-cell">{{ sub.formatted_amount }}</td>
+                            <td>{{ sub.formatted_date or '—' }}</td>
+                            <td class="tpr-cell">{{ sub.tpr_number or '—' }}</td>
+                            <td class="date-cell">{{ sub.created_at.strftime('%m/%d %H:%M') if sub.created_at else '—'
+                                }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        {% else %}
+        <div class="card empty-card">
+            <div class="empty-state">
+                <span class="empty-icon">📭</span>
+                <h3>No submissions yet</h3>
+                <p>Upload your first receipt to get started.</p>
+                <a href="/" class="btn btn-primary">Upload Receipt</a>
+            </div>
+        </div>
+        {% endif %}
+
+        {% else %}
+        <div class="card empty-card">
+            <div class="empty-state">
+                <span class="empty-icon">🔍</span>
+                <h3>Enter your Andrew ID</h3>
+                <p>Look up your receipt submissions and TPR status.</p>
+            </div>
+        </div>
+        {% endif %}
+    </main>
+
+    <footer class="footer">
+        <p>TPRobot &middot; Receipt Processing &amp; TPR Automation</p>
+    </footer>
+
+    <script>
+        // Auto-fill Andrew ID from localStorage
+        const input = document.getElementById('andrewIdLookup');
+        const saved = localStorage.getItem('andrew_id');
+        if (saved && !input.value) {
+            input.value = saved;
+            // Auto-submit if we have a saved ID and no results yet
+            if (!new URLSearchParams(window.location.search).has('andrew_id')) {
+                document.getElementById('lookupForm').submit();
+            }
+        }
+        input.addEventListener('input', () => {
+            localStorage.setItem('andrew_id', input.value.toLowerCase());
+        });
+
+        // Show success toast if just submitted
+        if (new URLSearchParams(window.location.search).has('submitted')) {
+            const toast = document.getElementById('successToast');
+            if (toast) {
+                toast.style.display = 'block';
+                setTimeout(() => toast.style.opacity = '0', 4000);
+                setTimeout(() => toast.style.display = 'none', 4500);
+            }
+        }
+
+        // Auto-refresh if there are pending/processing submissions
+        const hasPending = document.querySelector('.status-pending, .status-processing');
+        if (hasPending) {
+            setTimeout(() => location.reload(), 15000);
+        }
+    </script>
+</body>
+
+</html>

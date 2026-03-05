@@ -1,26 +1,31 @@
 """
-VLM-based Receipt Processor using Google Gemini.
+VLM-based Receipt Processor.
 Extracts structured data from receipt PDFs/images using vision AI.
+Supports local Ollama (Qwen2.5-VL) with Gemini API fallback.
 """
+import io
 import json
 import logging
 import base64
+import os
 from pathlib import Path
 from datetime import datetime
 from decimal import Decimal
 from typing import Optional
 
+import requests as http_requests
 from PIL import Image
 from pdf2image import convert_from_path
 import google.generativeai as genai
 
 from models.receipt import ReceiptData
-from config.settings import TEMP_DIR, GeminiConfig
+from config.settings import TEMP_DIR, GeminiConfig, OllamaConfig
 
 logger = logging.getLogger(__name__)
 
-# Configure Gemini
-genai.configure(api_key=GeminiConfig.API_KEY)
+# Configure Gemini (only if API key available)
+if GeminiConfig.API_KEY:
+    genai.configure(api_key=GeminiConfig.API_KEY)
 
 # Valid budget categories
 VALID_CATEGORIES = ["Misc", "Operations", "Electrical", "Booth", "Entertainment"]
@@ -74,6 +79,73 @@ def pdf_to_image(pdf_path: Path) -> Image.Image:
     return images[0]
 
 
+def _clean_json_response(response_text: str) -> dict:
+    """
+    Clean and parse a JSON response from a VLM.
+    Handles markdown code blocks and other formatting.
+    """
+    text = response_text.strip()
+    
+    # Remove markdown code blocks if present
+    if text.startswith("```"):
+        lines = text.split("\n")
+        # Remove first line (```json) and last line (```)
+        text = "\n".join(lines[1:-1])
+    
+    # Try to extract JSON from the response if it contains other text
+    if not text.startswith("{"):
+        start = text.find("{")
+        end = text.rfind("}") + 1
+        if start != -1 and end > start:
+            text = text[start:end]
+    
+    return json.loads(text)
+
+
+def extract_with_ollama(image: Image.Image) -> dict:
+    """
+    Extract receipt data using local Ollama VLM.
+    
+    Args:
+        image: PIL Image of the receipt
+        
+    Returns:
+        Dictionary with extracted fields
+        
+    Raises:
+        Exception if Ollama is unavailable or extraction fails
+    """
+    # Convert image to base64 PNG
+    buffered = io.BytesIO()
+    image.save(buffered, format="PNG")
+    img_b64 = base64.b64encode(buffered.getvalue()).decode()
+    
+    logger.info(f"Sending receipt to Ollama ({OllamaConfig.MODEL})...")
+    
+    response = http_requests.post(
+        f"{OllamaConfig.URL}/api/generate",
+        json={
+            "model": OllamaConfig.MODEL,
+            "prompt": EXTRACTION_PROMPT,
+            "images": [img_b64],
+            "stream": False,
+        },
+        timeout=OllamaConfig.TIMEOUT,
+    )
+    response.raise_for_status()
+    
+    result = response.json()
+    response_text = result.get("response", "")
+    
+    try:
+        data = _clean_json_response(response_text)
+        logger.info(f"Ollama extracted: {data}")
+        return data
+    except json.JSONDecodeError as e:
+        logger.error(f"Failed to parse Ollama response: {response_text}")
+        raise ValueError(f"Invalid JSON response from Ollama: {e}")
+
+
 def extract_with_gemini(image: Image.Image) -> dict:
     """
     Extract receipt data using Gemini Vision API.
@@ -92,19 +164,45 @@ def extract_with_gemini(image: Image.Image) -> dict:
     # Parse JSON from response
     response_text = response.text.strip()
     
-    # Clean up response - remove markdown code blocks if present
-    if response_text.startswith("```"):
-        lines = response_text.split("\n")
-        # Remove first and last lines (```json and ```)
-        response_text = "\n".join(lines[1:-1])
-    
     try:
-        data = json.loads(response_text)
+        data = _clean_json_response(response_text)
         logger.info(f"Gemini extracted: {data}")
         return data
     except json.JSONDecodeError as e:
         logger.error(f"Failed to parse Gemini response: {response_text}")
         raise ValueError(f"Invalid JSON response from Gemini: {e}")
+
+
+def extract_with_vlm(image: Image.Image) -> dict:
+    """
+    Hybrid VLM extraction: tries local Ollama first, falls back to Gemini API.
+    
+    Args:
+        image: PIL Image of the receipt
+        
+    Returns:
+        Dictionary with extracted fields
+    """
+    # Try Ollama first if enabled
+    if OllamaConfig.ENABLED:
+        try:
+            return extract_with_ollama(image)
+        except http_requests.ConnectionError:
+            logger.warning("Ollama not reachable, falling back to Gemini")
+        except http_requests.Timeout:
+            logger.warning(f"Ollama timed out after {OllamaConfig.TIMEOUT}s, falling back to Gemini")
+        except Exception as e:
+            logger.warning(f"Ollama extraction failed ({e}), falling back to Gemini")
+    
+    # Fall back to Gemini
+    if GeminiConfig.API_KEY and GeminiConfig.API_KEY != "your-gemini-api-key-here":
+        logger.info("Using Gemini API for extraction")
+        return extract_with_gemini(image)
+    
+    raise RuntimeError(
+        "No VLM backend available. Either start Ollama locally "
+        "(ollama serve) or configure GEMINI_API_KEY in .env"
+    )
 
 
 def parse_date(date_str: str) -> datetime:
@@ -153,7 +251,7 @@ def validate_category(category: str) -> str:
 
 def extract_receipt_data(pdf_path: Path) -> ReceiptData:
     """
-    Extract all relevant data from a receipt PDF using Gemini Vision.
+    Extract all relevant data from a receipt PDF using VLM (Ollama or Gemini).
     
     Args:
         pdf_path: Path to the receipt PDF file
@@ -163,20 +261,12 @@ def extract_receipt_data(pdf_path: Path) -> ReceiptData:
     """
     logger.info(f"Processing receipt: {pdf_path}")
     
-    # Check if Gemini API key is configured
-    if not GeminiConfig.API_KEY or GeminiConfig.API_KEY == "your-gemini-api-key-here":
-        raise ValueError(
-            "Gemini API key not configured. "
-            "Get a free API key at https://aistudio.google.com/app/apikey "
-            "and add it to your .env file as GEMINI_API_KEY"
-        )
-    
     # Convert PDF to image
     image = pdf_to_image(pdf_path)
     logger.debug(f"Converted PDF to image: {image.size}")
     
-    # Extract data using Gemini
-    extracted = extract_with_gemini(image)
+    # Extract data using hybrid VLM (Ollama first, Gemini fallback)
+    extracted = extract_with_vlm(image)
     
     # Parse and validate extracted data
     vendor = extracted.get("vendor", "Unknown Vendor")

@@ -147,6 +147,7 @@ async def process_email_receipt(
             f"*Subject:* {subject}\n\n"
             f"⚠️ Could not extract receipt details automatically.\n"
         )
+        raise Exception("Could not extract receipt details automatically. Please print the email and try again.")
     
     try:
         result = await client.chat_postMessage(channel=channel, text=initial_msg)

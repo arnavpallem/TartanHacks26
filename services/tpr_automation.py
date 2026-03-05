@@ -469,17 +469,30 @@ class TPRFormAutomation:
         await self._notify("⏳ Waiting for your submission...")
         
         try:
-            # Wait for confirmation page after user clicks Submit
-            # This could be detected by URL change or confirmation text
-            await self.page.wait_for_selector(
-                'text=has been submitted, text=confirmation, text=successfully submitted',
-                timeout=600000  # 10 minute timeout for manual review/submission
-            )
+            # Poll for confirmation page or TPR number (10 minute timeout)
+            # We check for patterns in the page text repeatedly
+            start_time = asyncio.get_event_loop().time()
+            timeout = 600  # 10 minutes
             
-            # Extract TPR number from confirmation page
-            tpr_number = await self._extract_tpr_number()
-            await self._notify(f"✅ TPR submitted! Number: {tpr_number}")
-            return tpr_number
+            while (asyncio.get_event_loop().time() - start_time) < timeout:
+                try:
+                    # Check for TPR number first
+                    tpr_number = await self._extract_tpr_number()
+                    if tpr_number != "TPR-UNKNOWN":
+                        await self.stop()
+                        await self._notify(f"✅ TPR submitted! Number: {tpr_number}")
+
+                        return tpr_number
+                    
+                    
+                except Exception as e:
+                    logger.debug(f"Polling error (ignoring): {e}")
+
+                # Wait before next check
+                await asyncio.sleep(2)
+                
+            logger.error("Timed out waiting for TPR submission")
+            return ""
             
         except Exception as e:
             logger.error(f"Error waiting for submission: {e}")

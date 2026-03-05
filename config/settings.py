@@ -54,6 +54,18 @@ class GeminiConfig:
     MODEL = os.getenv("GEMINI_MODEL", "gemini-2.0-flash")
 
 
+class OllamaConfig:
+    """Ollama local VLM configuration for receipt processing."""
+    URL = os.getenv("OLLAMA_URL", "http://localhost:11434")
+    MODEL = os.getenv("OLLAMA_MODEL", "qwen2.5-vl:7b")
+    TIMEOUT = int(os.getenv("OLLAMA_TIMEOUT", "120"))  # seconds, CPU inference is slow
+    ENABLED = os.getenv("OLLAMA_ENABLED", "true").lower() in ("true", "1", "yes")
+
+
+# Database
+DATABASE_URL = os.getenv("DATABASE_URL", "")
+
+
 class MailgunConfig:
     """Mailgun inbound email configuration."""
     API_KEY = os.getenv("MAILGUN_API_KEY", "")
