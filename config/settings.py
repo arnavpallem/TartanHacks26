@@ -66,6 +66,16 @@ class OllamaConfig:
 DATABASE_URL = os.getenv("DATABASE_URL", "")
 
 
+class ClerkConfig:
+    """Clerk authentication configuration (ScottyLabs CMU SSO)."""
+    PUBLISHABLE_KEY = os.getenv("CLERK_PUBLISHABLE_KEY", "")
+    SECRET_KEY = os.getenv("CLERK_SECRET_KEY", "")
+    FRONTEND_API = os.getenv("CLERK_FRONTEND_API", "")  # e.g. clerk.scottylabs.org
+    SIGN_IN_URL = os.getenv("CLERK_SIGN_IN_URL", "https://scottylabs.org/sign-in")
+    SIGN_UP_URL = os.getenv("CLERK_SIGN_UP_URL", "https://scottylabs.org/sign-up")
+
+
+
 class MailgunConfig:
     """Mailgun inbound email configuration."""
     API_KEY = os.getenv("MAILGUN_API_KEY", "")

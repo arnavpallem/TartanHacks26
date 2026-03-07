@@ -4,7 +4,9 @@
    ============================================================================ */
 
 /* --- Reset & Base --- */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -34,7 +36,7 @@
     --radius-sm: 8px;
     --shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
     --transition: 0.2s ease;
-    
+
     --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
@@ -132,6 +134,17 @@ body::before {
 .nav-link.active {
     color: var(--text-primary);
     background: rgba(99, 102, 241, 0.12);
+}
+
+.auth-area {
+    display: flex;
+    align-items: center;
+    margin-left: 0.5rem;
+}
+
+.auth-loading {
+    color: var(--text-muted);
+    font-size: 0.8rem;
 }
 
 /* --- Container --- */
@@ -232,7 +245,9 @@ body::before {
     gap: 0.75rem;
 }
 
-.file-icon { font-size: 1.3rem; }
+.file-icon {
+    font-size: 1.3rem;
+}
 
 .file-name {
     font-weight: 500;
@@ -376,7 +391,9 @@ select {
 }
 
 @keyframes spin {
-    to { transform: rotate(360deg); }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 /* --- Info Section --- */
@@ -538,8 +555,14 @@ select {
     font-weight: 500;
 }
 
-.vendor-cell { font-weight: 500; }
-.amount-cell { font-family: 'SF Mono', 'Fira Code', monospace; font-weight: 500; }
+.vendor-cell {
+    font-weight: 500;
+}
+
+.amount-cell {
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-weight: 500;
+}
 
 .link-btn {
     color: var(--accent);
@@ -553,7 +576,9 @@ select {
     color: var(--accent-hover);
 }
 
-.text-muted { color: var(--text-muted); }
+.text-muted {
+    color: var(--text-muted);
+}
 
 /* --- Empty State --- */
 .empty-card {
@@ -592,20 +617,30 @@ select {
 
 /* --- Responsive --- */
 @media (max-width: 640px) {
-    .container { padding: 1rem; }
-    .navbar { padding: 0.8rem 1rem; }
-    .card { padding: 1.25rem; }
-    
+    .container {
+        padding: 1rem;
+    }
+
+    .navbar {
+        padding: 0.8rem 1rem;
+    }
+
+    .card {
+        padding: 1.25rem;
+    }
+
     .form-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .info-grid {
         grid-template-columns: 1fr;
     }
-    
-    .hero h1 { font-size: 1.5rem; }
-    
+
+    .hero h1 {
+        font-size: 1.5rem;
+    }
+
     .lookup-form {
         flex-direction: column;
     }

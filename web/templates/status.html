@@ -19,6 +19,9 @@
         <div class="nav-links">
             <a href="/" class="nav-link">Upload</a>
             <a href="/status" class="nav-link active">My Submissions</a>
+            <div id="auth-area" class="auth-area">
+                <span class="auth-loading">Loading...</span>
+            </div>
         </div>
     </nav>
 
@@ -28,8 +31,8 @@
             <p class="hero-sub">Track the status of your receipt submissions and TPR processing.</p>
         </section>
 
-        <!-- Lookup bar -->
-        <div class="card lookup-card">
+        <!-- Lookup bar (only shown when Clerk is not configured) -->
+        <div class="card lookup-card" id="lookupCard">
             <form id="lookupForm" method="GET" action="/status" class="lookup-form">
                 <input type="text" name="andrew_id" id="andrewIdLookup" placeholder="Enter your Andrew ID..."
                     value="{{ andrew_id }}" required pattern="[a-zA-Z0-9]+" minlength="2">
@@ -70,8 +73,8 @@
                             <td class="amount-cell">{{ sub.formatted_amount }}</td>
                             <td>{{ sub.formatted_date or '—' }}</td>
                             <td class="tpr-cell">{{ sub.tpr_number or '—' }}</td>
-                            <td class="date-cell">{{ sub.created_at.strftime('%m/%d %H:%M') if sub.created_at else '—'
-                                }}</td>
+                            <td class="date-cell">
+                                {{ sub.created_at.strftime('%m/%d %H:%M') if sub.created_at else '—' }}</td>
                         </tr>
                         {% endfor %}
                     </tbody>
@@ -104,13 +107,52 @@
         <p>TPRobot &middot; Receipt Processing &amp; TPR Automation</p>
     </footer>
 
+    <!-- Clerk JS SDK -->
+    {% if clerk_publishable_key and clerk_frontend_api %}
+    <script async crossorigin="anonymous" data-clerk-publishable-key="{{ clerk_publishable_key }}"
+        src="https://{{ clerk_frontend_api }}/npm/@clerk/clerk-js@5/dist/clerk.browser.js" type="text/javascript">
+        </script>
     <script>
-        // Auto-fill Andrew ID from localStorage
+        window.addEventListener('load', async function () {
+            await Clerk.load();
+
+            const authArea = document.getElementById('auth-area');
+            const lookupCard = document.getElementById('lookupCard');
+
+            if (Clerk.user) {
+                // Signed in — auto-lookup by Andrew ID
+                const email = Clerk.user.primaryEmailAddress?.emailAddress || '';
+                const andrewId = email.split('@')[0].toLowerCase();
+
+                // Show user button
+                authArea.innerHTML = '<div id="user-button"></div>';
+                Clerk.mountUserButton(document.getElementById('user-button'));
+
+                // Hide manual lookup and auto-redirect if not already looking up
+                lookupCard.style.display = 'none';
+                const params = new URLSearchParams(window.location.search);
+                if (!params.has('andrew_id')) {
+                    window.location.href = `/status?andrew_id=${andrewId}`;
+                }
+            } else {
+                // Not signed in — show sign-in link
+                authArea.innerHTML = '<a href="#" id="navSignIn" class="btn btn-primary" style="padding:0.35rem 1rem; font-size:0.85rem;">Sign In</a>';
+                document.getElementById('navSignIn').addEventListener('click', (e) => {
+                    e.preventDefault();
+                    Clerk.redirectToSignIn();
+                });
+            }
+        });
+    </script>
+    {% else %}
+    <script>
+        // Clerk not configured — manual lookup mode
+        document.getElementById('auth-area').innerHTML = '';
+
         const input = document.getElementById('andrewIdLookup');
         const saved = localStorage.getItem('andrew_id');
         if (saved && !input.value) {
             input.value = saved;
-            // Auto-submit if we have a saved ID and no results yet
             if (!new URLSearchParams(window.location.search).has('andrew_id')) {
                 document.getElementById('lookupForm').submit();
             }
@@ -118,7 +160,10 @@
         input.addEventListener('input', () => {
             localStorage.setItem('andrew_id', input.value.toLowerCase());
         });
+    </script>
+    {% endif %}
 
+    <script>
         // Show success toast if just submitted
         if (new URLSearchParams(window.location.search).has('submitted')) {
             const toast = document.getElementById('successToast');

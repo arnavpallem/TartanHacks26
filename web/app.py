@@ -18,7 +18,7 @@ from fastapi.responses import HTMLResponse, RedirectResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
-from config.settings import TEMP_DIR, DATABASE_URL
+from config.settings import TEMP_DIR, DATABASE_URL, ClerkConfig
 from web.models import (
     User, Submission, SubmissionStatus,
     get_engine, get_session_factory, init_db
@@ -87,10 +87,18 @@ def get_or_create_user(session, andrew_id: str) -> User:
 # Pages
 # ============================================================================
 
+def _clerk_ctx() -> dict:
+    """Return Clerk template context variables."""
+    return {
+        "clerk_publishable_key": ClerkConfig.PUBLISHABLE_KEY,
+        "clerk_frontend_api": ClerkConfig.FRONTEND_API,
+    }
+
+
 @app.get("/", response_class=HTMLResponse)
 async def home(request: Request):
     """Landing / upload page."""
-    return templates.TemplateResponse("index.html", {"request": request})
+    return templates.TemplateResponse("index.html", {"request": request, **_clerk_ctx()})
 
 
 @app.get("/status", response_class=HTMLResponse)
@@ -116,6 +124,7 @@ async def status_page(request: Request, andrew_id: str = ""):
         "request": request,
         "andrew_id": andrew_id,
         "submissions": submissions,
+        **_clerk_ctx(),
     })
 
 
