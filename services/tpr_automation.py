@@ -394,6 +394,7 @@ class TPRFormAutomation:
     async def fill_page_3(self, tpr_request: TPRRequest):
         """
         Fill out Page 3 - PCard Receipt Details.
+        Supports uploading multiple receipt files for a single purchase.
         """
         await self._notify("📝 Filling Page 3 - Receipt Details...")
         page = self.page
@@ -429,19 +430,26 @@ class TPRFormAutomation:
                 
                 logger.info(f"Entered date: {month}{day}{year}")
         
-        # Receipt Total
+        # Receipt Total (combined amount if multiple receipts)
         total_field = await page.query_selector(f'#{FIELD_IDS["receipt_total"]}')
         if total_field:
             await total_field.fill(receipt.formatted_amount)
         
-        # Upload receipt document
-        if receipt.file_path and receipt.file_path.exists():
-            # Find the file input (may be hidden, within a dropzone)
+        # Upload receipt document(s)
+        # Use file_paths list if available (multiple receipts), otherwise fall back to file_path
+        upload_paths = receipt.file_paths if receipt.file_paths else (
+            [receipt.file_path] if receipt.file_path and receipt.file_path.exists() else []
+        )
+        
+        if upload_paths:
             file_input = await page.query_selector('input[type="file"]')
             if file_input:
-                await file_input.set_input_files(str(receipt.file_path))
-                await self._notify("📎 Receipt uploaded")
-                await page.wait_for_timeout(3000)  # Wait for upload to complete
+                # Playwright set_input_files accepts a list of paths
+                paths_to_upload = [str(p) for p in upload_paths if p.exists()]
+                if paths_to_upload:
+                    await file_input.set_input_files(paths_to_upload)
+                    await self._notify(f"📎 {len(paths_to_upload)} receipt(s) uploaded")
+                    await page.wait_for_timeout(3000)  # Wait for upload to complete
         
         # Received goods? -> Yes
         await self._select_dropdown(FIELD_IDS["received_goods"], "Yes")

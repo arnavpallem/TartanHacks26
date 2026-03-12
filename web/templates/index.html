@@ -67,17 +67,25 @@
                                     <line x1="12" y1="3" x2="12" y2="15" />
                                 </svg>
                             </div>
-                            <p class="drop-text">Drag & drop your receipt here</p>
-                            <p class="drop-hint">or click to browse — PDF, PNG, JPG accepted</p>
+                            <p class="drop-text">Drag & drop your receipt(s) here</p>
+                            <p class="drop-hint">or click to browse — PDF, PNG, JPG. Upload multiple receipts for one purchase.</p>
                         </div>
-                        <div class="drop-zone-file" id="dropZoneFile" style="display:none;">
-                            <span class="file-icon">📎</span>
-                            <span class="file-name" id="fileName"></span>
-                            <button type="button" class="file-remove" id="removeFile"
-                                title="Remove file">&times;</button>
-                        </div>
-                        <input type="file" name="receipt" id="fileInput" accept=".pdf,.png,.jpg,.jpeg,.webp" required
+                        <input type="file" name="receipts" id="fileInput" accept=".pdf,.png,.jpg,.jpeg,.webp" multiple required
                             hidden>
+                    </div>
+
+                    <!-- File list -->
+                    <div class="file-list" id="fileList" style="display:none; margin-top:0.75rem;">
+                        <div
+                            style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
+                            <span style="font-weight:600; font-size:0.9rem;">📎 Selected Receipts</span>
+                            <button type="button" id="clearAllFiles"
+                                style="background:none; border:none; color:var(--accent); cursor:pointer; font-size:0.85rem;">Clear
+                                All</button>
+                        </div>
+                        <ul id="fileListItems"
+                            style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:0.35rem;">
+                        </ul>
                     </div>
 
                     <!-- Form Fields -->
@@ -85,14 +93,13 @@
                         <div class="form-group full-width">
                             <label for="justification">Business Justification</label>
                             <textarea id="justification" name="justification" rows="3"
-                                placeholder="Describe why this purchase was necessary for Spring Carnival..."
-                                required></textarea>
+                                placeholder="Describe why this purchase was necessary..." required></textarea>
                             <span class="form-hint">Be specific — this goes directly on the TPR form</span>
                         </div>
                     </div>
 
                     <button type="submit" class="btn btn-primary btn-submit" id="submitBtn">
-                        <span class="btn-text">Submit Receipt</span>
+                        <span class="btn-text">Submit Receipt(s)</span>
                         <span class="btn-loading" style="display:none;">
                             <span class="spinner"></span> Uploading...
                         </span>
@@ -205,16 +212,19 @@
     </script>
     {% endif %}
 
-    <!-- Drag & Drop (always active) -->
+    <!-- Drag & Drop with multi-file support -->
     <script>
         const dropZone = document.getElementById('dropZone');
         const fileInput = document.getElementById('fileInput');
         const dropContent = dropZone.querySelector('.drop-zone-content');
-        const dropFile = document.getElementById('dropZoneFile');
-        const fileName = document.getElementById('fileName');
-        const removeBtn = document.getElementById('removeFile');
+        const fileList = document.getElementById('fileList');
+        const fileListItems = document.getElementById('fileListItems');
+        const clearAllBtn = document.getElementById('clearAllFiles');
         const form = document.getElementById('uploadForm');
         const submitBtn = document.getElementById('submitBtn');
+
+        // Accumulated files (since fileInput.files is read-only, we manage our own list)
+        let selectedFiles = [];
 
         dropZone.addEventListener('click', () => fileInput.click());
 
@@ -231,29 +241,66 @@
             e.preventDefault();
             dropZone.classList.remove('drag-over');
             if (e.dataTransfer.files.length) {
-                fileInput.files = e.dataTransfer.files;
-                showFile(e.dataTransfer.files[0]);
+                addFiles(e.dataTransfer.files);
             }
         });
 
         fileInput.addEventListener('change', () => {
-            if (fileInput.files.length) showFile(fileInput.files[0]);
+            if (fileInput.files.length) addFiles(fileInput.files);
         });
 
-        function showFile(file) {
-            fileName.textContent = file.name;
-            dropContent.style.display = 'none';
-            dropFile.style.display = 'flex';
-            dropZone.classList.add('has-file');
+        function addFiles(newFiles) {
+            for (const f of newFiles) {
+                // Avoid duplicates by name+size
+                const exists = selectedFiles.some(sf => sf.name === f.name && sf.size === f.size);
+                if (!exists) selectedFiles.push(f);
+            }
+            syncFileInput();
+            renderFileList();
         }
 
-        removeBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            fileInput.value = '';
-            dropContent.style.display = '';
-            dropFile.style.display = 'none';
-            dropZone.classList.remove('has-file');
-        });
+        function removeFileAt(idx) {
+            selectedFiles.splice(idx, 1);
+            syncFileInput();
+            renderFileList();
+        }
+
+        function clearFiles() {
+            selectedFiles = [];
+            syncFileInput();
+            renderFileList();
+        }
+
+        function syncFileInput() {
+            // Rebuild the file input's FileList using DataTransfer
+            const dt = new DataTransfer();
+            selectedFiles.forEach(f => dt.items.add(f));
+            fileInput.files = dt.files;
+        }
+
+        function renderFileList() {
+            if (selectedFiles.length === 0) {
+                fileList.style.display = 'none';
+                dropContent.style.display = '';
+                dropZone.classList.remove('has-file');
+                return;
+            }
+            dropContent.style.display = 'none';
+            dropZone.classList.add('has-file');
+            fileList.style.display = '';
+
+            fileListItems.innerHTML = selectedFiles.map((f, i) => `
+                <li style="display:flex; justify-content:space-between; align-items:center;
+                           padding:0.45rem 0.75rem; background:var(--bg-secondary, #1a1a2e);
+                           border-radius:0.5rem; font-size:0.88rem;">
+                    <span>📄 ${f.name} <span style="color:var(--text-muted); font-size:0.8rem;">(${(f.size / 1024).toFixed(0)} KB)</span></span>
+                    <button type="button" onclick="removeFileAt(${i})" style="background:none; border:none;
+                            color:#ff6b6b; cursor:pointer; font-size:1.1rem; padding:0 0.25rem;" title="Remove">&times;</button>
+                </li>
+            `).join('');
+        }
+
+        clearAllBtn.addEventListener('click', clearFiles);
 
         // --- Form submission ---
         form.addEventListener('submit', () => {

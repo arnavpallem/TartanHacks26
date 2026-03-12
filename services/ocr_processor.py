@@ -1,7 +1,7 @@
 """
 VLM-based Receipt Processor.
 Extracts structured data from receipt PDFs/images using vision AI.
-Supports local Ollama (Qwen2.5-VL) with Gemini API fallback.
+
 """
 import io
 import json
@@ -102,49 +102,6 @@ def _clean_json_response(response_text: str) -> dict:
     return json.loads(text)
 
 
-def extract_with_ollama(image: Image.Image) -> dict:
-    """
-    Extract receipt data using local Ollama VLM.
-    
-    Args:
-        image: PIL Image of the receipt
-        
-    Returns:
-        Dictionary with extracted fields
-        
-    Raises:
-        Exception if Ollama is unavailable or extraction fails
-    """
-    # Convert image to base64 PNG
-    buffered = io.BytesIO()
-    image.save(buffered, format="PNG")
-    img_b64 = base64.b64encode(buffered.getvalue()).decode()
-    
-    logger.info(f"Sending receipt to Ollama ({OllamaConfig.MODEL})...")
-    
-    response = http_requests.post(
-        f"{OllamaConfig.URL}/api/generate",
-        json={
-            "model": OllamaConfig.MODEL,
-            "prompt": EXTRACTION_PROMPT,
-            "images": [img_b64],
-            "stream": False,
-        },
-        timeout=OllamaConfig.TIMEOUT,
-    )
-    response.raise_for_status()
-    
-    result = response.json()
-    response_text = result.get("response", "")
-    
-    try:
-        data = _clean_json_response(response_text)
-        logger.info(f"Ollama extracted: {data}")
-        return data
-    except json.JSONDecodeError as e:
-        logger.error(f"Failed to parse Ollama response: {response_text}")
-        raise ValueError(f"Invalid JSON response from Ollama: {e}")
-
 
 def extract_with_gemini(image: Image.Image) -> dict:
     """
@@ -183,16 +140,6 @@ def extract_with_vlm(image: Image.Image) -> dict:
     Returns:
         Dictionary with extracted fields
     """
-    # Try Ollama first if enabled
-    if OllamaConfig.ENABLED:
-        try:
-            return extract_with_ollama(image)
-        except http_requests.ConnectionError:
-            logger.warning("Ollama not reachable, falling back to Gemini")
-        except http_requests.Timeout:
-            logger.warning(f"Ollama timed out after {OllamaConfig.TIMEOUT}s, falling back to Gemini")
-        except Exception as e:
-            logger.warning(f"Ollama extraction failed ({e}), falling back to Gemini")
     
     # Fall back to Gemini
     if GeminiConfig.API_KEY and GeminiConfig.API_KEY != "your-gemini-api-key-here":

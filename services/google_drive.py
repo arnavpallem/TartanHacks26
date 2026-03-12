@@ -3,7 +3,7 @@ Google Drive integration for uploading receipts and getting shareable links.
 """
 import logging
 from pathlib import Path
-from typing import Optional
+from typing import List, Optional
 
 from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
@@ -185,6 +185,71 @@ class GoogleDriveService:
             supportsAllDrives=True
         ).execute()
         return file.get('webViewLink', '')
+    
+    def create_subfolder(self, folder_name: str) -> tuple[str, str]:
+        """
+        Create a subfolder inside the receipts folder.
+        
+        Args:
+            folder_name: Name for the new subfolder
+            
+        Returns:
+            Tuple of (folder_id, webViewLink)
+        """
+        if not self.service:
+            self.authenticate()
+        
+        parent_id = self.get_receipts_folder_id()
+        
+        file_metadata = {
+            'name': folder_name,
+            'mimeType': 'application/vnd.google-apps.folder',
+            'parents': [parent_id],
+        }
+        
+        folder = self.service.files().create(
+            body=file_metadata,
+            fields='id, webViewLink',
+            supportsAllDrives=True,
+        ).execute()
+        
+        folder_id = folder.get('id')
+        web_link = folder.get('webViewLink')
+        
+        # Set permissions to anyone with link can view
+        self.service.permissions().create(
+            fileId=folder_id,
+            body={'type': 'anyone', 'role': 'reader'},
+            supportsAllDrives=True,
+        ).execute()
+        
+        logger.info(f"Created subfolder: {folder_name} (ID: {folder_id})")
+        return folder_id, web_link
+    
+    def upload_file_to_folder(self, file_path: Path, folder_id: str, filename: str = None) -> str:
+        """Upload a file to a specific folder by ID. Returns the file's webViewLink."""
+        if not self.service:
+            self.authenticate()
+        
+        filename = filename or file_path.name
+        mime_type = 'application/pdf' if filename.endswith('.pdf') else 'application/octet-stream'
+        
+        file_metadata = {
+            'name': filename,
+            'parents': [folder_id],
+        }
+        
+        media = MediaFileUpload(str(file_path), mimetype=mime_type, resumable=True)
+        
+        file = self.service.files().create(
+            body=file_metadata,
+            media_body=media,
+            fields='id, webViewLink',
+            supportsAllDrives=True,
+        ).execute()
+        
+        logger.info(f"Uploaded {filename} to folder {folder_id}")
+        return file.get('webViewLink', '')
 
 
 # Global instance
@@ -213,3 +278,24 @@ async def upload_receipt_to_drive(file_path: Path, filename: str = None) -> str:
     """
     service = get_drive_service()
     return service.upload_receipt(file_path, filename)
+
+
+async def upload_receipts_to_folder(file_paths: List[Path], folder_name: str) -> str:
+    """
+    Create a subfolder in the receipts folder and upload all receipt files into it.
+    
+    Args:
+        file_paths: List of receipt file paths to upload
+        folder_name: Name for the subfolder
+        
+    Returns:
+        Shareable link to the folder
+    """
+    service = get_drive_service()
+    folder_id, folder_link = service.create_subfolder(folder_name)
+    
+    for fp in file_paths:
+        service.upload_file_to_folder(fp, folder_id)
+    
+    logger.info(f"Uploaded {len(file_paths)} receipts to folder: {folder_name}")
+    return folder_link

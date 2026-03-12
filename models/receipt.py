@@ -4,7 +4,7 @@ Data models for receipt processing and TPR requests.
 from dataclasses import dataclass, field
 from datetime import datetime
 from decimal import Decimal
-from typing import Optional
+from typing import Optional, List
 from pathlib import Path
 
 
@@ -16,6 +16,7 @@ class ReceiptData:
     amount: Decimal
     raw_text: str = ""
     file_path: Optional[Path] = None
+    file_paths: List[Path] = field(default_factory=list)  # All receipt file paths for multi-receipt purchases
     # VLM-extracted fields
     category: Optional[str] = None  # Budget category: Misc, Operations, Electrical, Booth, Entertainment
     short_description: Optional[str] = None  # 2-4 word description
